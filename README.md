@@ -1,11 +1,18 @@
 # reeborg-docs
-Documentation (Python tutorial and how to use Reeborg) in multiple languages for http://reeborg.ca/docs/en, etc.
+Documentation (Python tutorial and how to use Reeborg)
+in multiple languages for http://reeborg.ca/docs/en, etc.
 
 ## To make a new language version
 
 The simplest way to create a new language version is to start from an
 existing one (say the "en" version) and translate the .rst files
 one at a time.
+
+Note that you may need to install
+https://pypi.python.org/pypi/sphinxcontrib-inlinesyntaxhighlight
+
+You may get an error about not being able to import module reeborg_xx
+in help.rst. You can just ignore such error.
 
 ### Editing the relevant make file
 
@@ -35,7 +42,7 @@ Note that, in both cases, `BUILDDIR=../../_build` instead of `BUILDDIR=_build`
 
 to do
 
-### Editing the relevant them files
+### Editing the relevant theme files
 
 to do
 

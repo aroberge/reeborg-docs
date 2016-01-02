@@ -34,8 +34,9 @@
           {%- if not loop.first %}{{ reldelim2 }}{% endif %}</li>
         {%- endfor %}
         {%- block rootrellink %}
-        <li><a class="logo" href="../../index_fr.html" class="fake_button">
-              <img class="logo"  src="{{ pathto('_static/' + logo, 1) }}" alt="Logo"/><span class="logo">Le monde de Reeborg</span>
+        <li><a class="logo" href="../../index_en.html" class="fake_button">
+              <img class="logo"  src="{{ pathto('_static/' + logo, 1) }}" alt="Logo"/>
+              <span class="logo">리보그의 세계</span>
             </a></li>
         <li><a href="{{ pathto(master_doc) }}">{{ shorttitle|e }}</a></li>
         {%- endblock %}
@@ -81,7 +82,8 @@
     <option value="{{pathto("../en/"+pagename)}}">English version</option>
     <option value="{{pathto("../fr/"+pagename)}}">Version française</option>
     <option value="{{pathto("../ko/"+pagename)}}">한국어 버전</option>
-</select>            {%- endblock %}
+</select>
+            {%- endblock %}
           {%- endif %}
         </div>
       </div>
@@ -204,14 +206,12 @@
       {%- if render_sidebar %}
         <div class="bodywrapper">
       {%- endif %}
-
       <div class="admonition warning">
-<p class="first admonition-title">Avertissement</p>
-<p class="last">Ce document est en voie d'une révision majeure.
-  Certaines sections manquent; d'autres sont écrites en tout ou en
-  partie en anglais.  </p>
+<p class="first admonition-title">Warning</p>
+<p class="last">This document is in the middle of a major revision.
+Some sections might be missing text, or have French text
+as placeholder.</p>
 </div>
-
           <div class="body">
             {% block body %} {% endblock %}
           </div>
@@ -243,7 +243,7 @@
       {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
     {%- endif %}
     {%- if show_sphinx %}
-      {% trans sphinx_version=sphinx_version|e %} - Créé en utilisant <a href="http://sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}
+      {% trans sphinx_version=sphinx_version|e %} - Created using <a href="http://sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}
     {%- endif %}
     </div>
 {%- endblock %}
@@ -252,8 +252,7 @@
       $('.hint').children().hide();
       $('.hint p.admonition-title').show().css('cursor', 'pointer');
       $('.hint p.admonition-title').click( function() {$(this).siblings().show().css('cursor', 'auto');})
-
-      $( 'a[href^="http://"]' ).attr( 'target','_blank' )
+      $("a[href^='http']").attr('target','_blank');
   });
   </script>
   </body>

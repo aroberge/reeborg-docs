@@ -120,7 +120,6 @@ html_title = "Learn Python with Reeborg"
 # Add any paths that contain custom themes here, relative to this directory.
 html_theme_path = ["../"]
 
-
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
 
