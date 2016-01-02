@@ -28,6 +28,9 @@ or the following ones in Makefile:
 
 - @echo "Build finished. The HTML pages are in $(BUILDDIR)/en."
 
+Note that, in both cases, `BUILDDIR=../../_build` instead of `BUILDDIR=_build`
+
+
 ### Editing the relevant conf.py file
 
 to do
