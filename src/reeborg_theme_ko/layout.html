@@ -36,7 +36,7 @@
         {%- block rootrellink %}
         <li><a class="logo" href="../../index_en.html" class="fake_button">
               <img class="logo"  src="{{ pathto('_static/' + logo, 1) }}" alt="Logo"/>
-              <span class="logo">리보그의 세계</span>
+              <span class="logo">리보그 세상</span>
             </a></li>
         <li><a href="{{ pathto(master_doc) }}">{{ shorttitle|e }}</a></li>
         {%- endblock %}
@@ -207,10 +207,9 @@
         <div class="bodywrapper">
       {%- endif %}
       <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This document is in the middle of a major revision.
-Some sections might be missing text, or have French text
-as placeholder.</p>
+<p class="first admonition-title">주의사항</p>
+<p class="last">해당 문서는 중요 변경 작업 중에 있습니다.
+일부 문서에 텍스트가 빠져있거나, 불어로 플레이스홀더(placeholder) 자리차지만 되어 있을 수 있습니다.</p>
 </div>
           <div class="body">
             {% block body %} {% endblock %}
