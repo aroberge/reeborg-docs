@@ -41,8 +41,11 @@ if "%1" == "help" (
 )
 
 if "%1" == "clean" (
-	for /d %%i in (%BUILDDIR%\*) do rmdir /q /s %%i
-	del /q /s %BUILDDIR%\*
+    pushd .
+    cd %BUILDDIR%
+	rd /s /q ko
+	rd /s /q doctrees_ko
+	popd
 	goto end
 )
 

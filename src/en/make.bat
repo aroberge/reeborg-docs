@@ -41,11 +41,13 @@ if "%1" == "help" (
 )
 
 if "%1" == "clean" (
-	for /d %%i in (%BUILDDIR%\*) do rmdir /q /s %%i
-	del /q /s %BUILDDIR%\*
+    pushd .
+    cd %BUILDDIR%
+	rd /s /q en
+	rd /s /q doctrees_en
+	popd
 	goto end
 )
-
 
 %SPHINXBUILD% 2> nul
 if errorlevel 9009 (

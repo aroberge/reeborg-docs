@@ -18,16 +18,20 @@ in help.rst. You can just ignore such error.
 
 You will need to edit the make.bat or the Makefile (depending on your
 operating system) to replace "en" by the two-letter code of your language
-for the following three lines in make.bat:
+for the following five lines in make.bat:
 
 - set ALLSPHINXOPTS=-d %BUILDDIR%/doctrees_en %SPHINXOPTS%
+
+- rd /s /q en
+
+- rd /s /q doctrees_en
 
 - %SPHINXBUILD% -b html %ALLSPHINXOPTS% %BUILDDIR%/en
 
 - echo.Build finished. The HTML pages are in
 %BUILDDIR%/en.
 
-or the following ones in Makefile:
+or (and this is untested) the following ones in Makefile:
 
 - ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees_en $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
