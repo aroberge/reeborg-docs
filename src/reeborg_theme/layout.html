@@ -79,7 +79,7 @@
             {%- endblock %}
             {%- block version %}
 <select onChange="window.location.href=this.value">
-    <option value="{{pathto("../en/"+pagename)}}">English version</option>
+    <option value="{{pathto("../en/"+pagename)}}" selected>English version</option>
     <option value="{{pathto("../fr/"+pagename)}}">Version française</option>
     <option value="{{pathto("../ko/"+pagename)}}">한국어 버전</option>
 </select>
