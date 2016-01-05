@@ -1,45 +1,44 @@
-Reeborg's diary
+리보그 일기
 ===============
 
 .. index:: print(), function argument
+.. index:: 함수 인자
 
-Have Reeborg execute the following program::
+리보그에서 다음 프로그램을 실행한다::
 
     print()
 
-You should see a pop-up window appear with the title *Reeborg writes:*.
-This window is Reeborg's diary.  Feel free to move it around
-on your computer screen.
+*Reeborg writes:* 라는 제목을 갖는 팝업 윈도우가 나타난다. 이 윈도우가 리보그 일기장이다.
+자유로이 컴퓨터 화면 여기저기로 옮겨본다.
 
 .. note::
 
-    **Important:** the example on the right does not execute the
-    function ``move``; if we do::
+    **중요:** 바로 옆 예제는 함수 ``move`` 를 실행하지 않는다; 하지만, 만약 다음과 같이 작성하면:: 
 
         print( move() )
 
-    so that ``move`` is executed, the Python keyword ``None`` will
-    be printed.  What that is the case will be explained later.
+    ``move`` 가 실행되고, 파이썬 키워드 ``None`` 이 출력된다. 이유는 나중에 설명한다.
 
-Now, run the following program::
+이제, 다음 명령어를 실행한다::
 
     print(move)
 
-At the time I wrote this tutorial, the result in Reeborg's diary was
+사용설명서를 저자가 작성하는 시점에, 리보그 일기장에 나온 결과는 다음과 같다.
 
-    <function _move_>
+    <function move>
 
-``_move_`` is the secret name of the ``move`` function as known
-to Reeborg. We can verify this by running the following::
+
+(``move`` 대신에 ``_move_``가 나타난 이유는 여기 페이지를 쭉 읽은 후에 추측할 수 있을 것이다.)
+동일한 객체(함수)에 대해서 또다른 변수(명칭)를 정의하면 어떨까?
 
     step = move
     print(step)
     print(move)
 
-The result is::
+결과는 다음과 같다::
 
-    <function _move_>
-    <function _move_>
+    <function move>
+    <function move>
 
 .. note::
 
