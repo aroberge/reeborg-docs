@@ -1,38 +1,35 @@
-Variables
+변수
 ==============
 
-At the very beginning of this tutorial, we wrote the following:
+사용설명서 시작부에, 다음과 같이 적을 것을 기억할 것이다:
 
 .. epigraph::
 
-    ``move()`` is an example of a Python **function**.
-    A function has a name; in this case, it is ``move``.
-    Valid names must start with either a letter or the underscore character "_"
-    and may contain letters, numbers or the underscore character "_".
-    The name of the function is followed by ``()``. This tells Reeborg (Python)
-    that the function must be *executed* or *called* (which are two synonyms).
+    ``move()`` 는 파이썬 **함수** 의 한 사례다.
+    함수는 명칭이 있다; 이 경우에 명칭은 ``move`` 가 된다.
+    유효한 명칭은 문자 혹은 밑줄 문자 "_" 로 시작되고, 문자, 숫자, 밑줄 문자 "_" 를 
+    포함할 수 있다. 함수명 다음에 ``()`` 가 따라온다.
+    이것을 통해서 리보그(파이썬)에게 함수는 
+    실행되거나 혹은 호출(실행과 호출은 동의어)되도록 일러준다.
 
-Functions are an example of what we call an **object**.
-We can give one or many names to a given object.  We call
-**variable** the name that we give to an object.
-Python uses the equal sign ``=`` to associate a name (variable) and
-an object in the following way::
-
+함수는 **객체(object)** 라고 부르는 것의 한 사례다.
+해당 객체에 하나 혹은 다수 명칭을 부여할 수 있다.
+**변수(variable)** 는 객체에 부여하는 명칭이다.
+파이썬에서 ``=`` 등호를 사용해서 명칭(변수)과 객체를 다음과 같은 방식으로 연결한다::
 
     variable = object
 
-For example, if you find that ``turn_left()`` is too long to write, you
-could define another name (variable) for it as follows::
+예를 들어, ``turn_left()`` 함수를 타이핑하는 것이 너무 길다면,
+다음과 같이 또다른 명칭(변수)을 정의할 수 있다::
 
 
-    left = turn_left    # no parentheses!
-    left()              # use it
+    left = turn_left    # 괄호 없음!
+    left()              # 활용 예
 
-.. topic:: Your turn!
+.. topic:: 여러분 차례!
 
-    Use a new name (variable) for at least one existing function in a program.
-    **Can you use two different names to refer to the same object in a
-    single program?**
+    적어도 기존 함수 하나에 대해 새로운 명칭(변수)을 사용해 본다.
+    **단일 프로그램에서 같은 객체를 참조하는데 두가지 다른 명칭을 사용할 수 있는가?**
 
 .. toctree::
    :maxdepth: 2
