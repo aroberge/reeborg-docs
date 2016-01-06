@@ -1,12 +1,11 @@
-Newspaper delivery revisited again
+신문 배달 재방문
 ==================================
 
-Let's go back to our newspaper delivery examples, but this time we will only
-look at the deliveries where money is paid for the newspaper.
+신문 배달 예제로 되돌아 가자.
+하지만, 이번에는 신문대금을 지불된 신문배달 사례만 살펴볼 것이다.
 
-Below is an attempt at
-a solution that would work both Ms. Lovelace's world **Newspaper 1**, and Mr.
-Babbage's **Newspaper 2**:
+러브레이스 누님 **Newspaper 1** 세상과, 
+배비지 아전씨 **Newspaper 2** 세상에서 모두 동작하는 해법이 다음에 나와 있다:
 
 .. code-block:: py3
     :emphasize-lines: 28
@@ -31,7 +30,7 @@ Babbage's **Newspaper 2**:
         while object_here() :
             take()
 
-    # === End of definitions ===
+    # === 정의 끝 ===
 
     take()
     while not object_here():
@@ -44,9 +43,9 @@ Babbage's **Newspaper 2**:
         climb_down_one_floor()
 
 
-.. topic:: Important test!
+.. topic:: 중요한 테스트!
 
-    Reproduce the above program, run it and note the result.
+    상기 프로그램을 다시 생성하고, 실행하고, 결과를 살펴본다.
 
 
 As you will see, when Reeborg attempts to execute the instruction ``put()``
