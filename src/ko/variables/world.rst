@@ -1,4 +1,4 @@
-World
+세상
 =====
 
 .. index:: World()
