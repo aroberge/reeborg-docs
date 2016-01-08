@@ -1,115 +1,95 @@
-Increment
+증가
 =========
 
 .. todo::
 
-    rewrite this and use **Storm 1** as an example; disable
-    ``carries_object()`` and have Reeborg count the number of leaves
-    instead.
+    프로그램을 재작성하고 **Storm 1** 세상을 예제로 사용한다; ``carries_object()`` 함수를 비활성화 시키고, 대신에 리보그로 하여금 낙엽 갯수를 세게 만든다.
 
-    Introduce the global keyword.
+    글로벌 키워드(global keyword)를 도입한다.
 
 
+세상 **Around 1** 를 선택한다.
 
-Select world **Around 1**.
+시작지점에서부터 리보그가 오른쪽 벽을 향해서 도착할 때까지 얼마나 걸음을 걸었는지 세고자 한다고 가정하자.
+이 작업을 수행하는 한 방법이 ``number_of_steps`` 라는 변수를 생성하고, 초기값을 0으로 설정한다.
+그리고 나서, 리보그가 걸음을 걸을 때마다, ``number_of_steps`` 변수의 *이전* 값에 1을 추가한다.
 
-Suppose we wanted to count the number of steps taken by Reeborg to
-reach the wall on the right from its starting position. One way to do
-this is to use a variable which I will name ``number_of_steps`` and give
-it an initial value of 0. Then, each time that Reeborg takes a step, I
-will add 1 to the *previous* value of ``number_of_steps``.
+너무 간단한가요?
 
-Simple enough?
+저자가 상기 작업만 수행하는 프로그램을 작성하기 전에, 실험을 간단히 해보자.
 
-Before I write a Python program to do just that, let's do an experiment.
+.. topic:: 시도해 보기!
 
-.. topic:: Try this!
-
-    Run the following program::
+    다음 프로그램을 실행한다::
 
         n = 1
         n = n + 3
         print(n)
 
-    What did you see?    Then, try running the following::
+    출력되는 값이 무엇인가요? 그리고 나서 다음을 실행해본다::
 
         a = a + 3
         print(a)
 
 
-Remember when we saw variables and the assignment operator ``=``.
-A variable is a name given to an object so that we can refer to it
-using that name.  The basic form is::
+변수와 할당 연산자 ``=`` 를 공부했을 때를 상기한다.
+변수는 객체에 부여된 명칭으로,
+부여된 명칭으로 참조할 수 있다. 기본 형태는 다음과 같다::
 
-    variable = object
+    변수 = 객체
+    # variable = object
 
-One example we gave before was::
+앞에서 살펴본 예제는 다음과 같다::
 
     length = 4
     width = 6
-    area = length * width  # area of a rectangle
-    print(area)            # will output 24
+    area = length * width  # 직사각형 면적
+    print(area)            # 출력결과 24
 
-To figure out what object ``area`` refers to, Python needs to
-replace the variables ``length`` and ``width`` by the object they refer to::
+객체 ``area`` 가 참조하는 것을 해결하려면, 파이썬에서 ``length`` 와 ``width`` 변수를 변수가 참조하는 객체로 치환한다::
 
     area = 4 * 6
 
-However, ``4 * 6`` is still not an object: it is the product of two
-objects.  So Python needs to do some more work and get::
+하지만, ``4 * 6`` 는 여전히 객체는 아니다: 두 객체의 곱이다.
+그래서, 파이썬이 좀더 작업을 해서 다음 결과를 얻게 된다::
 
     area = 24
 
-Now, we truly have an equation with a name (variable) on the left-hand side
-of the assignment operator ``=``, and an object (``24``) on the right
-hand-side.  Let's go back to the previous example::
+이제, 할당 연산자 ``=`` 왼편에 (변수) 명칭과 우측편에 객체 (``24``)를 갖는 방정식을 생성하게 되었다. 이전 예제로 되돌아가자::
 
     n = 1
     n = n + 3
 
-Having the same variable name ``n`` appearing
-on both sides of the assignment operator does not change the logic:
-first we find out which **single** object is meant on the right-hand side,
-and only then do we assign a name to it.
-Thus, the line of code::
+동일한 변수명 ``n`` 이 할당 연산자 양쪽에 나타난다고 로직이 변경되지는 않는다: 어떤 **단일** 객체도 오른쪽 편에 있는 것을 먼저 알아낸다. 그리고 나서, 변수에 할당한다. 따라서, 다음 코드는::
 
     n = 1
 
-instructs Python that whenever we write ``n`` we mean it to be thought of
-as ``1``.  The next line of code is::
+파이썬에게 언제든 ``n`` 을 적을 때마다, 변수 ``n`` 이 값으로 ``1`` 을 의미하게 된다. 다음줄에 다른 코드가 나와 있다::
 
     n = n + 3
 
-This is clearly not a standard mathematical operation!
-Remember, we just saw that the assignment operator tells Python
-to assign a new name to an object.  Here, the object is obtained via::
+분명하게 표준 수학 연산은 아니다! 방금전에 살펴봤듯이, 할당 연산자는 파이썬으로 하여금 객체에 새로운 명칭을 할당하게 함을 기억하라. 여기서 객체는 다음 표현식을 경유해서 얻어진다::
 
     n + 3
 
-We've already instructed Python
-that we want ``n`` to refer to ``1``.   Thus ``n + 3`` should be thought
-of as ``1 + 3``.   Python knows how to add integers, and it can
-replace this sum of two integers by a single one: ``4``.
-Thus, ``n + 3`` refers to the object ``4``, and the line of code::
+앞에서 파이썬에게 ``n`` 은 ``1`` 을 나타낸다고 일러줬다. 따라서, ``n+3`` 은 ``1+3`` 으로 간주되어야만 한다.
+파이썬은 정수를 더하는 방법을 알고 있어서, 두 정수의 합을 단일 정수로 치환할 수 있다: ``4``. 따라서, ``n+3`` 은 객체 ``4`` 를 나타내고 , 다음 줄에 나온 코드는::
 
     n = n + 3
 
-really means::
+실제로 의미하는 것은 다음과 같다::
 
     n = 4
 
-And this line can be thought of as telling Python *whatever* ``n`` *meant before,
-forget about it, and think of it as meaning* ``4`` *from now on.*
+그리고, 상기 코드라인은 파이썬에게 다음과 같이 일러주는 것으로 간주할 수 있다: *이전에 ``n`` 값이 무엇을 의미했던지,
+잊어버리고, 이제부터는 ``4`` 를 의미하는 것으로 간주한다.*
 
-What about ``a = a + 3``?  Python first looks at the right hand side ``a + 3``,
-finds a variable ``a`` which has not been assigned to any object before,
-so it doesn't know what to do with it.
+``a = a + 3`` 은 어떤가? 파이썬은 먼저 ``a + 3`` 우측편을 살펴보는데, 변수 ``a`` 는 이전에 어떤 객체도 할당된 적이 없다.
+그래서, 어떤 작업을 수행해야 하는지 알지 못하게 된다.
 
-.. topic:: Counting steps
+.. topic:: 걸음수 세기
 
-    It is time to have Reeborg count the number of steps needed to
-    reach the wall in front of him in world **Around 1**.
-    Do this with the following program::
+    **Around 1** 세상에서 벽을 마주칠 때까지 리보그가 필요한 걸음수를 셀 시점이다. 걸음수 세는 작업이 다음 프로그램에 나와 있다::
 
         number_of_steps = 0
 
