@@ -99,80 +99,87 @@
 
         print(number_of_steps)
 
-.. topic:: Your turn
+.. topic:: 여러분 차례
 
-    Have Reeborg go all the way once around world **Around 1**.
-    Along the way, Reeborg should could the number of steps **and**
-    the number of left turns, printing both of these values
-    at the end.
+    리보그가 **Around 1** 세상을 쭉 따라 돌게 만든다.
+    세상을 돌아다니면서, 리보그가 걸은 걸음걸이 횟수와 왼쪽으로 회전한 횟수를 세고, 마지막에 걸음걸이 횟수와 좌회전한 횟수를 출력한다.
+
+.. hint::
+        .. code-block:: py3
+
+        # 걸음걸이와 좌회전 횟수를 세는 초기값을 설정한다.
+        number_of_steps = 0
+        number_of_turns = 0
+        
+        think(10)
+        
+        while not wall_in_front():    
+            move()
+            if wall_in_front():
+                turn_left()
+                number_of_turns = number_of_turns + 1        
+            number_of_steps = number_of_steps + 1
+            # 무한루프를 방지하고 한번만 세상 돌아 제자리로 와서 종료한다.
+            if number_of_turns == 4:
+                print(number_of_steps)
+                print(number_of_turns)
+                done()
 
 
-Augmented assignment operators
+증강 할당 연산자
 ------------------------------
 
 .. index:: augmented assignment operators
+.. index:: 증강된 할당 연산자
 
 .. index:: +=, -=, /=, *=, //=, **=
 
-In Python programs, we often need to do something like::
+파이썬 프로그램에서, 다음과 같은 것을 수행할 필요가 종종 있다::
 
     number_of_steps = number_of_steps + 1
 
-or::
+혹은::
 
     pizza_slices = pizza_slices - 1
 
-Not only this is long to write, but it also does not respect
-Rule # 3: **Do not repeat yourself**, since we have the same variable
-name written **twice** on the same line.
-There is a shorter way to write such lines of code which avoid
-repetitions, using what are known as **augmented assignment operators**.
+상기 할당 연산자는 작성하기도 길지만, **되풀이 반복하지 마세요!** 라는 규칙 #3을 지키지도 않는데, 이유는 같은 행에 동일한 변수명이 **두번** 작성되기 때문이다.
+그러한 코드 반복을 회피하도록 작성하는 더 간략한 방법이 있다. 통상  **증강 할당 연산자(augmented assignment operators)** 라고 부른다.
 
-We can rewrite the above lines of code as::
+상기 코드를 다음과 같이 다시 작성할 수 있다::
 
     number_of_steps += 1
     pizza_slices -= 1
 
-For each mathematical operator, ``+, -, /, //, *, **``, there is a corresponding
-augmented assignment operator ``+=, -=, /=, //=, *=, **=``.
+각 수학 연산자(``+, -, /, //, *, **``)마다, 상응하는 증강 할당 연산자(``+=, -=, /=, //=, *=, **=``)가 있다. 
 
 .. important::
 
-   When using augmented assignment operators, do not leave a space between the
-   different symbols.  Thus, write ``+=`` and not ``+  =``.
+   증강 할당 연산자를 사용할 때, 기호 사이에 공백을 넣으면 안된다. 따라서, ``+=`` 은 되지만, ``+  =`` 처럼 공백이 있으면 안된다.
 
-.. topic:: Your turn
+.. topic:: 여러분 차례
 
-    Have Reeborg go all the way once around world **Around 1**.
-    Along the way, Reeborg should could the number of steps **and**
-    the number of left turns, printing both of these values
-    at the end.  This time, use augmented assignment operators.
+    리보그가 **Around 1** 세상을 쭉 따라 돌게 만든다.
+    세상을 돌아다니면서, 리보그가 걸은 걸음걸이 횟수와 왼쪽으로 회전한 횟수를 세고, 마지막에 걸음걸이 횟수와 좌회전한 횟수를 출력한다. 이번에는 증강 할당 연산자를 사용한다.
 
 
-
-
-
-Comparison operators
+비교 연산자
 --------------------
 
-It is sometimes very useful to compare objects. We'll start with numbers.
+객체를 비교하는 것이 때때로 매우 도움이 된다.
+숫자로 시작해본다.
 
-.. topic:: Try this!
+.. topic:: 시도해 보기!
 
     .. code-block:: py3
 
-        print( 2 == 2)  # are the two numbers equal
+        print( 2 == 2)  # 숫자 두개가 같다.
         print( 2 == 3)
 
-        print( 2 != 2)  # are the two numbers different
+        print( 2 != 2)  # 숫자 두개가 다르다.
         print( 2 != 3)
 
 
-Back to the yard work
----------------------
+정원 작업으로 되돌아 간다
+--------------------------------------
 
-At the end of the previous lesson, you were left with a task for Reeborg
-that couldn't be done because you couldn't use ``carries_object()``.
-However, you should now know how to keep track of the number of leaves
-picked up so that you can know how many to put down.
-
+이전 학습 말미에, ``carries_object()`` 함수를 사용할 수 없기 때문에, 리보그가 작업을 마무리 할 수 없게 되었다. 하지만, 모은 낙엽 갯수를 기록하는 방법을 이제 알게 되었기 때문에, 얼마나 많이 놓을지도 알 수 있게 되었다.

@@ -36,34 +36,35 @@
     사용하는 것이 필요하다.
 
 .. hint::
+        .. code-block:: py3
 
-    from library import *
-    think(0)
-    
-    def collect_leaves():
-        while not wall_in_front():
-            move()
-            if object_here():
-                while object_here():
-                    take()
-    
-    
-    def throw_away():
-        while not wall_in_front():
-            move()
-            if wall_in_front():
-                turn_right()
+        from library import *
+        think(0)
+        
+        def collect_leaves():
+            while not wall_in_front():
                 move()
-                while carries_object():
-                    put()
-    
-    #----- 정의 끝
-                    
-    collect_leaves()
-    turn_around()
-    throw_away()
-    turn_around()
-    move()
+                if object_here():
+                    while object_here():
+                        take()
+        
+        
+        def throw_away():
+            while not wall_in_front():
+                move()
+                if wall_in_front():
+                    turn_right()
+                    move()
+                    while carries_object():
+                        put()
+        
+        #----- 정의 끝
+                        
+        collect_leaves()
+        turn_around()
+        throw_away()
+        turn_around()
+        move()
 
 원격 세상 적재하기
 -------------------------------------
