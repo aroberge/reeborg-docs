@@ -18,7 +18,7 @@ import os
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-sys.path.insert(0, os.path.abspath('./../../../reeborg/src/python'))
+sys.path.insert(0, os.path.abspath('./../python'))
 
 # -- General configuration ------------------------------------------------
 
@@ -29,7 +29,7 @@ sys.path.insert(0, os.path.abspath('./../../../reeborg/src/python'))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ['sphinx.ext.todo', 'sphinx.ext.autodoc', 'sphinx.ext.napoleon',
-              'sphinxcontrib.inlinesyntaxhighlight']
+              'inlinesyntaxhighlight_mod']
 autodoc_member_order = "bysource"
 todo_include_todos = True
 highlight_language = 'py3'
