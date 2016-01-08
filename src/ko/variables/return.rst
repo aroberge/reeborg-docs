@@ -1,33 +1,30 @@
-Return
-======
+반환(Return)
+==============
 
-
-.. todo::
-
-   Add an explanation about the fact that a function always
-   returns a value; if no return value is explictly written,
-   then the function returns  ``None``.
 
 .. note::
 
-    North is toward the top of the screen; East
-    is toward the right, West toward the left and South toward the bottom.
+    북쪽은 화면 상단이 된다; 동쪽은 우측이고, 
+    서쪽은 좌측이고, 남쪽은 화면 하단이 된다.
 
+여러분도 아시듯이,
+리보그는 정확하게 좋은 모양은 아니다.
+리보그는 왼쪽으로만 회전할 수 있고, 기름이 질질 세어나오고,
+바로 앞 오른쪽에 있을 때만 벽을 볼 수 있고, 문자 그대로 토큰 위에 서 있을 때만 
+토큰을 볼 수 있다. 또한, (일부 망가진) 나침판을 갖고 있어서,
+북쪽을 향하고 있는지 ... 아닌지만 알아낼 수 있다.
+북쪽을 향하고 있는지 알아내려면, 리보그로 하여금 ``is_facing_north()`` 
+테스트를 해야 한다.
 
-As you know, Reeborg is not exactly in good shape. He can only turn
-left, has an oil leak, can only see walls when they are right in front
-of him or immediately to his right, and can see tokens only when he is
-literally standing on top of them. Reeborg has also a (somewhat broken)
-compass which he can used to find out if is is facing north ... or not.
-To find out if he is facing north, you can ask Reeborg to do the test
-``is_facing_north()``.
+.. topic:: 프로그래밍 시간!
 
+    다음 프로그램을 실행해서 단순한 세상을 선택해서, 임의 방향을 향해 리보그가 출발하게 한다.
 
-.. topic:: Try this!
+        World("/src/worlds/face_north.json", "Face north")
 
-    Choosing an appropriate world, write a short program that will ensure
-    that Reeborg will turn left until he faces north, no matter what his
-    starting orientation is.
+    그리고 나서, 시작 방향이 어느 쪽인지에 관계없이, 리보그가 왼쪽으로 회전해서 북쪽을 향할 때까지 
+    방향을 확실히 하는 짧은 프로그램을 작성한다.
+    
 
 Getting results from functions
 ------------------------------
