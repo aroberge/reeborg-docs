@@ -43,10 +43,10 @@
    increment
    scope
    comparison
+   return
    listes
    string_index
    for
-   return
    arguments1a
    arguments1b
    slice

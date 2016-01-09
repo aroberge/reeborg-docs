@@ -104,33 +104,28 @@
     리보그가 **Around 1** 세상을 쭉 따라 돌게 만든다.
     세상을 돌아다니면서, 리보그가 걸은 걸음걸이 횟수와 왼쪽으로 회전한 횟수를 세고, 마지막에 걸음걸이 횟수와 좌회전한 횟수를 출력한다.
  
- 
+
 .. hint::
 
     .. code-block:: py3
 
-    number_of_steps = 0
-
-    number_of_turns = 0
+        number_of_steps = 0
+        number_of_turns = 0
+        
+        think(10)
+        
+        while not wall_in_front():    
+            move()
     
-    think(10)
+            if wall_in_front():
+                turn_left()
+                number_of_turns = number_of_turns + 1
+            number_of_steps = number_of_steps + 1
     
-    while not wall_in_front():    
-        move()
-
-        if wall_in_front():
-            turn_left()
-
-            number_of_turns = number_of_turns + 1
-
-        number_of_steps = number_of_steps + 1
-
-        if number_of_turns == 4:
-            print(number_of_steps)
-
-            print(number_of_turns)
-
-            done()
+            if number_of_turns == 4:
+                print(number_of_steps)
+                print(number_of_turns)
+                done()
 
 
 
