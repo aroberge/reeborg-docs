@@ -1,131 +1,116 @@
-Advanced features
+고급 기능
 ==================
 
-Reeborg's World is designed to make it easy to set up
-programming tasks that provide automated feedback to students.
-However, sometimes some additional customization might be desired.
-This section documents various possibilities, some of which
-have already been mentioned elsewhere.
+리보그 세상은 프로그래밍 작업 환경을 설정하기 쉽게 설계되어서 학생에게 자동화된 피드백을 제공할 수 있다.
+하지만, 때때로, 부가적인 사용자 설정을 원할 수도 있다.
+다양한 가능성을 이번 페이지에서 문서화하는데, 일부는 이미 어딘가에서 언급된 것이다.
 
-Simple task
-------------
+단순한 작업
+-----------------
 
-First, we consider a simple task.  Load the following::
+먼저, 단순한 작업을 생각해 보자. 다음 세상을 적재한다::
 
     World("Demo 1")
 
-The initial task to accomplish looks like:
+완수해야 되는 초기 작업 시작은 다음과 같다:
 
 |simple_demo1|
 
 .. |simple_demo1| image:: ../../images/simple_demo1.png
 
-and the final result is as follows:
+그리고 최종 결과는 다음과 같다:
 
 |simple_demo1f|
 
 .. |simple_demo1f| image:: ../../images/simple_demo1f.png
 
-This demo is saved as a permalink, including code in the editor
-**and** in the library; it is also available from the
-html ``select`` element at the top.
+상기 실행결과를 편집기에 코드 **그리고** 라이브러리에 코드를 포함하는 permalink로 저장한다.
 
 
-Different traces: style
+다른 궤적: 스타일
 ------------------------
 
-By default, Reeborg leaves a trace slightly "off-center",
-thus showing clearly a difference between a left turn and a right turn
-(done by doing 3 left turns).
-Perhaps you want to show the path taken by Reeborg, without giving any hint about
-using 3 left turns to turn right;  this can be done using the following code::
+기본 디폴트 설정으로, 리보그는 약간 "중심에서 벗어난" 궤적을 남긴다.
+따라서, 좌회전과 우회전(좌회전 3회 수행) 사이에 분명한 차이가 보인다.
+아마도 우회전에 좌회전 3번 한 것이라는 것에는 관심이 없고, 
+리보그가 지나간 궤적만 보고 싶을 수도 있다;
+이 작업은 다음 코드를 사용해서 수행된다::
 
     set_trace_style("thick")
 
-The result looks like the following:
+결과는 다음과 같아 보일 것이다:
 
 |simple_demo2|
 
 .. |simple_demo2| image:: ../../images/simple_demo2.png
 
-Alternatively, suppose you wish to show the robot accomplishing its task but without leaving a trace behind.
-You can use "none" instead of "thick" to do this.
-(The normal case would be "default" and is reset automatically.)
+
+대안으로, 궤적을 뒤에 남기 않고, 로봇이 작업을 수행하는 것만 보고자 한다고 가정한다.
+이 작업에는 "think" 대신에 "none"을 사용한다. (정상적인 경우는 "default"가 되고, 자동으로 원복된다.)
 
 .. important::
 
-    ``set_trace_style``, with the values of ``"thick"`` or ``"default"`` is a
-    global function that affects the traces of all robots.  If it is called
-    multiple times within a program, only its last invocation will have an effect.
+    ``"thick"`` 혹은 ``"default"`` 값을 갖는 ``set_trace_style`` 함수는 전역 함수로
+    모든 로봇 궤적에 영향을 미친다. 프로그램 내부에서 여러번 함수를 호출하면, 
+    가장 마지막 호출된 것만 영향을 미친다.
 
-    When a value of ``"none"`` is chosen, the trace is drawn with a completely
-    transparent color which can be overriden.
-    As shown below, robots can have traces of different colors.
+    ``"none"`` 값이 선택되면, 퀘적은 덮어쓸 수 있는 완전히 투명한 색으로 칠해진다.
+    아래에서 보듯이, 로봇은 다른 색 궤적을 가질 수 있다.
 
-Different traces: color
+다른 궤적: 색깔
 ------------------------
 
-Different robots can have different trace colors or can even change
-the color of the trace left behind at any point within a program.
-Load up::
+다른 로봇은 다른 궤적 색깔을 갖게 하거나, 프로그램 내에서 어느 시점이든지 뒤에 남긴 궤적
+색깔을 변경할 수도 있다. 다음 세상을 적재해서 해당 예제를 살펴본다::
 
     World("Demo 2")
 
-to see an example of this.  Valid names color, to be used to
-the argument of ``set_trace_color()`` include html named colors,
-rgb values, and rgba values - the latter being useful to make a
-trace temporarily invisible.
-
+``set_trace_color()`` 인자로 사용되는 
+적법한 색깔 명칭에는 html 색깔, RGB 값, RGBA 값이 포함된다 - 나중에 나온 값이
+궤적을 임시로 보이지 않게 만드는데 유용하다.
 
 |simple_demo2b|
 
 .. |simple_demo2b| image:: ../../images/simple_demo2b.png
 
 
-Different robot models
+다양한 로봇 모형
 ----------------------
 
-By design, the choice of robot model is left to the user,
-who can choose their robot model by clicking on a image
-button at the top of the world.
+기본 설계로, 로봇 모형 선택은 사용자에게 맡겨졌다.
+사용자는 세상 상단에 이미지 버튼을 클릭해서 로봇 모형을 고를 수 있다.
 
 |models|
 
 .. |models| image:: ../../images/models.png
 
-All robots normally present will be of the same model.
-However, when creating a robot, it is possible to assign
-a specific model (integer from 0 to 3) using the following::
+모든 로봇은 동일한 모형이 된다.
+하지만, 로봇을 생성할 때, 특정 모형을 다음 명령어를 사용해서 지정할 수 있다::
 
     reeborg = UsedRobot()
     reeborg.set_model(0)
 
-This is also demonstrated in::
+다음 예제에서 앞에서 언급된 점을 시연하고 있다::
 
     World("Demo 2")
 
-mentioned above.
 
-Random worlds
+무작위 세상
 --------------
 
-It is possible to design worlds so that the initial position
-of the robot is chosen randomly from specified choices; in
-this case, a slighthly transparent image will initially appear
-at all the possible locations.
+세상을 설계하는 것도 가능한데, 
+로봇 초기 위치가 명세된 선택지에서 무작위로 선택된다;
+이번 예제에서, 다소 투명한 이미지가 가능한 모든 지점에 처음에 나타난다.
 
-Similarly, it is possible to assign a range of possible values
-for the number of objects found at a given location.  If this is done,
-it is possible to require to have all of the objects (total initial
-number unknown) of a specific type to be put at a given location.
-In these cases, a question mark initially appears next to the number of objects
-when the world is drawn. The specific values at each run appear after the
-first step of the program's execution.
+유사하게, 특정 지점에서 발견할 수 있는 객체 숫자에 대해 범위 내에서 가능한 값을 지정하는 것도 가능하다.
+만약 이런 작업이 수행되면,
+특정 유형의 모든 객체를 해당 지점에 놓도록 지시하는 것도 가능하게 된다.
+이런 경우에, 세상이 그려질 때, 물음표가 처음에 객체 숫자 옆에 나타난다.
+프로그램 첫번째 단계가 실행된 후에, 각각에 특정한 값이 나타나게 된다.
 
-Finally, it is possible to have the final position of the robot to be chosen
-amongst a given set.
+마지막으로, 로봇의 최종 지점을 주어진 집합에서 고르는 것도 가능하다.
 
-All of these are demonstrated in the example::
+이 모든 것이 다음 예제에 시연되어 있다::
 
     World("Demo 3")
 
