@@ -1,73 +1,53 @@
-
-For loops
+For 루프
 =========
 
-.. todo::
 
-   Do::
+먼저, ``while`` 을 살펴보자
+---------------------------------
 
-       for item in a_list:
-          #
-       for letter in word:
-          #
-       for _ in range(n):
-          #
-
-
-
-
-First, a look at ``while``
---------------------------
-
-Select world **Around 1**. You have seen before that Reeborg takes 9 steps
-before reaching the first square where he is blocked by having a wall in
-front of him. Let's use the increment operator to have Reeborg keep
-track of the number of steps and stop just before hitting a wall::
+**Around 1** 세상을 선택한다. 리보그 전방 벽에 막히기 전에,
+리보그는 9번 앞으로 이동하는 것을 앞에서 살펴봤다.
+증가 연산자를 사용해서 리보그가 걸음걸은 횟수를 기록해서, 벽에 부딛히기 전에 멈추게 한다::
 
     number_of_steps = 0;
-    while number_of_steps < 9 :  # "<" means "less than"
+    while number_of_steps < 9 :  # "<" 기호는 "보다 적다"를 의미한다.
         move()
         number_of_steps += 1
 
-.. topic:: Try it!
+.. topic:: 시도해 보기!
 
 
-    Try to run the above. Then, modify the program to write the value of
-    ``number_of_steps`` in Reeborg's Diary each time it is incremented.
+    상기 프로그램을 실행한다. 그리고 나서, 프로그램을 변경해서 
+    증가할 때마다, 리보그 일기장에 ``number_of_steps`` 값을 적어 기록하도록 한다.
 
 
-Now, it's time for ``for``
---------------------------
+이제, ``for`` 시간이 되었다
+----------------------------------
 
+``while`` 루프가 다음 패턴을 사용해서 횟수와 함께 사용되는 것을 살펴봤다::
 
-As we have seen, ``while`` loops can be used with numbers using the
-following pattern::
-
-    n = 0                 # initialization
-    while n < max_value : # condition to end the loop
+    n = 0                 # 초기화
+    while n < max_value : # 루프 종료 조건
         ...
-        n += 1  # increment
+        n += 1  # 증가
 
-Another way to write **exactly the same program meaning** is to use a
-``for`` loop::
+**정확하게 동일한 의미를 갖는 프로그램** 을 작성하는 또다른 방법은 ``for`` 루프를 사용하는 것이다::
 
     for n in range(max_value):
        ...
 
-The ``for`` loop in Python can be used for much more than counting items.
-However, this will not be covered for now.
+파이썬에서 ``for`` 루프는 항목을 세는 것 이상으로 다양하게 사용된다.
+하지만, 현수준에서는 다루지 않을 예정이다.
 
-What about ``repeat``?
------------------------
+``repeat`` 은 어떨까?
+-----------------------------
 
-As we had mentioned before, Reeborg's World includes ``repeat`` as
-a keyword that is **not** found in Python.  Using ``repeat``, the above
-``for`` loop would, in principle, be written as::
+앞에서 언급했듯이, 파이썬에 **없는** 키워드로 ``repeat`` 이 리보그 세상에 포함되어 있다.
+``repeat`` 을 사용해서, 원칙적으로는 위에 나온 ``for`` 루프를 다음과 같이 작성할 수 있다::
 
     repeat max_value:
         ...
 
-**provided that** ``max_value`` **was an actual number**.
-From now on, we will not use ``repeat`` and will use instead the
-normal Python way using a ``for`` loop.
+``max_value`` 가 **실제 횟수로 제공되기만 하면 그렇다**.
+지금부터 ``repeat`` 을 사용하지 않을 것이고, 대신에 ``for`` 루프를 사용한 일반적인 파이썬 방식을 채택한다.
 

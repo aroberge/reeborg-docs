@@ -1,192 +1,175 @@
-Reeborg's diary
+리보그 일기
 ===============
 
 .. index:: print(), function argument
+.. index:: 함수 인자
 
-Have Reeborg execute the following program::
+리보그에서 다음 프로그램을 실행한다::
 
     print()
 
-You should see a pop-up window appear with the title *Reeborg writes:*.
-This window is Reeborg's diary.  Feel free to move it around
-on your computer screen.
+*Reeborg writes:* 라는 제목을 갖는 팝업 윈도우가 나타난다. 이 윈도우가 리보그 일기장이다.
+자유로이 컴퓨터 화면 여기저기로 옮겨본다.
 
 .. note::
 
-    **Important:** the example on the right does not execute the
-    function ``move``; if we do::
+    **중요:** 바로 옆 예제는 함수 ``move`` 를 실행하지 않는다; 하지만, 만약 다음과 같이 작성하면:: 
 
         print( move() )
 
-    so that ``move`` is executed, the Python keyword ``None`` will
-    be printed.  What that is the case will be explained later.
+    ``move`` 가 실행되고, 파이썬 키워드 ``None`` 이 출력된다. 이유는 나중에 설명한다.
 
-Now, run the following program::
+이제, 다음 명령어를 실행한다::
 
     print(move)
 
-At the time I wrote this tutorial, the result in Reeborg's diary was
+사용설명서를 저자가 작성하는 시점에, 리보그 일기장에 나온 결과는 다음과 같다.
 
-    <function _move_>
+    <function move>
 
-``_move_`` is the secret name of the ``move`` function as known
-to Reeborg. We can verify this by running the following::
+
+(``move`` 대신에 ``_move_``가 나타난 이유는 여기 페이지를 쭉 읽은 후에 추측할 수 있을 것이다.)
+동일한 객체(함수)에 대해서 또다른 변수(명칭)를 정의하면 어떨까?
 
     step = move
     print(step)
     print(move)
 
-The result is::
+결과는 다음과 같다::
 
-    <function _move_>
-    <function _move_>
+    <function move>
+    <function move>
 
-.. note::
+상기 결과를 통해서 ``=`` 은 단순히 명칭을 객체에 부여함이 확실히 나타난다.
+이 경우 객체가 출력하도록 요청받을 때 파이썬이 ``<function move>``을 호출한 것이다.
+다른 한편으로, 완전히 새로운 함수를 다음과 같이 정의하면::
 
-    ``pass`` is a Python keyword which meand "do nothing".
-    It is useful to take the place of a block of code which
-    is required for having the proper structure (indentation) in a
-    program but which is not otherwise needed.
+    # step = move
+    def step():
+        move()
 
-If you define a completely new function, like::
+    print(step)
 
-    def hello():
-        pass
+결과는 다음과 같다::
 
-    print(hello)
-
-the result will be::
-
-    <function hello>
+    <function step>
 
 
-A function can have an argument
+함수는 인자을 수 있다.
 -------------------------------
 
-In computer programs, the word **argument** refers to a variable
-that determines the result of a function.
-For example, as we have seen::
+컴퓨터 프로그램에서, 단어 **인자(argument)** 는 함수에 대한 결과를 결정하는 변수를 지칭한다.
+예를 들어, 앞서 살펴봤듯이::
 
     print(move)
 
-the variable ``move`` is the argument of the function ``print()``.
-The argument of a function appears between the parentheses which
-indicate that the function is called.
+변수 ``move`` 가 ``print()`` 함수에 대한 인자가 된다.
+함수 인자는 괄호 사이에 보이며, 괄호는 함수 호출을 나타낸다.
 
 
-Writing text
-------------
+텍스트 작성하기
+--------------------
 
-Writing the name of a function like we have done above by
-using the ``print()`` function is something that is done
-**extremely** rarely when writing programs.
-What is done much, much more often is to write text.
+``print()`` 함수를 사용해서 위에서 했던 것처럼 함수명칭을 적는 것은
+프로그램을 작성할 때, **극단적으로** 드물다.
+훨씬 자주 작업하는 것은 텍스트를 적어 넣는 것이다.
 
-In programming terms, a *character* is any letter, number or symbol that
-can be printed and a *string of characters*, or simply *string*, is any
-sequence of character that can be printed. For example, try the
-following::
+프로그래밍 용어로, *문자(character)* 는 임의 문자, 숫자, 출력될 수 있는 기호다.
+그리고 연속된 문자 단순히 *문자열(string)* 은 출력될 수 있는 임의로 연속된 문자다.
+예를 들어, 다음과 같이 작성할 수 있다::
 
     print("Hello world!")
     print('Hello again.')
 
 .. index:: \', \", \n, escape character, escape sequence
+.. index:: \', \", \n, 확장 문자, 확장 비트열
 
-Note that the quotes that surround the *string* have to be the same,
-either double quotes like ", or single quotes like '. To have a string
-that contains some quote characters, we can either surround it by quotes
-of a different type or use the *escape character* ``\``::
+*문자열* 주위를 감싸는 인용부호는 ``"`` 처럼 이중 인용부호든지 ``'`` 처럼 단일 인용부호든지 동일해야 된다.
+인용부호를 포함하는 문자열이 있다면, 다른 유형의 인용부호로 감싸던가 *확장문자(escape character)* ``\`` 을 사용한다::
 
     print("Let's go.")
     print('Let\'s go.')
 
-We can combine strings using the ``+`` symbol::
+``+`` 기호를 사용해서 문자열을 조합할 수 있다::
 
     print("Goodbye! " + "And thanks for all the fish.")
 
-We can also start on a new line using the following *escape sequence*:
-``\n``::
+다음 *확장 비트열(escape sequence)* ``\n`` 을 사용해서 개행(new line)하여 다음 줄에서 
+시작한다::
 
     print("Thank you. \nTry again")
 
-.. topic:: Try it!
+.. topic:: 시도해 보기!
 
-    Make sure you try to run the above code samples or some similar.
+    상기 표본 코드 혹은 유사한 코드를 확실히 시도해 본다.
 
 
-Reeborg knows mathematics
--------------------------
+리보그는 수학을 알고 있다.
+---------------------------------
 
 .. index:: +, *, -, /, //
 
-.. topic:: Try this!
+.. topic:: 시도해 보기!
 
-    Try running the following program and look at the output in Reeborg's
-    diary.
+    다음 프로그램을 시도해 보고 리보그 일기장에 출력결과를 살펴본다.
 
     .. code-block:: py3
 
-        print( 2 + 3 )  # adding numbers
-        print( 2 * 3 )  # multiplying numbers
-        print( 3 - 2 )  # subtracting numbers
-        print( 6 / 2 )  # dividing numbers
-        print( 1 + 3 * 2 ) # multiplication is done before addition
+        print( 2 + 3 )  # 숫자를 더한다.
+        print( 2 * 3 )  # 숫자를 곱한다.
+        print( 3 - 2 )  # 숫자를 뺀다.
+        print( 6 / 2 )  # 숫자를 나눈다.
+        print( 1 + 3 * 2 ) # 곱셈이 덧셈보다 먼저 수행된다.
 
-        # using parentheses to change normal order of operations
+        # 괄호를 사용해서 정상적인 연산 우선순위를 바꾼다.
         print( (1 + 3) * 2 )
 
-        print( 2 ** 5 ) # power ... 2**5 = 2 * 2 * 2 * 2* 2
+        print( 2 ** 5 ) # 멱승 ... 2**5 = 2 * 2 * 2 * 2* 2
 
 .. note::
 
-    Note that spaces around the operators like ``+`` and ``*``
-    are ignored by Python; however, they can make it easier for humans
-    to read the code.
+    ``+`` 와 ``*`` 같은 연산자 주위 공백은 파이썬이 무시함에 주목한다;
+    하지만, 공백을 통해 사람이 코드를 읽을 때, 가독성을 좋게 한다.
 
-In the above examples, the result was always an integer (or whole number)
-except when dividing numbers which gave a **floating point** number:
-``6 / 2`` gives ``3.0``.
+상기 예제에서, 결과는 숫자를 나눌 때 **부동소수점(floating point)** 수가 될 때를 제외하고 
+항상 정수가 된다: ``6 / 2`` 결과는 ``3.0`` 이 된다.
 
-If we want the result of dividing two numbers to be an integer,
-we use the double division sign instead::
+두 숫자를 나눠 정수 결과를 원하면, 두번 나누셈 기호를 사용한다::
 
-    print( 6 // 2 )  # integer division
+    print( 6 // 2 )  # 정수 나눗셈
 
-Using variables
----------------
+변수 사용하기
+------------------
 
-We have already seen the idea of using different names (variables) as synonyms.
-Let's use this idea again as explore
-mathematical operations some more::
+이미 다른 명칭 (변수)을 동의어로 사용하는 아이디어로 살펴봤다.
+수학 연산에 다시 한번 이런 아이디어를 사용하자::
 
     length = 4
     width = 6
-    area = length * width  # area of a rectangle
-    print(area)            # will output 24
+    area = length * width  # 사각형 면적
+    print(area)            # 결과는 24
 
-.. topic:: Try it!
+.. topic:: 시도해 보기!
 
-    Make up your own examples and run them.
-
+    본인 만의 예제를 만들어서, 실행해 본다.
 
 .. important::
 
-   The *character* "2" is not the same as the *number* 2.  Try out
-   the following::
+   *문자* "2" 는 *숫자* 2와 같지 않다. 다음을 실행해 본다::
 
        print("2" + 2)
 
-Multiple arguments
+복수 인자
 -------------------
 
-Some functions, like ``print()``, can take many arguments: the
-various arguments are separated by commas.
-To illustrate this, try out the following program::
+``print()`` 같은 일부 함수는 많은 인자를 받을 수 있다:
+여러 인자는 코마로 구분된다.
+이것을 시연하는데, 다음 프로그램을 실행한다::
 
 
     length = 4
     width = 6
     area = length * width
-    print("The area of a rectangle of length", length,
-          "and width", width, "is", area)
+    print("직사각형 길이:", length,
+          "넓이:", width, "면적:", area)
 

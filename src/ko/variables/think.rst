@@ -1,63 +1,54 @@
-Pause and think
-===============
+잠시 멈춰서 생각하기
+==================
 
 .. index:: pause(ms)
+.. index:: 잠시 멈춤(ms)
 
-A long time ago, when we first talked about bugs, we mentioned
-the instruction ``pause()``.  When Reeborg encounters that
-instruction, it pauses ... and waits for us to click on
-a button before moving again.
+오래 전에, 버그에 관해서 처음 언급할 때,
+명령어 ``pause()`` 를 언급했다.
+리보그가 ``pause()`` 명령어를 마주하면,
+리보그가 멈춰서... 다음 이동을 하기 전에 
+사용자가 버튼을 클릭할 때까지 기다린다.
 
 .. image:: ../../../src/images/pause1.gif
 
-Actually, the function ``pause()`` can take an **optional** argument,
-which is the number of milliseconds Reeborg pauses before resuming
-execution by itself.
+사실, 함수 ``pause()`` 는 **선택옵션(optional)** 인자를 받는데, 스스로 다음번 이동을 재시작하기 전, 리보그가 잠시 멈춰서 기다리는 시간을 천분의 1초로 표기한다.
 
 .. image:: ../../../src/images/pause2.gif
 
 
 .. note::
 
-    A millisecond is one thousandth of a second.
-    This means that it takes 1000 milliseconds to
-    equal one second.
+    밀리초(millisecond)는 천분의 1초다.
+    1000 밀치초는 1 초와 같음을 의미한다.
 
-.. topic::  Try it!
+.. topic::  시도해 보기!
 
-   Write a program that has Reeborg take various pauses, resuming
-   the execution by itself.
+   리보그가 다양한 방식으로 잠시 쉬었다가, 스스로 실행을 
+   재시작하는 프로그램을 작성한다.
 
-Think
------
+생각하기(Think)
+--------------------------
 
 .. index:: think(ms)
+.. index:: 생각하기(ms)
 
 .. note::
 
-    There is a lot going behind the scene to make Reeborg move, pick up
-    objects, etc., and display the updated result on the screen.  All this
-    cannot happen instantenously ... but it is usually very fast.
-    Using ``think()`` introduces an **additional** amount of time; by
-    default, this extra time is 250 millisecond (which is one quarter
-    of a second).
+    리보그가 이동하고, 객체를 집고 등등의 행동을 하고, 화면에 갱신된 결과를 출력할 때, 
+    뒤에서는 엄청난 일이 벌어지고 있다.
+    이 모든 작업이 즉시 일어날 수는 없지만,
+    보통 매우 빠르게 진행된다.
+    ``think()`` 함수를 사용해서 **추가적인** 시간을 투입한다; 기본디폴트 설정으로, 추가 시간은 250 밀리초(즉, 4분의 1초)가 된다.
 
+``pause()`` 함수를 사용할 때를 제외하면,
+지금까지 작성한 프로그램은 일정한 속도로 각 단계를 리보그가 실행했다. 이렇게 보면, 각 명령어를 실행하기 전에,
+마치 리보그가 잠시 **생각(think)하는** 것처럼 보인다.
+실제로, 리보그가 어떤 동작의 결과를 보이는데 (추가적인) 시간을 제어할 수 있다. 
+이런 제어를 수행하려면 ``think(ms)`` 함수를 사용하는데, ``ms`` 는 정수 인자로 리보그가 어떤 동작을 수행하는데 걸린 (추가적인) 시간을 천분의 1초로 나타낸다.
 
-So far, excluding the use of ``pause()``,
-you have written programs where Reeborg execute each step
-at a steady rate.  In a way, it is as though Reeborg **thinks**
-for a short while before executing each instruction.
-Actually, you can control the (additional) time it takes for
-Reeborg to show the result of any action.  To do this, you
-can use the function ``think(ms)`` where ``ms`` is an integer
-argument that represents the (additional) time in millisecond taken by
-Reeborg to perform any action.
+.. topic:: 시도해 보기!
 
-.. topic:: Try this!
-
-    Write a program that uses ``think(ms)``.  You can use ``think(ms)``
-    at many different parts of a program, showing some parts really
-    fast, and slowing down in others by using different values
-    for the ``ms`` argument.  To have Reeborg move as fast
-    as possible, use ``think(0)``.
+    ``think(ms)`` 함수를 사용하는 프로그램을 작성한다.
+    ``ms`` 값을 다르게 설정해서, 일부 프로그램은 정말 빠르게, 다른 프로그램 부분은 다소 느리게, 이런 방식을 통해 프로그램 각 부분에서 ``think(ms)`` 를 사용할 수 있다. 리보그를 최대한 빠르게 움직이게 하려면, ``think(0)`` 을 사용한다.
 

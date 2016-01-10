@@ -1,50 +1,45 @@
-Quick tour of Reeborg's World
+리보그 세상 훑어 보기 
 ==============================
 
-Running programs
-----------------
+프로그램 실행
+-----------------------
 
-Example of running programs illustrated below:
+아래에 시연된 프로그램 실행 예제::
 
-1. Clicking on the "run" button (red circle), the program in the code editor
-   (green rectangle) is executed and the robot (blue rectangle) performs
-   the requested actions in the world.  At the end, a dialog window
-   appears (red arrow) indicating whether the program was executed successfully
-   or not.  This example goes by very quickly.
-2. Instead of running the program "all at once", we can step through
-   the program's instruction by clicking on the appropriate button
-   (red circle).  This example is run a bit more slowly and is likely easier
-   to follow.  The program in the code editor is run, with each instruction
-   (usually a single line of code) highlighted prior to its execution.
-3. In order to highlight instructions, some custom [and hidden] Python code has to be added
-   prior to execution.  In some cases, for more complex programs, this extra code causes problems.
-   If desired, it is possible to turn off the highlighting of code instructions to
-   prevent such problems.
-4. The default image used for Reeborg can be changed according to the user's choice.
+1. "run" 버튼(빨간색 원)을 클릭한다. 
+    코드 편집기(녹색 직사각형)에 프로그램이 실행된다.
+    로봇(하늘색 직사각형)이 세상에서 요청받은 동작을 수행한다.
+    종국에, 대화창이 나타나서(빨간색 화살표) 프로그램이 성공적으로 실행되었는지
+    그렇지 않은지 나타낸다. 예제 프로그램은 매우 빠르게 지나간다. 
+
+2. "한번에" 프로그램을 실행하는 대신에, 
+    적절하게 버튼(빨간색 원)을 클릭해서 프로그램 명령을 한단계씩 수행할 수 있다. 예제 프로그램이 다소 느리게 동작하지만,
+    따라가기는 쉬울 듯 하다. 코드 편집기에 프로그램이 실행되면,
+    실행하기 전에 각 명령어(통상 코드 한줄)가 강조 하이라이트 표시된다. 
+
+3. 명령어를 강조 하이라이트 하려면, 일부 사용자 정의 [그리고 숨긴] 파이썬 코드가 실행전에 추가되어야만 된다.
+    일부 사례에서, 특히 조금 복잡한 프로그램을 실행될 때, 이러한 추가 코드가 문제를 일으킨다. 필요하면, 이런 문제를 사전에 방지하고자 코드 강조 하이라이트 기능을 끄는 것을 추천한다.
+
+4. 리보그로 사용되는 기본디폴트 이미지는 사용자 취향에 맞춰 변경될 수 있다.
 
 |running|
 
-Receiving feedback
+피드백 받기
 ------------------
 
-Reeborg's world is designed to give clear feedback when a problem is
-encountered (for example, Reeborg hits a wall while attempting to move,
-or attempts to pick up an object where none is to be found).  Various
-"worlds/tasks" can be created requiring Reeborg to be at a certain
-location at the end of a program, or to have moved objects to a certain
-location.  Below you see four examples of such feedback being given.
+리보그 세상은 문제에 봉착했을 때, 명확한 피드백을 받도록 설계되었다. (예를 들어, 이동하려고 할 때 벽에 부딛히거나, 물건이 없는데 물건을 집려고 할 때).
+다양한 "세상/작업(worlds/tasks)"를 생성해서, 
+리보그가 프로그램 수행을 완료하면 특정 지점에 위치하도록 명령하거나, 물건을 특정 장소에 이동하도록 한다.
+아래에 해당 작업이 주어졌을 때, 네가지 피드백 사례가 나와 있다.
 
 |feedback|
 
 
-Creating new worlds and tasks
------------------------------
+새로운 세상과 작업 생성하기
+------------------------------------------
 
-Creating new worlds and basic tasks is easy to accomplish with the
-world editor.  These worlds are first saved in the browser and can
-be exported either as json files (for the world only) or as
-specially crafted permalinks, which includes the code written
-in the editor and the library.
+새로운 세상과 작업을 생성하는 것은 세상 편집기(world editor)로 쉽게 달성할 수 있다. 작업한 세상은 브라우저에 먼저 저장되고, JSON 파일(세상만 가능) 혹은 특별히 제작된 permalinks로 내보낼 수 있다. 
+permalinks는 편집기와 라이브러리에서 작성된 코드를 포함한다.
 
 |edit-world|
 

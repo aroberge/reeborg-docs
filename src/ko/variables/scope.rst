@@ -1,23 +1,21 @@
-Scope: local vs global
-======================
+유효 범위(scope): 지역 vs 전역
+==========================
 
-First, a friendly reminder:
+먼저, 다정하게 상기시켜 본다::
 
 .. important::
 
-    Rule # 1
-        Learning about computer programming is like learning to play
-        a musical instrument: you have to **do it**, not simply read
-        about it.
+    규칙 # 1
+        컴퓨터 프로그램을 배우는 것은 마치 음악 악기를 배우는 것과 같습니다: 단지 읽는 것만으로는 부족하고, 여러분이 **직접 프로그램을 작성** 해봐야 합니다. 
 
-Now that I have your attention, it is important that you try these
-on your own before reading further.
+여러분의 주의를 끌었기 때문에,
+더 진도를 나가기 전에 스스로 프로그램을 직접 실행해보는 것이 중요하다.
 
-.. topic:: Run these programs
+.. topic:: 다음 프로그램을 실행한다
 
-    First run the following::
+    먼저, 다음 프로그램을 실행한다::
 
-        # First program
+        # 첫번째 프로그램
         a = 2
 
         def test():
@@ -26,9 +24,9 @@ on your own before reading further.
 
         test()
 
-    Then, this one::
+    그리고 나서, 다음을 실행한다::
 
-        # Second program
+        # 두번째 프로그램
         a = 2
 
         def test():
@@ -37,9 +35,9 @@ on your own before reading further.
         test()
         print("after test", a)
 
-    And another one::
+    그리고, 또다른 프로그램을 실행한다::
 
-        # Third program
+        # 세번째 프로그램
         a = 2
 
         def test():
@@ -49,9 +47,9 @@ on your own before reading further.
         test()
         print("after test", a)
 
-    And yet one more::
+    그리고, 하나더 프로그램을 실행한다::
 
-        # Fourth program
+        # 네번째 프로그램
         a = 2
 
         def test():
@@ -63,90 +61,81 @@ on your own before reading further.
         print("after test", a)
 
 
-What is going on? ...
+무슨 일이 진행되고 있는거죠? ...
 
-The need for scope
-------------------
+유효 범위에 대한 필요
+----------------------------------
 
 .. index:: scope
 .. index:: ! global
 
+.. index:: 유효 범위
+.. index:: ! 전역
 
+저자가 리보그 프로그램을 작성할 때, 리보그 세상을 구동시키는 자바스크립트 핵심 프로그램 파일이 
+거의 6,000줄이다, https://github.com/aroberge/reeborg/blob/master/src/js/reeborg_dev.js. 역자가 변역한 시점은 7,000줄이다: 여러분이 지금까지 작성한 프로그램보다도 
+아마 훨씬 더 길 것이다! (물론, 파이썬으로 작성된 코드를 포함하는 일부 부가적인 프로그램 파일도 있다.)
+공동으로 사람들이 작업할 때, 수백만줄은 아니더라도 수십만줄로 구성된 프로그램을 작성하다.
+여러분이 상상하듯이, 전체 프로그램을 통해서 유일무이한 의미를 갖는 변수에 기억이 잘되고 유의미한 변수를 찾아내는 것은 불가능하다. 여러분과 저자가 정말로 긴 프로그램을 공동으로 작성한다고 가정하자.
+저자가 ``length`` 변수를 정의해서 ``32`` 값을 할당하고, 여러분이 어딘가에 동일한 명칭을 갖는 변수를 정의하고 ``45`` 라는 값을 부여하면, ``length`` 변수를 사용할 때 문제가 모두에게 생긴다.
 
-As I am writing this, the main program file that powers Reeborg's World,
-https://github.com/aroberge/reeborg/blob/master/src/js/reeborg_dev.js,
-contains approximately 6000 lines of code: this is likely quite a bit more
-than the programs you have written so far!  People working in collaboration
-will write programs that contains hundreds of thousands if not millions
-lines of code.  As you can imagine, it is impossible to find meaningful
-names for variables that would have a unique meaning throughout
-entire programs.  Suppose you and I collaborate to write a really, really
-long program.  If I define the variable ``length`` to be ``32`` and
-you define a variable with the same name elsewhere and give it the value ``45``,
-we could have a problem when using this variable.
+파이썬을 비롯한, 거의 대부분의 다른 프로그램 언어는 이런 문제에 대한 해결책을 갖고 있다: 함수 내부에 정의된 변수는 해당 함수내부에서만 쓸 수 있다.
+따라서, 여러분이 함수를 작성하고 그 함수 내부에 ``length`` 라는 변수를 사용하고, 저자가 또다른 함수를 작성하고 그 함수 내부에 ``length`` 변수를 동일하게 사용하면, 파이썬은 이를 다른 변수로 처리한다.
 
-Python, and most other programming languages, has a solution for this problem:
-variables that are defined within a function, are known only within this function.
-Thus, if you write a function and use a variable named ``length`` and
-I write another function and also use a variable named ``length``, these
-will be treated as being different variables by Python.
+이런 변수를 해당 함수에 **지역(local)** 이라고 하고, **지역 범위(local scope)** 를 갖는다고 한다.
 
-We say that these variables are **local** to the function, or that
-they have a **local scope**.
+상기에 나온 첫번째 프로그램으로 되돌아 가자.
+``test()`` 함수 내부에 ``a`` 라는 변수를 정의한다.
+이 변수는 해당 함수에 **지역(local)** 으로 간주된다; 함수 내부 변수에 값을 부여하는 것이 해당 함수 **외부** 에 있는 ``a`` 변수값에는 영향을 주지는 않는다: 두 변수는 다른 것으로 간주된다.
 
-Let's look back at the first program above.  We define a variable named
-``a`` inside a function ``test()``.  This variable is considered to be
-**local** to that function; giving it a value does not affect the value
-of the variable ``a`` **outside** that function: the two variables are
-considered to be different.
-
-In the second program, we do **not** define a variable ``a`` inside
-the function ``test()``; that is, we do not have a line like::
+두번째 프로그램에서, ``test()`` 함수 내부에서 ``a`` 변수를 정의하지 **않았다.** ; 
+즉, 다음과 같은 코드 라인이 해당 함수 내부에는 없다::
 
    a = something
 
-inside that function.   When we ``print`` the value of the variable,
-Python recognizes that it is a variable likely defined outside the
-function (known as the **global** scope in Python), looks up in this
-global scope, finds a variable with that name, and uses it.
+변수값을 ``print`` 출력할 때, (파이썬에서 **전역** 유효범위로 알려진) 함수 외부에서 정의된 변수로 파이썬이 인지하고, 전역 유효범위에서 검색을 하고, 해당 명칭을 갖는 변수를 찾아, 사용한다.
+
 
 .. note::
 
-    Believe it or not, the description here is a simplification.
-    There is another Python keyword, ``nonlocal``, that refers to
-    some intermediate scope between **local** and **global**.
-    However, you will not need to use it for any of the programs
-    in Reeborg's World.
+    믿든 믿지 않든, 여기에 나온 기술된 것은 단순화한 것이다.
+    또다른 파이썬 키워드 ``nonlocal`` 이 있는데,
+    **지역** 과 **전역** 의 중간적인 유효범위를 나타낸다.
+    하지만, 저자가 금번 사용설명서를 작성할 때, 리보그 세상과 관련되어 ``nonlocal``
+    키워드를 유용하게 사용할 수 있는 어떤 예제도 찾아낼 수 없었다.
 
-In the third program, Python finds that there is a variable ``a`` local
-to the function (which means it is defined inside the function) since there
-is a line::
+세번째 프로그램에서, 파이썬이 다음 한줄 코드가 있어, ``a`` 지역 변수가 
+함수에 있음(함수 내부에 정의가 됨을 의미)을 알 수 있다::
 
-    a = something   # with something equal to 3 here...
+    a = something   # 상기 예제에서는 3과 같은 것이 됨.
 
-So, Python determines that, inside the function, ``a`` always refer
-to the **local** variable.  Since we attempt to print its value
-before we assign it, Python tells us it cannot do this.
+그래서, 파이썬은 함수 내부에서, ``a`` 가 항상 **지역** 변수를 지칭하는 것으로 판단한다.
+변수에 값을 할당하기 전에 변수값을 출력하려고 하기 때문에,
+파이썬은 스스로 출력을 할 수 없다는 사실을 알려준다.
 
-Finally, in the fourth program, we have added the line::
+마지막으로, 네번째 프로그램에서 코드 한줄을 추가했다::
 
     global a
 
-``global`` is a Python keyword that tells Python that the variable
-``a`` is the one defined outside the function  (in the *global* scope).
-So, it already has a known value when the line::
+``global`` 은 파이썬 키워드로, 함수 내부에 사용된 변수 ``a`` 가
+함수 외부에 정의(*전역* 유효범위로)된 것과 동일함을 파이썬에 일러준다.
+그래서, 다음 코드가 실행될 때, 변수는 이미 값을 알고 있게 된다::
 
     print("inside test", a)
 
-is executed.  The following line, ``a = 3``, changes the value of
-``a`` so that, after executing ``test()``, ``a`` has this new value.
+``a = 3`` 코드 다음줄은 이미 ``a`` 변수 값을 변경했다.
+그래서, ``test()`` 함수를 실행한 뒤에, ``a`` 는 새로운 값을 갖게 된다.
 
 .. important::
+    경험많은 프로그래머는 ``global`` 전역 문장으로 등재된 변수명을 하나 혹은 그 이상 마주할 때마다,
+    걱정이 시작된다: 해당 함수를 이해하는 대신에, 해당 변수가 그밖의 장소에서 다른 값으로 할당되었는지,
+    그리고 전역변수가 함수 동작에 어떻게 영향을 미칠 수 있는지 알아내야만 한다.
 
-    Many people find the concept of **scope** confusing the first time
-    they see it.  You may want to run the 4 programs again (and again!)
-    and read the explanation a few times.
+혼동되시죠?
+--------------------------
 
-    Then, even if it is not entirely clear, you can safely move on
-    to the next section.  As you write more programs, the concept of
-    scope will become more familiar.
+많은 사람들이 처음으로 **유효범위** 개념을 마주할 때 혼동을 느낀다.
+상기 프로그램 4개를 다시 실행하고(필요하면 그 이상!)  몇번이고 설명을 읽는다.
+
+그리고 나면, 설사 완전히 명확하지는 않더라도, 안전하게 다음 학습으로 넘어갈 수 있다.
+더 많은 프로그램을 작성하면서, 유효범위 개념은 이해하기 더 쉬워질 것이다.

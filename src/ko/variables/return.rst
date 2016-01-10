@@ -1,60 +1,75 @@
-Return
-======
+반환(Return)
+==============
 
-
-.. todo::
-
-   Add an explanation about the fact that a function always
-   returns a value; if no return value is explictly written,
-   then the function returns  ``None``.
 
 .. note::
 
-    North is toward the top of the screen; East
-    is toward the right, West toward the left and South toward the bottom.
+    북쪽은 화면 상단이 된다; 동쪽은 우측이고, 
+    서쪽은 좌측이고, 남쪽은 화면 하단이 된다.
 
+여러분도 아시듯이,
+리보그는 정확하게 좋은 모양은 아니다.
+리보그는 왼쪽으로만 회전할 수 있고, 기름이 질질 세어나오고,
+바로 앞 오른쪽에 있을 때만 벽을 볼 수 있고, 문자 그대로 토큰 위에 서 있을 때만 
+토큰을 볼 수 있다. 또한, (일부 망가진) 나침판을 갖고 있어서,
+북쪽을 향하고 있는지 ... 아닌지만 알아낼 수 있다.
+북쪽을 향하고 있는지 알아내려면, 리보그로 하여금 ``is_facing_north()`` 
+테스트를 해야 한다.
 
-As you know, Reeborg is not exactly in good shape. He can only turn
-left, has an oil leak, can only see walls when they are right in front
-of him or immediately to his right, and can see tokens only when he is
-literally standing on top of them. Reeborg has also a (somewhat broken)
-compass which he can used to find out if is is facing north ... or not.
-To find out if he is facing north, you can ask Reeborg to do the test
-``is_facing_north()``.
+.. topic:: 프로그래밍 시간!
 
+    다음 프로그램을 실행해서 단순한 세상을 선택해서, 임의 방향을 향해 리보그가 출발하게 한다.
 
-.. topic:: Try this!
+        World("http://reeborg.ca/worlds/face_north.json", "Face north")
 
-    Choosing an appropriate world, write a short program that will ensure
-    that Reeborg will turn left until he faces north, no matter what his
-    starting orientation is.
-
-Getting results from functions
+    그리고 나서, 시작 방향이 어느 쪽인지에 관계없이, 리보그가 왼쪽으로 회전해서 북쪽을 향할 때까지 
+    방향을 확실히 하는 짧은 프로그램을 작성한다.
+    
+몇가지 실험
 ------------------------------
 
-Tests like ``is_facing_north()`` are actually Python functions. They
-differ from other functions like ``turn_left()`` or ``move()`` in that
-they ``return`` a value. Let's start by considering a simple example:
+**Alone** 세상을 선택하고 다음 프로그램을 실행한다::
 
-.. topic:: Try this!
+    repeat 4:
+        print("turn_left: ", turn_left() )
+        print("is_facing_north: ", is_facing_north() )
 
-    .. code-block:: py3
+뭔가 흥미로운 것을 알아채셨나요?
 
-        def interrupted_two_steps():
-            move()
-            return
-            move()
+상기 프로그램을 실행한 뒤에, 다음 프로그램을 실행한다::
 
-        interrupted_two_steps()
+    def interrupted_two_steps():
+        move()
+        return
+        move()
 
+    print(interrupted_two_steps())
 
-As you can see, the return statement prevents the second ``move()`` from
-being executed.
-The ``return`` keyword can actually be accompanied by something else.
+리보그가 한걸음만 더 이동하는 것을 알아채셨나요.
 
-.. topic:: Try this!
+마지막으로, 다음을 실행한다::
 
-    For example, try the following::
+    def three():
+        return 3
+
+    print(three())
+
+함수에서 결과값 얻기
+------------------------------
+
+.. note::
+
+    만약 함수가 어떤 ``return`` 문장도 가지고 있지 않거나, 
+    ``return`` 키워드만 한줄 떨렁 있다면, 
+    파이썬 함수는 ``None`` 값을 반환한다. ``None``은 또다른 파이썬 키워드다.
+
+``is_facing_north()`` 같은 테스트는 실제로 파이썬 함수다.
+``turn_left()`` 혹은 ``move()`` 같은 다른 함수와 다른데, 차이점은
+잠재적으로 유용한 값을 ``return`` 반환한다는데 있다.
+
+.. topic:: 시도해 보기!
+
+    다음을 시도해 본다::
 
         def north():
            return is_facing_north()
@@ -62,18 +77,17 @@ The ``return`` keyword can actually be accompanied by something else.
         while not north():
             turn_left()
 
-As you have tried it, you noticed that ``north()`` was giving the same
-result as ``is_facing_north()``; that is the effect of the ``return``
-statement. We can use this to have Reeborg be able to identify
-orientations other than North. First, note that if Reeborg turns left 4
-times, he will be back to its initial orientation; we do want Reeborg to
-end the test in the same orientation as that which he had at the start.
-Now, suppose we would like to know if Reeborg was facing South. We could
-ask Reeborg to turn left twice, note if his orientation is North (which
-it should be if he was facing South) or not, turn left twice more, to go
-back to its original orientation, and tell us what he remembered using
-the ``return`` statement. One thing we need to do: have Reeborg use a
-*variable* to remember its orientation after two left turns::
+앞서 시도해 봤듯이, ``north()`` 함수는 ``is_facing_north()`` 와 동일한 
+결과를 이끌어내는 것을 봤다. 이런 점을 활용해서
+북쪽이 아닌 다른 방향을 식별하도록 한다.
+먼저, 리보그가 왼쪽으로 4번 회전하면, 리보그는 초기 방향으로 되돌아온다;
+처음 시작한 방향과 동일한 방향을 향하면 테스트를 종료하고자 한다.
+이제, 리보그가 남쪽을 지향하고 있는지 알아보자.
+리보그에게 왼쪽으로 두번 회전하게 한다.
+만약 리보그가 향한 방향이 북쪽(남쪽을 향하고 있다면, 북쪽이 된다)이든 아니든, 왼쪽으로 두번더 회전하면 처음 방향으로 되돌아온다.
+``return`` 문장을 사용해서 리보그가 기억한 것을 여러분에게 알려주게 한다.
+한가지 해야만 되는 작업이 있다: **변수** 를 사용해서 리보그가 두번 회전한 뒤에 
+방향을 기억하게 만든다::
 
     def is_facing_south():
         turn_left()
@@ -83,35 +97,39 @@ the ``return`` statement. One thing we need to do: have Reeborg use a
         turn_left()
         return remember
 
-    # now, ensure that Reeborg is facing South
+    # 이제, 리보그가 남쪽을 지향하고 있음을 확실히 했다.
     while not is_facing_south():
         turn_left()
 
-.. topic:: Try it!
+.. hint::
+    
+    ``is_facing_north()`` 함수는 북쪽일 경우 *참* 값을 반환하고, 그렇지 않을 경우 *거짓* 을 반환한다.
+    따라서, *거짓* 이 계속 나오면 ``while`` 루프는 계속 돌고, ``is_facing_north()`` 가 참이 될 때,
+    ``while`` 루프를 빠져나오게 된다. 그러는 동안에 ``turn_left()``로 왼쪽으로 한번씩 돈다.
 
-    It will not take you long, and you will be ready for the next exercise!
+.. topic:: 시도해 보기!
 
+    그다지 오래 걸리지 않을 것이다. 이제 다음 연습문제로 넘어갈 준비가 되었다!
 
-The above way works ... but, depending on its initial orientation, you might get
-dizzy if you keep track of all left turns that Reeborg has to make: when
-its orientation is not South, for each left turn that he makes to change
-its orientation, he must make 4 more to determine its new orientation!
+상기 방식은 정상 동작한다... 하지만, 초기 방향에 따라서,
+리보그가 돌아야 하는 좌회전을 추적하려면 어지럽다:
+리보그 방향이 남쪽이 아닐 때, 방향을 바꾸는데 매번 좌회전하는데, 4번더 좌회전을 해야만 된다!
 
-In a future tutorial, when we talk about Object-Oriented Programming,
-we will find a way, by digging in Reeborg's built-in program, to
-fix its compass and have it determine its orientation without getting
-dizzy.
+향후 사용설명서에서, 객체 지향 프로그래밍을 언급할 때, 리보그에 장착된 내장함수를 
+사용해서 방법을 찾아내서, 나침판을 고치고 어지럽지 않게 방향을 결정하도록 한다.
 
-.. topic:: Mini-quiz!
+.. topic:: 짧은-퀴즈!
 
-    Write a program that has Reeborg face West, no matter what his original
-    orientation is. Test it with Reeborg in various starting orientations,
-    by giving him a few ``turn_left()`` instructions first.
+    리보그가 처음에 지향하고 있는 방향에 관계없이,
+    리보그가 서쪽을 향하게 하는 프로그램을 작성한다.
+    다음 세상으로 프로그램을 테스트한다::
 
-How to think about return
--------------------------
+        World("http://reeborg.ca/worlds/face_west.json", "Face west")
 
-Suppose we have the following::
+반환(return)에 관해서 생각하는 방법
+-----------------------------------------------
+
+다음 함수가 있다고 가정하자::
 
     def some_function ():
         ...
@@ -119,26 +137,38 @@ Suppose we have the following::
 
     ... = some_function()
 
-In this case, the call to ``some_function()`` on the last line gets
-replaced by the value of ``something`` which is what follows the
-``return`` keyword. If nothing follows ``return`` the result is
-``undefined``.
+이 경우에, 마지막 줄에 ``some_function()`` 함수 호출은 ``return`` 키워드 다음에 
+나오는 ``something`` 으로 치환된다. 만약 ``return`` 다음에 아무 것도 없게 되면,
+``None`` 이 결과값이 된다.
 
-.. topic:: More returns
+.. topic:: 반환(return) 더 알아보기
 
+    ``front_is_clear()`` 함수를 사용해서, 전방에 벽이 있는지 리보그가 판단하거나,
+    ``right_is_clear()`` 함수를 사용해서, 우측에 벽이 있는지 판단한다.
+    리보그가 4번 좌회전하는 프로그램을 작성해서, 처음 시작한 방향과 동일한 방향으로 되돌아 와서
+    끝나게 한다. 하지만, 리보그 좌측에 어떤 벽도 없다면 ``True`` 값을 반환한다.
 
-    Reeborg can determine if there is a wall in front of him, using
-    ``front_is_clear()``, or if there is a wall to his right, using
-    ``right_is_clear()``. Write a test that has Reeborg turn left 4 times,
-    so that he ends up back in the same orientation that he started with,
-    but that returns ``True`` if there is no wall to his left.
+.. topic:: 도전 과제!
 
-.. topic:: Challenges!
+    **좌측** 벽을 따라서, **Maze 1** 과 **Maze 2** 세상을 빠져나가는 프로그램을 작성한다.
+    **Storm 1** 과 **Storm 2** 세상에 대해서도 도전과제를 해결하는데 동일한 작업을 수행한다.
+    즉, 미로 세상에 대한 해법과 비교해서 반대 방향으로 집을 돌아다니게 한다.
 
-    Use the test you have written to have Reeborg get out of worlds **Maze 1** and
-    **Maze 2** by following the **left** wall. Do the same for solving
-    challenges for worlds **Storm 1** and **Storm 2**, that is, go around the
-    one-room houses in the opposite direction compared with your previous
-    solutions.
+.. hint::
 
+    미로 탈출을 위한 코드는 기본 알고리즘이 우측에 벽이 없으면 우측으로, 전방에 벽이 없으면 전방으로, 그렇지 않은 경우 좌회전한다. 이를 목적지 도착 때까지 반복한다.
 
+    .. code-block:: py3
+
+        from library import *
+        
+        think(0)
+        
+        while not at_goal():
+            if right_is_clear():
+                turn_right()
+                move()
+            elif front_is_clear():
+                move()
+            else:
+                turn_left()

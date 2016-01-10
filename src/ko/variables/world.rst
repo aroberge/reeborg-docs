@@ -1,95 +1,118 @@
-World
+세상
 =====
 
 .. index:: World()
 
 .. note::
 
-    Since ``World()`` is a very special function, I decided not to follow
-    the normal Python convention and have its name start with an
-    uppercase letter.
+    ``World()`` 는 매우 특수한 함수로,
+    저자는 정규 파이썬 관례를 따르지 않기로 하고,
+    대문자로 시작되는 명칭을 부여했다.
 
-
-
-Choose a world other than **Home 1**.  Then run the following program
-**twice**::
+**Home 1** 이 아닌 세상을 선택한다.
+그리고 나서, 다음 프로그램을 **두번** 실행한다::
 
     World("Home 1")
     move()
     move()
 
-The first time you run it, you should see Reeborg informing you that the world has
-changed to **Home 1**, which you should be able to confirm by looking
-at the world.
+처음 실행할 때, 세상이 **Home 1** 으로 변경된다는 정보를 리보그가 알려준다. 세상을 쳐다보면 확인할 수 있다.
 
-The second time you run it, because **Home 1** is already selected, the
-function ``World()`` is effectively ignored, and the rest of the program is
-executed.
+두번째 실행할 때, **Home 1** 이 이미 선택되어 있기 때문에,
+``World()`` 함수는 실제적으로 무시되고, 프로그램 나머지 부분이 실행된다.
 
-Programming exercise
+
+프로그래밍 연습
 --------------------
 
-Before I tell you more about ``World()``, I want you to revisit a program
-you should have written before.
+``World()`` 세상에 관해서 좀더 일러주기 전에,
+이전에 작성했던 프로그램을 재방문한다.
 
-.. topic:: Do this!  It's important.
+.. topic:: 직접 작성한다! 이점이 중요하다.
 
-    Select world **Storm 1**.  Write a program that will make Reeborg
-    collect all the leaves and put them in the compost bin.  Your program
-    will very likely require you to use ``carries_object()``.
+    **Storm 1** 세상을 선택한다.
+    리보그가 모든 낙엽을 모아서 쓰레기통에 담는 프로그램을 작성한다.
+    작성한 프로그램에는 아마도 ``carries_object()`` 함수를 
+    사용하는 것이 필요하다.
 
-Loading a remote world
-----------------------
+.. hint::
+    .. code-block:: py3
+    from library import *
+    think(0)
+    
+    def collect_leaves():
+        while not wall_in_front():
+            move()
+            if object_here():
+                while object_here():
+                    take()
+    
+    
+    def throw_away():
+        while not wall_in_front():
+            move()
+            if wall_in_front():
+                turn_right()
+                move()
+                while carries_object():
+                    put()
+    
+    #----- 정의 끝
+                    
+    collect_leaves()
+    turn_around()
+    throw_away()
+    turn_around()
+    move()
 
-Look closely at the world **Storm 1**, taking note of where leaves are.
+원격 세상 적재하기
+-------------------------------------
 
-Now, at the very top of the program you just wrote to have Reeborg pick up
-all the leaves in **Storm 1**, add the following line of code::
+**Storm 1** 세상을 면밀히 살펴보고,
+낙엽이 있는 장소에 주목한다.
+
+이제, **Storm 1** 에 흩어져 있는
+모든 낙엽을 리보그가 주어서 쓰레기통에 담도록 작성한 
+프로그램 최상단에, 다음 코드 한줄을 추가한다::
 
     World("http://reeborg.ca/worlds/not_storm1.json")
 
-[Note that it is a number "1" at the end of not_storm1, and not the letter "l".]
-Run the program once: Reeborg should tell you that the world has been loaded
-properly.  Its appearance should be identical to what it was before.
+[not_storm1 말미에 영문자 "l" 이 아니고, 숫자 "1" 임에 주의한다.] 프로그램을 한번 실행한다: 리보그가 세상이 적절히 잘 적재되었음을 일러줘야 한다. 모양은 이전에 살펴본 것과 통일해야 된다.
 
-Note how the world name in the selector at the top is this very long name
-which was used as an argument to ``World()``.
+상단 세상명칭 선택자에 매우 긴 명칭( ``World()`` 함수에 인자로 사용됨)이 나온 것에 주목한다. 
 
-Click on the "World info" button at the top.  You will find a brief description
-of the world, including the fact that you are not supposed to use
-``carries_object()``.  Ignore that, and run your program.  Take note of what
-happens.
+최상단 "World info" 버튼을 클릭한다. 세상에 대한 간략한 기술이 되어있는데, ``carries_object()`` 사용을 가정하지 않는다는 사실이 포함되어 있다.
+이것은 무시하고, 프로그램을 실행한다. 발생한 일에 대해서 착실히 적어 놓는다.
 
-Loading a remote world, again
------------------------------
+원격 세상 다시 적재하기
+------------------------------------
 
-So, your program did not work.  We will see how to fix this soon.
-In the meantime, I want you to try something else.  Change the first line
-of the program to read instead like the following::
+그래서, 작성한 프로그램은 정상 동작하는 것은 아니다.
+이 문제를 어떻게 고치는지 곧 알게 된다.
+그러는 동안에, 뭔가 다른 것을 했으면 한다.
+프로그램 첫번째 줄을 다음과 같이 변경한다::
 
     World("http://reeborg.ca/worlds/not_storm1.json",
           "Not Storm 1")
 
-I have added a second argument to the function ``World()``.
-So as to avoid having a line of code that would be too long to be seen
-all at once in the editor, I have put the second argument on a different line.
-When Python sees an open parentheses ``(`` for a function argument, it
-continues to read if needed on other lines until it finds a closing ``)``,
-and treats everything as though it was all on a single line.
-**However**, note that I did not split up the strings; I only put things on
-a new line after a comma, so that each function argument is on its own line.
+``World()`` 함수에 두번째 인자를 추가했다.
+편집기에서 한번에  세상을 보기에는 너무 길어서 이를 회피하고자, 다른 행에 두번째 인자를 넣었다.
+파이썬은 ``(`` 시작 괄호를 함수 인자로 사용할 때,
+닫는 괄호를 찾을 때까지 필요하면 다음 행까지 쭉 읽어 내려가고,
+이 모든 것을 마치 한줄에 있었던 것처럼 처리한다.
+**하지만**, 문자열은 쪼개지 않았음에 주목한다; 콤마 다음에 새줄에 작성했다. 그렇게 함으로써, 함수 인자는 해당 줄에 모두 위치하게 된다.
 
-Now, run this.  Again, this will not solve the task at hand.  **However**,
-if you look at the top, the name that now appears for the world is
-``Not Storm 1`` instead of the long address that we had before.
+이제 다시 실행한다. 이렇게 바꾼다고, 작업하고 있던 문제가 해결된 것은 아니다. **하지만**, 상단을 살펴보면,
+세상에 대한 명칭이 이전에 봤던 매우 긴 장문의 주소가 아니라 
+``Not Storm 1`` 으로 나온다.
 
-Save your work
---------------
+작업 저장하기
+--------------------------
 
-You might want to save your program in a file on your computer by clicking on
-the "Additional options" button, followed by "Save program to file".
-Later, you will be able to retrieve it by clicking on "Import program from file".
+로컬 컴퓨터에 파일 형태로 작성한 프로그램을 저장하고자 하면,
+상단에 "Additional options" 과 "Save program to file" 을 클릭해서 저장한다.
+나중에, 저장한 프로그램을 "Import program from file" 을 클릭해서 불러올 수 있다.
 
-.. admonition:: For educators
+.. admonition:: 선생님께 
 
-    To do: explain how permalinks can be used instead
+    To do: 대신 ``permalinks`` 를 사용하는 방법을 설명한다.
