@@ -1,84 +1,74 @@
-Function arguments
+함수 인자
 ====================
 
-We have seen that, when there are more than one type of objects
-in Reeborg's World, we must sometimes specify which object
-Reeborg must take or put down by using a function argument as in::
+리보그 세상에 한가지 유형 이상의 객체가 있을 때,
+리보그가 어떤 객체를 집거나 놓을지 함수 인자를 사용해서 다음과 같이 명세해야만 된다::
 
     take("token")
     put("star")
 
-However, we have not seen yet how to define such a function.
-It is actually fairly easy: all we have to do is include a variable as
-an argument between the parentheses when defining the function.
-For example, suppose we want to define a function ``turn()`` that
-would take a number as its argument so that the number indicates
-the number of left turn we want Reeborg to make.  Thus
-``turn(1)`` would correspond to a single left turn whereas
-``turn(3)`` would correspond to three left turns (which, as we know,
-amounts to having Reeborg make a right turn).  One way to
-do this is as follows::
+하지만, 아직 그런 함수를 어떻게 정의하는지는 살펴보지 않았다.
+실제 해보면 매우 쉽다: 해야 되는 작업은 함수를 정의할 때 괄호 사이에
+인자로 변수를 포함하기만 하면 된다.
+예를 들어, 숫자를 인자로 받는 ``turn()`` 함수를 정의한다.
+여기서 숫자는 리보그가 회전하고자 하는 좌회전 횟수를 나타낸다.
+따라서, ``turn(1)`` 은 왼쪽으로 1회 회전하는 반면에,
+``turn(3)`` 은 왼쪽으로 3회 회전(알시다시피, 좌3회전은 우1회전하는 필요한 횟수)한다. 
+이를 구현하는 한 방법은 다음과 같다::
 
     def turn(number):
         for _ in range(number):
             turn_left()
 
 
-.. topic:: Your turn!
+.. topic:: 여러분 차례!
 
-    Define such a ``turn`` function and try it out in a program.
+    ``turn`` 함수 같은 것을 구현해보고, 프로그램에서 시도해 본다.
 
 
-Many arguments
+다수 인자
 -------------------
 
-If you recall, ``print()`` can take more than one argument, with
-each argument separated by a comma.  You can probably guess how
-we can define a similar function::
+상기한다면, ``print()`` 함수는 콤마로 구분된 인자 각각을 하나 이상 받을 수 있다.
+아마도, 유사한 함수를 정의하는 방법도 추측할 수 있을 것이다::
 
    def my_function(argument_1, argument_2, ...):
-      # code block
+      # 코드 덩어리
 
-Suppose that, like above, we want to be able to specify a number
-of turns ... and also a number of moves ... and a number of *whatever*.
-We could define a function like ``turn`` for each type of repeated
-action; however, there is a more general way which only requires
-to define a single function, which we will call my_repeat (**repeat** would
-have been a better name, but it's a special Reeborg keyword).
-Here's a possible definition::
+위에 나온 것처럼, 회전 횟자... 이동 횟수... *아무 것이나* 수행 횟수를 명세한다고 가정하자.
+``turn`` 같은 함수를 반복된 동작 유형에 정의할 수 있다; 
+하지만, 단일 함수만 정의하는 좀더 일반적인 방법이 있는데, 이를 my_repeat 으로 부른다
+(더 나은 명칭은 **repeat** 이지만, 리보그 특수 키워드가 있어 달리 이름지었다). 
+다음에 가능한 정의가 나와 있다::
 
     def my_repeat(function, number):
         for _ in range(number):
             function()
 
-So, if we call it with ``turn_left`` and ``3`` as arguments::
+그래서, 만약 함수 ``turn_left`` 와 ``3`` 을 인자로서 호출하면::
 
     my_repeat(turn_left, 3)
 
-it will be interpreted as::
+다음과 같이 해석된다::
 
-    for _ in range(3):   # number is replaced by 3
-        turn_left()      # function is replaced by turn_left
+    for _ in range(3):   # number 가 3으로 대체
+        turn_left()      # function 는 turn_left 로 대체
 
-which we recognize as our familiar ``turn_right`` equivalent.
-However, having defined ``my_repeat`` we can use it with different
-numbers and functions, such as::
+친숙한 ``turn_right`` 함수와 동치임을 인지하게 된다.
+하지만, ``my_repeat`` 함수를 정의했기 때문에, 횟수와 함수를 다르게 해서 사용할 수 있다. 
+예를 들어::
 
-    my_repeat(move, 4)   # move 4 steps
+    my_repeat(move, 4)   # move 4번
 
 
-.. topic:: Your turn!
+.. topic:: 여러분 차례!
 
-    Define such a ``my_repeat`` function and try it out in a program.
+    ``my_repeat`` 함수 같은 것을 구현해보고, 프로그램에서 시도해 본다.
 
 .. important::
 
-    Unlike ``print()``, which can take an arbitrary number of arguments,
-    the functions we have defined so far will always require a set number
-    of arguments  (1 for ``turn``, 2 for ``my_repeat``). You should check
-    what happens if you give a different number of arguments than what
-    was indicated when defining the function.
+    임의 인자 갯수를 받을 수 있는 ``print()`` 함수와 달리, 
+    지금까지 정의한 함수는 항상 정해진 인자 갯수가 필요하다(``turn`` 은 1개, ``my_repeat`` 는 2개).
+    함수를 정의할 때 지정된 것과 다른 인자 갯수를 전달하면 어떤 일이 발생할지 점검한다.
 
-    Creating functions which can accept an arbitrary number of arguments
-    is something which we will see later, after we have seen a few other
-    concepts.
+    몇가지 다른 개념을 접한 후에, 임의 인자 갯수를 받는 함수를 생성하는 것은 추후 살펴볼 것이다.

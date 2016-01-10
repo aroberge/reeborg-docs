@@ -42,7 +42,7 @@
 
    A. 기본 사용설명서 <basics/index>
    B. 재귀(Recursion) <recursion/index>
-   C. 변수(Variables): 준비중 <variables/index>
+   C. 변수(Variables) <variables/index>
    D. 객체지향 프로그래밍: 준비중 <oop/index>
    E. 고차 함수: 준비중 <functional/index>
    F. 프로그래밍 연습문제: 준비중 <exercises/index>
