@@ -1,66 +1,52 @@
-Comparison with other implementations
+다른 교육용 프로그램과 비교
 =====================================
 
-In what follows, I make some quick "first-impressions" comparisons
-between Reeborg's World and other *Karel the robot*-inspired implementations,
-by comparing the simplest program for each implementation.
+다른 교육용 프로그램에 간단한 프로그램을 구현해서, *카렐 로봇(Karel the robot)* 에 영감을 받은 교육용 프로그램과 리보그 세상 사이 "첫인상"을 비교한다.
 
-
-I only mention those that require the student to write code.
-Please feel free to contact me to correct any misrepresentation I may
-have made of the other "Karel the robot" implementations.
+저자는 학생이 코드를 작성하는데 필요한 것만 언급한다.
+다른 "카렐 로봇" 교육용 프로그램에 대해 잘못된 표현이 있다면 언제라도 저자에게 연락주세요.
 
 .. note::
 
-    I arbitrarily chose a single "move" function to represent the simplest valid
-    program in a given implementation.
+    저자는 임의로 "이동(move)" 함수를 선택해서 가장 간단하지만 적법한 프로그램을 각 교육용 프로그램에 대해서 작성했다.
 
-First, Reeborg's World
-----------------------
+첫째로, 리보그 세상 (Reeborg's World)
+--------------------------------------------------
 
-The simplest valid program is::
+가장 간단하지만 적법한 프로그램은 다음과 같다::
 
     move()
 
-That's it: a single instruction.  What could be simpler when
-teaching beginners?
+이것으로 끝이다: 명령문 하나. 초심자를 가르칠 때, 더 간단해질 수 있을까?
 
-If one wants to use an OOP approach instead (starting with
-an empty world), the simplest valid program is::
+(빈 세상에서 시작하는) 대신에 OOP 접근법을 사용하려면, 가장 간단하지만 적법한 프로그램은 다음과 같다::
 
     reeborg = UsedRobot()
     reeborg.move()
 
-Once again, that's it; it's difficult to be simpler than this.
+다시 한번, 이것으로 끝이다; 이보다 더 간단히 되는 것은 힘들다.
 
-Because using standard libraries is something useful, students
-can first learn about libraries by writing their own code and, in doing so,
-they learn that library modules are just programs like any others.
-Assuming they have define a function, say ``turn_right()``, in their library,
-the following program will be valid:
+표준 라이브러리를 사용하는 방법은 유용할 수 있는데, 학생들이 먼저 본인이 스스로 코드를 작성함으로써, 라이브러리를 학습할 수 있다. 그러면서, 라이브러리 모듈도 다른 것과 같은 프로그램이라는 사실을 배우게 된다. 
+본인 라이브러리에 가령 ``turn_right()`` 함수를 정의한다고 가정하면, 다음 프로그램은 적법하다::
 
 .. code-block:: python
 
     from library import turn_right
     turn_right()
 
-So, the idea is to have the student deal with as few concepts as possible
-to write programs, only learning new concepts (such as Object-Oriented notation
-and importing code from a library) after they have learned the basics.
+그래서, 기본적인 아이디어는 프로그램을 작성하는데 가능하면 적은 개념을 다루게 함에 있다. 
+기본적인 사항을 학습한 후에, 새로운 개념(예를 들면, 객체지향 표기법과 라이브러리에서 코드 가져오기)을 학습하게 한다.
 
-Also, having a visually rich world environment can make programming tasks
-both more appealing and more varied than in simpler worlds.
+또한, 시각적으로 풍부한 세계 환경을 갖추게 되면, 프로그래밍 작업이 더 설득력 있고, 단순한 세상보다도 더 다양성을 갖추게 된다.
 
-When it comes to other implementation, notice how everything (using
-a library, using OOP techniques) is often required right from the start,
-making it a challenge for beginners to get started.
+다양한 다른 교육용 프로그래밍 언어는 처음부터 바로 모든 것(라이브러리 사용, OOP기법 사용)이 얼마나 필요한지 알아채게 된다. 이러한 점이 초보자가 시작하는데 걸림돌이 된다.
 
-Karel the robot
----------------
+카렐 더 로봇(Karel the robot)
+-------------------------------------
 
-The original Karel the robot did not have the concept of a library.
-It used a Pascal inspired language.  The simplest valid program one
-could write was something like the following::
+최초 카렐 더 로봇에는 라이브러리 개념이 없다.
+파스칼에서 영감을 받은 언어가 사용됐다.
+누구나 작성할 수 있는 가장 간단하지만 적법한 프로그램은 다음과 같이 생겼다::
 
     BEGINNING-OF-PROGRAM
 
@@ -71,16 +57,14 @@ could write was something like the following::
 
     END-OF-PROGRAM
 
-The ``turnoff`` instruction was required; the equivalent ``done()``
-in Reeborg's World is optional.
+``turnoff`` 명령어가 필요하다; ``done()`` 에 상응하는데 리보그 세상에서는 선택옵션이다.
 
-Karel++
--------
+카렐++(Karel++)
+------------------------
 
-Karel++ is a C++ based version to which Richard Pattis, the inventor
-of Karel the robot, contributed. (http://csis.pace.edu/~bergin/CHAP02.html)
+카렐++는 카렐 더 로봇 창시자 리차드 패티스가 기여한 C++ 언어에 기반한 프로그램이다. (http://csis.pace.edu/~bergin/CHAP02.html)
 
-The simplest program is:
+가장 간단한 프로그램은 다음과 같다.
 
 .. code-block:: cpp
 
@@ -91,16 +75,17 @@ The simplest program is:
         Karel.turnOff();
     }
 
-The graphical representation of the world is rather limited, and only
-one type of object is found, like in the original Karel the Robot.
+세상에 대한 시각적 표현은 다소 제한이 있고, 
+최초 카렐 더 로봇처럼 단지 한 유형의 객체만 이용가능하다.
 
 
-Monty Karel
------------
 
-The makers of Karel++ have also a Python version.
+몬티 카렐(Monty Karel)
+-------------------------------
+
+카렐++ 제작자는 파이썬 버젼도 만들었다. 
 (http://csis.pace.edu/~bergin/MontyKarel/index.html)
-Here's the simplest program:
+가장 간단한 프로그램은 다음과 같다::
 
 .. code-block:: python
 
@@ -112,19 +97,19 @@ Here's the simplest program:
         karel.move()
         karel.turnOff()
 
-For a basic "Hello world" type of program, this is a rather complicated
-one which hides Python's strength when it comes to simplicity and
-readability.
+기본인 "Hello world" 유형의 프로그램으로, 다소 복잡하다.
+단순성과 가독성 측면에서 파이썬의 강점을 숨기고 있다.
 
-The graphical representation of the world is rather limited, and only
-one type of object is found, like in the original Karel the Robot.
+세상에 대한 시각적 표현이 다소 제한되어 있고, 
+최초 카렐 더 로봇처럼 단지 한 유형의 객체만 이용가능하다.
 
-Karel J. Robot
---------------
 
-The makers of Karel++ have also a Java version.
+카렐 J. 로봇 (Karel J. Robot)
+--------------------------------------------
+
+카렐++ 제작자가 자바 버젼도 제작했다.
 (http://csis.pace.edu/~bergin/KarelJava2ed/Karel++JavaEdition.html)
-Here's the simplest program based on my reading of the documentation:
+저자가 문서를 읽고 작성한 가장 간단한 프로그램이 다음에 나와 있다.
 
 .. code-block:: java
 
@@ -140,49 +125,39 @@ Here's the simplest program based on my reading of the documentation:
         }
     }
 
+자바는 자바다... 가장 단순한 프로그램을 작성할 때도 포함되어야 하는 키워드가 많아서
+정말 하기 싫은 것이 많다.
 
+세상에 대한 시각적 표현이 다소 제한되어 있고, 
+최초 카렐 더 로봇처럼 단지 한 유형의 객체만 이용가능하다.
 
-Java being Java ... there is a lot of extra "cruft", including a number
-of keywords, that has to be included when writing even the simplest program.
+귀도 반 로봇(Guido van Robot)
+------------------------------------------
 
-The graphical representation of the world is rather limited, and only
-one type of object is found, like in the original Karel the Robot.
-
-Guido van Robot
----------------
-
-Guido van Robot (http://gvr.sourceforge.net/) uses a custom, limited mini-language
-whose syntax is inspired by Python.  The equivalent program to those
-mentioned above would be written simply as::
+귀도 반 로봇(http://gvr.sourceforge.net/)은 파이썬 구문에서 영감을 받은 한정된 주문형 미니언어를 사용한다. 앞에서 언급된 예제에 상응하는 프로그램은 다음과 같이 간단하게 작성될 수 있다::
 
     move
     turnoff
 
-Many developers who worked on Guido van Robot helped me when I first started
-working on RUR-PLE, the desktop precursor to Reeborg's World.  They, in turn,
-adapted the graphical world editor I developed for RUR-PLE so that it could
-be included in Guido van Robot.
+귀도 반 로봇 프로젝트에 참여했던 많은 개발자들이 저자가 러플 작업을 시작할 때 도움을 주었다. 러플은 리보그 세상의 데스크톱 이전 작품이다. 저자가 러플로 개발했던 그래픽 세상 편집기를 이번에는 귀도 반 로봇 제작팀이 채용했다.
 
-The graphical representation of the world is rather limited, and only
-one type of object is found, like in the original Karel the Robot.
+세상에 대한 시각적 표현이 다소 제한되어 있고, 
+최초 카렐 더 로봇처럼 단지 한 유형의 객체만 이용가능하다.
 
-Code Combat
------------
+코드 전투 (Code Combat)
+------------------------------------
 
-Code Combat (https://codecombat.com) is an absolutely beautiful environment,
-having visually rich animated graphics and sounds.
-It presents the user with pre-defined worlds, and very precise tasks that
-must be accomplished.
+코드 전투(https://codecombat.com)는 절대적으로 아름다운 환경으로,
+시각적으로 풍부한 애니메이션 그래픽과 음향을 보유하고 있다.
+사용자에게 사전에 정의된 세상을 제시하고 나서 매우 구체적인 작업을 완수해야만 한다.
 
-The simplest valid program, using the Python version, would be::
+파이썬 버젼을 사용한 경우, 가장 간단하지만 적법한 프로그램은 다음과 같다::
 
     self.moveRight()
 
-However, the simplest task requires more than one such command.
-Furthermore, there is absolutely no explanation given at the beginning
-as to why this complicated syntax (*why ``self.``*?) must be used.
+하지만, 가장 간단한 작업에 앞선 명령어 이상이 필요하다.
+더욱이, 입문단계에 *``self.``* 같은 복잡한 구문이 왜 사용되어야 하는지 설명도 없다.
 
-While I envy the richness of the graphical environment, I find it a bit
-overwhelming and inflexible to use.
+저자는 풍부한 시각적 환경이 부럽기는 하지만, 다소 과도하다는 느낌과 사용하는데 유연성이 떨어진다고 본다.
 
 
