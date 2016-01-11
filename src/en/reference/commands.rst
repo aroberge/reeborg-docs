@@ -36,7 +36,7 @@ know what an *argument* to a function is, we will
 explain it below.]
 There are two types that we will consider:
 
-1. Simple actions that Reeborg can execute, like ``move()``
+1. Simple actions that Reeborg can execute, like ``move()``.
 
 2. Information gathering that Reeborg can do, like ``front_is_clear()``
    which instructs Reeborg to determine if there are immediate
