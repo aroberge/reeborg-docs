@@ -119,21 +119,15 @@
 .. |simple_demo3| image:: ../../images/simple_demo3.png
 
 
-Adding code to be run in addition to user's program
-----------------------------------------------------
+사용자 프로그램에 추가해서 실행될 코드 추가하기
+-----------------------------------------------------------------
 
-When editing the world, you can add a extra code that will be run
-either before the user's program is run, or after it is run, or both.
+세상을 편집할 때, 사용자 프로그램이 실행되기 전에 혹은 실행된 후에, 혹은 전과 후 모두, 실행될 여분의 코드를 추가할 수 있다.
 
 
 .. warning::
 
-   A word of caution: if you include *post* code and the user
-   include the instruction ``done()`` in their program, the
-   post code will never be reached when ``done()`` is executed.
-   In this case, a good strategy is to redefine ``done()``
-   in the **pre** code part, perhaps replacing it with
-   something like this::
+   경고의 말씀: *post* 코드를 포함하고 사용자가 프로그램에 ``done()`` 명령어를 추가하면, ``done()`` 이 실행되어, post 코드에는 결코 도달하지 못하게 된다. 이런 경우, 좋은 전략은 **pre** 코드 부분에 ``done()`` 을 재정의하는 것으로, 아마도 다음과 같이 해당 부분을 교체하게 된다::
 
         def done():
             raise ReeborgError("You are not allowed to use 'done()'.")
@@ -142,162 +136,108 @@ either before the user's program is run, or after it is run, or both.
 
 .. |pre_post_code| image:: ../../images/pre_post_code.png
 
-You can see a very simple example of this by selecting the world
-**Pre & Post code demo**
-and then run the resulting program, which simply
-insert a print statement before and another one after the
-program in the editor.  A **much** longer example,
-illustrating the usage of ``narration()`` is the world **Story**.
-This program adds a "twist" to the story, simply
-included for effect: make sure to let the program
-run to the end.
+**Pre & Post code demo** 세상을 선택해서, 매우 단순한 예제를 살펴본다. 그리고 나면 결과로 나온 프로그램을 실행하게 되는데, 작성된 프로그램은 출력 문장(print)을 앞에, 편집기에 프로그램 다음에 또 다른 출력 문장을 삽입한다.
+``narration()`` 사용을 시연하는 **훨씬** 긴 예제가 **Story** 세상이다. 이 프로그램은 **Story** 세상에 "뒤틀는" 뭔가를 추가한다: 해당 프로그램이 마지막까지 실행되도록 확인한다.
 
 
-Replacing the default robot
----------------------------
+기본디폴트 설정된 로봇 교체하기
+-------------------------------------------
 
-Suppose you want to use a robot that can has enhanced capabilities in
-one of your examples while using an existing world.
-For instance, suppose I want to show a solution to jumping over the
-hurdle with a robot that can turn right directly, without doing three left turns.
-One "obvious" way might be as follows:
+기존에 존재하는 세상을 사용하면서, 예제 중 하나에 향상된 능력을 갖는 로봇을 사용하고 싶다고 가정하자.
+예를 들어, 왼쪽으로 세번 회전하지 않고, 바로 오른쪽으로 회전할 수 있는 로봇으로 장애물 허들을 넘는 해법을 보여주고자 한다.
+한가지 "분명한" 방식은 다음과 같다:
 
-1. Create a copy of the desired world.
-2. Remove the robot
-3. Save the world under a different name
-   (if using the same browser to show the example) or a usb key
-   (and load it in a different browser, if planning the work at home
-   and using it in the classroom)
-4. Write a program that first creates a robot with the desired attributes.
+1. 희망하는 세상 사본을 생성한다.
+2. 로봇을 제거한다.
+3. 다른 명칭으로 세상을 저장(예제를 보여주는 동일한 브라우져를 사용한다면)하거나, 혹은 USB에 저장한다. (그리고, 집에서 작업을 계획하고 교실에서 사용한다면 다른 브라우져에 적재한다)
+4. 프로그램을 작성해서 희망하는 속성을 갖는 로봇을 생성한다.
 
-This approach would work ... except that the world initially shown will
-not have any robot visible and would thus be different than what the
-students would see when they would attempt to work on it with their robot.
+이런 접근법이 동작은 한다... 처음에 나온 세상에 어떤 로봇도 보여지지 않고 따라서, 로봇으로 작업할 때 학생들이 보는 것과는 다른 점만 제외하면....
 
-There is a better way!
+더 나은 방법이 있다!
 
 .. note::
 
-   By using this code in the "pre" code, or in the library, we ensure that
-   the line executed is not "highlighted" and have a frame with no robot
-   present.
+   "pre" 코드 혹은 라이브러리에 나온 코드를 사용하면, 실행되는 라인이 강조 하이라이트 되지 않고 어떤 로봇도 없는 프레임만 존재하게 된다.
 
-Either in the "pre" code, or in the library you can use the instruction::
+"pre" 코드든, 라이브러리든지, 다음 명령문을 사용할 수 있다::
 
    RUR.world.remove_robots()
 
-as the very first instruction in your program, and
-then create an instance of your robot with the desired enhanced capabilities.
-Since there will be only one robot in the world,
-basic instruction like ``move()` or ``turn_left()``
-will work on your robot as-is: by design,
-they work with the first robot created without requiring the instance name.
+작성한 프로그램에 첫 명령어로 상기 코드를 사용하고 나서, 희망하는 개선된 능력을 갖춘 로봇 인스턴스를 생성한다.
+세상에는 로봇이 한대만 있기 때문에, ``move()`` 혹은 ``turn_left()`` 같은 기본 명령오는 현재 있는 로봇에만 동작한다: 기본 설계로, 인스턴스 명칭이 없어도 첫번째 생성된 로봇에는 동작한다.
 
-Have a look at the world **Robot replacement**
-to see an example where a new robot, capable of turning right directly,
-is defined in the library and replaces the default robot.
+**Robot replacement** 세상을 살펴본다. 바로 우회전하는 능력을 갖춘 새로운 로봇이 라이브러리에 정의되어 기본디폴트 설정된 로봇을 교체되는 예제를 확인할 수 있다.
 
-Easy collaboration with TogetherJS
+TogetherJS와 쉬운 협업
 ----------------------------------
 
-From **Additional menu** at the top, you can find the button
-"Collaboration": this activates Mozilla's TogetherJS which allows two, or
-more, users to effectively interact on the same webpage.
+상단에 **Additional menu** 에서,  "Collaboration" 버튼을 찾울 수 있다: 이를 통해서 모질라 TogetherJS를 활성화해서 두명 이상 사용자가 효과적으로 동일한 웹페이지에서 상호작용하게 된다.
 
-Stepping back and forth through program execution
+프로그램 실행을 앞으로 뒤로 돌리기
 --------------------------------------------------
 
-Programs are executed in two steps: first, the program is run
-and a series of "frames", representing the complete state of
-the world at that time, are recorded.  Second, these frames
-are played back one at a time.
+프로그램은 두 단계로 실행된다: 먼저, 프로그램이 실행되면, 연속된 "프레임"이 기록되는데, 해당 시점에 세상에 대한 완전한 상태가 프레임에 표현된다. 둘째로, 기록된 프레임을 한번에 하나씩 영상으로 재상한다.
 
-From the **Additional menu**, one has access to a "step back"
-button which steps backwards, one frame at a time, instead of
-forward.
+**Additional menu** 에서, 앞으로 재상하는 대신에 한번에 한 프레임씩, "step back" 버튼을 통해 되돌린다.
 
-An example of such use might be to run a program quickly,
-by setting ``think(0)`` up to a "crucial" point at which
-the program is paused using ``pause()``.  From that point on,
-the program could be run either forward or backward, one frame at a time,
-allowing to focus on one particular aspect being demonstrated.
+이러한 사용 예제는 프로그램을 빠르게 실행하는 것으로,
+"핵심적인" 지점까지 ``think(0)`` 로 설정하고,  ``pause()`` 를 사용해서 프로그램을 임시 정지시킨다. 이 지점부터, 프로그램을 앞으로 혹은 뒤로 한번에 한 프레임씩 실행시킬 수 있어, 특정한 측면에 집중할 수 있게 한다.
 
-Easy support for multiple human languages
------------------------------------------
+다양한 사람 언어에 대한 쉬운 지원
+----------------------------------------------
 
-As mentioned elsewhere, it is fairly straightforward to
-port Reeborg's World so that languages other than English
-can be used.  Currently, only French is completely supported.
-Thus, one can write::
+앞에서 언급되었듯이, 리보그 세상 이식이 매우 쉬워서, 영어를 제외한 언어도 지원된다. 현재, 불어만 완벽하게 지원된다. 따라서, 다음과 같이 프로그램을 작성할 수 있다::
 
     from reeborg_fr import *
 
     avance()           # equivalent to move()
     tourne_a_gauche()  # equivalent to turn_left()
 
-However, French users should use http://reeborg.ca/monde.html
-which has a French User Interface.
+하지만, 프랑스어 사용자는 http://reeborg.ca/monde.html 사이트를 사용해야만 되는데, 프랑스어 사용자 인터페이스를 갖추고 있다.
 
-Using Python's standard library
+파이썬 표준 라이브러리 사용하기
 -------------------------------------------------
 
-Brython comes with a significant portion of Python's standard
-library; however only pure Python modules are supported.
+Brython에서 상당부분을 파이썬 표준 라이브러리가 차지한다; 하지만, 순수 파이썬 모듈만 지원된다.
 
+다른 언어를 사용하여 프로그램을 작성하는 가능성
+-------------------------------------------------------------------
 
-Possibility to write programs using different languages
--------------------------------------------------------
+파이썬, 자바스크립트, 커피스크립트가 지원된다. 자바스크립트 변환 컴파일러가 있다면, 다른 언어도 지원된다.
 
-Support for Python, Javascript and CoffeeScript.  Other languages
-could be supported as well if they have a javascript transpiler.
-
-Embedding in an iframe
-----------------------
+iframe에 임베딩하기
+-------------------------------------
 
 .. todo::
 
-    It is possible to embed Reeborg's World in a different website
-    using an html ``iframe``.  I need to explain how to do this.
+    HTML ``iframe`` 을 사용해서 다른 웹사이트에 있는 리보그 세상을 임베딩할 수 있다. 저자가 추후 방법을 설명한다.
 
-Possibility to integrate within a Learning Management System
+이러닝 시스템과 통합하는 가능성
 ------------------------------------------------------------
 
-One teacher in Lithuania has made Reeborg's World accessible within Moodle
-for students tasks that are then marked automatically.  Ideally, such use
-should be made with local copies of Reeborg's World.
+리투아니아 한 교사가 무들(moodle)에서 리보그 세상을 접근할 수 있도록 만들었다. 그래서 자동으로 학생 작업에 대해 채점을 했다. 이상적으로, 이런 사용사례는 리보그 세상을 로컬 사본으로 만들어야만 된다.
 
 .. _changing-the-user-interface:
 
-Changing the User Interface
----------------------------
+사용자 인터페이스 바꾸기
+---------------------------------------
 
-If you know Javascript, html and css, and possibly how to use the jQuery library,
-you can customize the look of Reeborg's World by running code
-with a specially crafted permalink; the changes made will
-remain until the site is reloaded.
+자바스크립트, HTML, CSS, JQuery 라이브러리 사용법을 알고 있다면, 특별히 제작된 permalink로 코드를 실행함으로써, 
+리보스 세상 외양을 사용자 취향에 맞춰 바꿀 수 있다; 변경 사항은 사이트를 다시 시작(로딩)할 때까지 적용되어 남아 있다.
 
-If you want to make your own changes, you might want to
-open Reeborg's World into a separate tab and enable the javascript console.
-Then, use Javascript/jQuery commands in the console to change the UI as desired.
-Copy **all** of your required code (not forgetting semi-colons...) into the textarea below.
+본인 취향에 맞게 변경하려면, 리보그 세상을 별도 탭에 열고, 자바스크립트 콘솔을 활성화 시킨다. 
+그리고 나서, 콘솔에서 Javascript/jQuery 명령어를 사용해서 UI를 희망하는 대로 변경한다. 필요한 **모든** 코드(세미콜론도 잊지 않는다...)를 아래 텍스트영역에 복사하여 붙여넣는다.
 
-For example, suppose you wanted to hide the choice of programming
-language selection; you could do so using the following jQuery code:
+예를 들어, 프로그래밍 언어 선택 메뉴를 숨기고자 한다고 가정한다; 다음 JQuery 코드를 사용해서 구현할 수 있다::
 
 .. code-block:: javascript
 
     $("#header-child form").hide();
 
-You can use the above as an example and copy it into the textarea below
-and then click the "Create permalink code" button; the result will
-appear below the button.  Note that you need to create all the UI
-changes into a single conversion.  Once you have the result, copy it
-and *append it* to a "normal" permalink created within Reeborg's
-World; your new permalink, when used to update Reeborg's world,
-will make the required changes to the UI.
-
+상기 코드를 예제로 사용해서 아래 텍스트영역에 복사해서 넣고 "Create permalink code" 버튼을 클릭한다; 실행 결과가 버튼 아래 나타난다. 모든 UI 변경사항을 변환 한번으로 생성할 필요가 있음에 주목한다. 결과를 갖게 되면, 복사해서 리보그 세상에서 생성한 "정상" permalink 링크에 *추가한다* ; 리보그 세상이 갱신될 때, 새로운 permalink가 UI에 요청받은 변경사항을 적용한다.
 
 .. raw:: html
    :file: css_mod.html
 
-If you need help with making changes to the User Interface, please do not hesitate to contact me.
+사용자 인터페이스에 변경을 하는데 도움이 필요하면, 저자에게 주저말고 연락을 취한다.
