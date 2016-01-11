@@ -1,31 +1,20 @@
-Mazes
+미로
 =====
 
-In this section, we take a look at automatic maze generation and simple
-solutions.  The approach we use to generate mazes is a depth-first
-algorithm mentioned on https://en.wikipedia.org/wiki/Maze_generation_algorithm,
-with a Python implementation found on
-http://rosettacode.org/wiki/Maze_generation#Python.
+이번 절에서, 미로 생성을 자동으로 하고 미로 탈출을 하는 간단한 해법을 살펴본다. 미로를 생성하는데 사용하는 접근법은 
+https://en.wikipedia.org/wiki/Maze_generation_algorithm 위키에서 언급된 깊이 우선 알고리즘(depth-first algorithm)이고, 파이썬 구현은 http://rosettacode.org/wiki/Maze_generation#Python 사이트에서 참조했다.
 
 .. note::
 
-    A quick word about the notation.  ``RUR`` is a general namespace
-    used in Reeborg's world; it is named for Reeborg the UsedRobot.
+    표기법에 대한 축약어. ``RUR`` 은 리보그 세상에서 사용되는 일반적인 네임스페이스다; Reeborg the UsedRobot에서 RUR이 왔다.
 
-    ``RUR.we`` denotes the functions found in world_editor.js;
-    ``RUR.vis_world`` denotes the functions found in visible_world.js.
+    ``RUR.we`` 는 world_editor.js에 나오는 함수를 표기한다; 
+    ``RUR.vis_world`` 는 visible_world.js에 나오는 함수를 표기한다.
 
-    world_editor.js contains most of the functions used for the
-    graphical world editor.
+    world_editor.js 파일에는 그래픽 세상 편집기에 사용되는 함수 대부분이 담겨 있다.
 
-
-
-We first start by creating a grid with all cells surrounded by four walls.
-In Reeborg's World, we only record two walls per cell location: one
-located to the right ("east") and one located above ("north") of that
-location.  The entire *world* itself is surrounded by a border of
-walls, so we do not need to generate walls to the right of the last
-column or above the upper row.
+먼저 벽 네개로 둘러싸인 격자를 모든 셀에 생성한다.
+리보그 세상에서, 해당 셀위치마다 두 벽만 기록한다: 하나는 해당셀 우측("동쪽")에 위치하고, 다른 하나는 해당셀 윗쪽("북쪽")에 위치한다. 전체 *세상* 그자체는 벽 경계로 둘러싸여져서, 마지막 칼럼의 우측벽과 위쪽 행 벽을 생성할 필요는 없다.
 
 .. code-block:: python
 
@@ -53,28 +42,20 @@ column or above the upper row.
 
 .. important::
 
-   Maze generation examples, in Python and Javascript, are available
-   from the world menu.  Usually, the conversion by Brython of
-   Python code to Javascript code results in code that runs with
-   comparable speed to pure Javascript code.  However, for the
-   maze generation case, the Javascript code runs **much** faster.
+   파이썬과 자바스크립트에서, 미로생성 예제를 세상 메뉴에서 찾을 수 있다. 일반적으로, 파이썬 Brython 코드를 자바스크립트로 전환하면 순수 자바스크립트 코드 속도와 비교될만큼 빠르게 실행된다. 하지만, 미로 생성 사례의 경우, 자바스크립트 코드가 **훨씬** 더빨리 실행된다.
 
-   One can use the Javascript code to generate mazes (worlds i.e.
-   json files) that can be used later with either programming language.
+   누구나 자바스크립트 코드를 사용해서 미로(세상, 즉 JSON 파일)를 생성할 수 있는데, 어느 프로그래밍 언어로도 나중에 사용할 수 있다.
+
+벽으로 가득찬 격자를 갖추게 되면, 이를 다음과 같이 미로로 변환시킨다:
 
 
-Once we have a grid filled with walls, we transform it into a maze as follows:
+1. 랜덤하게 셀을 고른다
+2. 랜덤하게 인접한 셀을 선택한다 ...
+3. ... 해당 셀은 방문한 적이 없다.
+4. 두 셀사이 벽을 제거하고 인접한 셀을 방문한 셀 목록(list)에 추가한다.
+5. 만약 방문한 적이 없는 인근 셀이 없다면, 적어도 한번도 방문한 적이 없는 인근셀로 되돌아 간다; 최초 시작한 셀로 되돌아갈 때까지 과정을 반복한다.
 
-1. We pick a random cell
-2. We select a random neighbouring cell ...
-3. ... that has not been visited
-4. We remove the wall between the two cells and add the neighbouring cell
-   to the list of cells having been visited.
-5. If there are no unvisited neighbouring cell, we backtrack to one
-   that has at least one unvisited neighbour; this is done until
-   we backtract to the original cell.
-
-This is easily implemented using recursion::
+재귀를 사용해서 알고리즘을 구현하면 다음과 같다::
 
     from random import shuffle, randrange
 
@@ -102,16 +83,10 @@ This is easily implemented using recursion::
 
 .. |maze_gen2| image:: ../../images/maze_gen2.gif
 
-The above algorithm is adapted from
-http://rosettacode.org/wiki/Maze_generation#Python.
-An interesting feature of that algorithm is that it
-appends extra fake visited list items to avoid generating an ``IndexError``
-when reaching index values greater than the size of the lists,
-cleverly making use of the fact that ``[-1]`` refers to the last item in a list.
-(I wouldn't have thought of that on my own.)
+상기 알고리즘은 http://rosettacode.org/wiki/Maze_generation#Python 사이트에서 참조했다. 
+알고리즘에 흥미로운 면이 하나 있다. 리스트 크기보다 큰 인텍스 값에 도달하면, ``IndexError`` 인덱스오류가 발행하는데, 이를 회피하려고 추가로 거짓으로 방문된 리스트 항목을 추가한다. 똑똑하게 ``[-1]`` 이 리스트에 나온 최종 항목이라는 사실을 이용했다. (저자 스스로 생각하지 못했던 것이다.)
 
-
-The entire code is the following::
+전체 코드가 다음에 나와 있다::
 
     from random import shuffle, randrange, randint
 
@@ -192,47 +167,26 @@ The entire code is the following::
         else:
             turn_left()
 
+코드에는 로봇, 별이 포함되어 있고, 로봇이 별을 찾는 빠른 방법도 포함되어 있다. 
 
-It includes the addition of a robot, a star, and a
-quick method for the robot to find the star.
 
 |maze_gen2b|
 
 .. |maze_gen2b| image:: ../../images/maze_gen2b.gif
 
+``RUR.rec.record_frame()`` 행은 해당 시점에 세상 상태를 "사진 찍는"(프레임을 기록) 명령이다. 문서 나머지 부분을 읽지 않은 분을 위해 짧게 설명하면 다음과 같다: 리보그 세상에서, 프로그램은 먼저 뒷무대에서 전체가 실행되고 프레임으로 기록된다; 그리고 나서, 연속된 프레임으로 한번에 하나씩 재생된다. ``think(ms)`` 함수를 사용해서 지연 시간을 조정할 수 있는데, 각 동작 사이에 리보그가 생각하는데 소요되는 시간을 나타낸다. ``RUR.storage.save_world(name)`` 명령어가 브라우저 로컬 저장소에 미로를 저장한다. 그래서, 나중에 리보그 세상에 접근할 때(물론 동일한 브라우저를 사용), 미로를 불러올 수 있다. 로봇과 찾을 객체를 추가했다. 로봇이 객체를 찾는데 사용된 전략은 "우측 벽을 따라 진행함"으로, 바로 우측에 있는 벽 방향으로 이동한다.
 
-The lines ``RUR.rec.record_frame()``
-are instructions to "take a snapshot"  (or "record
-a frame") of the world's state at that point.  In case you have
-not read the rest of the documentation: in Reeborg's World,
-programs are first run entirely in the background, with various frames
-being recorded; the series of frames are then played back, one at a
-time, with a delay that can be adjusted using ``think(ms)``, which is
-supposed to represent the amount of time taken by the robot to think
-between each action.
-``RUR.storage.save_world(name)`` saves the maze in the browser's local
-storage, so that it could be retrieved when accessing Reeborg's World
-at a later time (using the same browser, of course).   We've also
-added a robot and an object to find.  The strategy used by the robot
-to find the object consists in "following the right wall", moving in
-such a way that a wall is always present to its immediate right.
+``pause()`` 에 다양한 호출을 포함할 수 있는데, 진행단계를 좀더 면밀히 살펴보는데 유용하다.
 
-Note that we've also included various calls to ``pause()``, useful
-for having a closer look at various stages.
 
-**Note: while the frames are being recorded, the display
-is effectively frozen.** [As mentioned above, the pure Javascript code
-is **much** faster and do not cause such long delays.]
-For example, it took 40 seconds before the following started to display:
+**주목: 프레임이 기록될 때, 화면은 사실상 정지된다.** [앞에서 언급했듯이, 순수 자바스크립트 코드가 **훨씬** 더 빨라 긴 지연문제를 야기하지 않는다.] 예를 들어, 다음 화면이 출력될 때까지 40초 걸렸다:
 
 |maze_gen3|
 
 .. |maze_gen3| image:: ../../images/maze_gen3.gif
 
 
-.. topic:: How to use for students
+.. topic:: 학생을 위한 사용법
 
-    If one wants to have worlds based on some randomly generated mazes,
-    the preferred approach would be to include the maze-generation code
-    in the "pre-code" part of the world, so that the Editor would contain
-    only the student's code.
+    누군가 임의 생성된 미로 세상을 갖고자 한다면,
+    선호하는 접근법은 세상 "pre-code" 부분에 미로 생성 코드를 포함시키는 것이다. 그렇게 함으로써, 편집기에는 학생 코드만 담겨지게 된다.
