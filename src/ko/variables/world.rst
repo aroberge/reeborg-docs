@@ -32,38 +32,38 @@
 
     **Storm 1** 세상을 선택한다.
     리보그가 모든 낙엽을 모아서 쓰레기통에 담는 프로그램을 작성한다.
-    작성한 프로그램에는 아마도 ``carries_object()`` 함수를 
+    작성한 프로그램에는 아마도 ``carries_object()`` 함수를
     사용하는 것이 필요하다.
 
 .. hint::
     .. code-block:: py3
-    from library import *
-    think(0)
-    
-    def collect_leaves():
-        while not wall_in_front():
-            move()
-            if object_here():
-                while object_here():
-                    take()
-    
-    
-    def throw_away():
-        while not wall_in_front():
-            move()
-            if wall_in_front():
-                turn_right()
+
+        from library import *
+        think(0)
+
+        def collect_leaves():
+            while not wall_in_front():
                 move()
-                while carries_object():
-                    put()
-    
-    #----- 정의 끝
-                    
-    collect_leaves()
-    turn_around()
-    throw_away()
-    turn_around()
-    move()
+                if object_here():
+                    while object_here():
+                        take()
+
+        def throw_away():
+            while not wall_in_front():
+                move()
+                if wall_in_front():
+                    turn_right()
+                    move()
+                    while carries_object():
+                        put()
+
+        #----- 정의 끝
+
+        collect_leaves()
+        turn_around()
+        throw_away()
+        turn_around()
+        move()
 
 원격 세상 적재하기
 -------------------------------------
@@ -72,14 +72,14 @@
 낙엽이 있는 장소에 주목한다.
 
 이제, **Storm 1** 에 흩어져 있는
-모든 낙엽을 리보그가 주어서 쓰레기통에 담도록 작성한 
+모든 낙엽을 리보그가 주어서 쓰레기통에 담도록 작성한
 프로그램 최상단에, 다음 코드 한줄을 추가한다::
 
     World("http://reeborg.ca/worlds/not_storm1.json")
 
 [not_storm1 말미에 영문자 "l" 이 아니고, 숫자 "1" 임에 주의한다.] 프로그램을 한번 실행한다: 리보그가 세상이 적절히 잘 적재되었음을 일러줘야 한다. 모양은 이전에 살펴본 것과 통일해야 된다.
 
-상단 세상명칭 선택자에 매우 긴 명칭( ``World()`` 함수에 인자로 사용됨)이 나온 것에 주목한다. 
+상단 세상명칭 선택자에 매우 긴 명칭( ``World()`` 함수에 인자로 사용됨)이 나온 것에 주목한다.
 
 최상단 "World info" 버튼을 클릭한다. 세상에 대한 간략한 기술이 되어있는데, ``carries_object()`` 사용을 가정하지 않는다는 사실이 포함되어 있다.
 이것은 무시하고, 프로그램을 실행한다. 발생한 일에 대해서 착실히 적어 놓는다.
@@ -103,7 +103,7 @@
 **하지만**, 문자열은 쪼개지 않았음에 주목한다; 콤마 다음에 새줄에 작성했다. 그렇게 함으로써, 함수 인자는 해당 줄에 모두 위치하게 된다.
 
 이제 다시 실행한다. 이렇게 바꾼다고, 작업하고 있던 문제가 해결된 것은 아니다. **하지만**, 상단을 살펴보면,
-세상에 대한 명칭이 이전에 봤던 매우 긴 장문의 주소가 아니라 
+세상에 대한 명칭이 이전에 봤던 매우 긴 장문의 주소가 아니라
 ``Not Storm 1`` 으로 나온다.
 
 작업 저장하기
@@ -113,6 +113,6 @@
 상단에 "Additional options" 과 "Save program to file" 을 클릭해서 저장한다.
 나중에, 저장한 프로그램을 "Import program from file" 을 클릭해서 불러올 수 있다.
 
-.. admonition:: 선생님께 
+.. admonition:: 선생님께
 
     To do: 대신 ``permalinks`` 를 사용하는 방법을 설명한다.

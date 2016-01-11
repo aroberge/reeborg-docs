@@ -57,29 +57,28 @@
 .. hint::
     .. code-block:: py3
 
-    from library import *
-    
-    think(10)
-    
-    World("http://reeborg.ca/worlds/not_storm1.json",
-          "Not Storm 1")
-    
-    number_of_leaves = 0
-    
-    while not wall_in_front():
-        move()
-        if object_here():
-            while object_here():
-                take()
-                number_of_leaves += 1
-    turn_around()    
-    
-    while not wall_in_front():
-        move()
-    
-    turn_right()
-    move()
-        
-    while number_of_leaves > 0:
-        put()
+        from library import *
 
+        think(10)
+
+        World("http://reeborg.ca/worlds/not_storm1.json",
+              "Not Storm 1")
+
+        number_of_leaves = 0
+
+        while not wall_in_front():
+            move()
+            if object_here():
+                while object_here():
+                    take()
+                    number_of_leaves += 1
+        turn_around()
+
+        while not wall_in_front():
+            move()
+
+        turn_right()
+        move()
+
+        while number_of_leaves > 0:
+            put()
