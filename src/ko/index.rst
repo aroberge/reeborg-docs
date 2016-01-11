@@ -46,7 +46,7 @@
    D. 객체지향 프로그래밍: 준비중 <oop/index>
    E. 고차 함수: 준비중 <functional/index>
    F. 프로그래밍 연습문제: 준비중 <exercises/index>
-   G. 리보그 세상 찾아보기: 준비중 <reference/index>
+   G. 리보그 세상 찾아보기 <reference/index>
    H. 파이썬: 간략한 개요 <python/index>
    I. 기여!: 준비중  <contribute/index>
 
