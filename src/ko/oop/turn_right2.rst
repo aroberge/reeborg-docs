@@ -15,14 +15,14 @@ the robot.   This is going to be a bit long, but very worthwhile in the end.
 Along the way, you will learn new Python concepts ... and you will even
 see some and understand some Javascript code!
 
-.. sidebar:: Why use ``inpect``?
+.. sidebar:: Why use ``dir_js``?
 
    I sometimes change things in my programs [of course, **never**
    because my programs contain bugs ;-)] and it may just happen that the
    code I describe in this tutorial is slightly different from the one that
    happens to be used in Reeborg's World as you are reading this.  If the
    differences are small, I do not plan to revise the entire set of tutorials
-   every time I make a change.  By having you using ``inspect`` to follow along with me,
+   every time I make a change.  By having you using ``dir_js`` to follow along with me,
    you should be able to figure out how to make things work; if not, contact me!
 
 Digging into Reeborg's code
@@ -34,9 +34,9 @@ on the "World" button.
 Enter and execute the following code and look at the result in the Diary::
 
     r = UsedRobot()
-    inspect(r)
+    dir_js(r)
 
-``inspect`` is a Javascript function, understood by Python/Brython,
+``dir_js`` is a Javascript function, understood by Python/Brython,
 that I wrote to enable you to see an
 object's methods and attributes. Right now, it does not tell us much.
 Here is what I get when I do this::
@@ -57,7 +57,7 @@ So, we know that ``r.body`` is
 *something*.  Run the following code::
 
     r = UsedRobot()
-    inspect(r.body)
+    dir_js(r.body)
 
 .. note::
 

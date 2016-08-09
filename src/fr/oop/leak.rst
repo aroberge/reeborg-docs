@@ -15,7 +15,7 @@ précédemment.
         print(attr)
 
 Vous devriez voir quelque chose qui ressemble à ceci, sans
-les commenataires que j'ai rajoutés::
+les commentaires que j'ai rajoutés::
 
     _is_leaky          # "a une fuite"
     _prev_orientation  # prev == previous,
@@ -352,4 +352,3 @@ Note that, rather than simply fixing the leak once and for all, we chose to
 add another named argument to give us the option to have a leaky robot.
 This can be useful when writing programs: we activate the leak while
 debugging the program, and turn it off when everything is working correctly.
-

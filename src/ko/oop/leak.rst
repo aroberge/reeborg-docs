@@ -11,7 +11,7 @@ triggers the oil leak.
 .. code-block:: py3
 
     r = UsedRobot()
-    inspect(r.body)
+    dir_js(r.body)
 
 You should see something like::
 
@@ -327,4 +327,3 @@ Note that, rather than simply fixing the leak once and for all, we chose to
 add another named argument to give us the option to have a leaky robot.
 This can be useful when writing programs: we activate the leak while
 debugging the program, and turn it off when everything is working correctly.
-

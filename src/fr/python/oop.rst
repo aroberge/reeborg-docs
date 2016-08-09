@@ -274,9 +274,9 @@ for you.  For example, running the following program:
 .. code-block:: py3
 
     r = UsedRobot()
-    inspect(r)
+    dir_js(r)
 
-``inspect`` is a Javascript function, understood by Python/Brython,
+``dir_js`` is a Javascript function, understood by Python/Brython,
 that I wrote to enable you to see an
 object's methods and attributes. Right now, it does not tell us much.
 Here is what I get when I do this::
@@ -297,7 +297,7 @@ So, we know that ``r.body`` is
 *something*.  Run the following code::
 
     r = UsedRobot()
-    inspect(r.body)
+    dir_js(r.body)
 
 You should see something like::
 
@@ -324,7 +324,7 @@ Remember when you ran this code?
 .. code-block:: py3
 
     r = UsedRobot()
-    inspect(r)
+    dir_js(r)
 
 We are going to do the equivalent with Javascript.
 
@@ -335,7 +335,7 @@ Javascript instead of Python.  Then run the following code:
 .. code-block:: javascript
 
    var r = new UsedRobot();
-   inspect(r);
+   dir_js(r);
 
 Here is what I see when I do this::
 
@@ -372,7 +372,7 @@ Now we are ready to look at some code.
        view_source(r.turn_left);
 
    Make sure the code is exactly as written above.  Note that I use
-   ``view_source`` instead of ``inspect`` which, as it turns out, would
+   ``view_source`` instead of ``dir_js`` which, as it turns out, would
    not help me at all in this case.
 
 Based on the result that I see printed,

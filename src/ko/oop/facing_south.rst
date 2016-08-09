@@ -47,7 +47,7 @@ he was facing South, using the following::
    There are two ways to have Reeborg determine its orientation.  One is by using
    a code similar to the **function** ``is_facing_south()`` written above and
    introduced in the lesson about ``return``.
-   The other way is to dig in the Javascript code, using ``inspect`` and ``view_source``
+   The other way is to dig in the Javascript code, using ``dir_js`` and ``view_source``
    and see how it could possibly be implemented in a single line of code, without the
    need to use a variable like ``remember``.
 
@@ -64,7 +64,7 @@ rapidly to face any direction as required.
 
 .. topic:: Try this!
 
-    Design four methods, one for each direction starting with ``face_north()`` which 
+    Design four methods, one for each direction starting with ``face_north()`` which
     will have Reeborg turn immediately to face the required direction in a single step.
     Make sure that you record that step as a "frame".  You do not have to worry about
     the appearance of the oil leak.
