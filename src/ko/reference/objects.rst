@@ -41,7 +41,7 @@
 해당 지점에서 발견한 "정상" 객체 갯수는 표식되는 반면에, 장식 객체에는 숫자가 없다.
 
 
-배경 파일
+배경 타일
 ----------------
 
 :잔디-grass: |grass| |pale_grass|  리보그가 걸어가는데 문제가 되지 않음
@@ -81,7 +81,7 @@
 |strawberry_goal| |tulip_goal| |square_goal| |star_goal|
 |triangle_goal| |token_goal|
 
-리보그가 정해진 최종 지점에서 작업을 끝마쳐야 됨을 표기하는데, 
+리보그가 정해진 최종 지점에서 작업을 끝마쳐야 됨을 표기하는데,
 다음 이미지 중 하나가 사용된다.
 
 |green_home_tile| |house| |racing_flag|
@@ -136,4 +136,3 @@
 .. |star_goal| image:: ../../../src/images/star_goal.png
 .. |triangle_goal| image:: ../../../src/images/triangle_goal.png
 .. |token_goal| image:: ../../../src/images/token_goal.png
-
