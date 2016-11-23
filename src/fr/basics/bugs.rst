@@ -40,6 +40,12 @@ dans le journal Pall Mall Gazette:
     discovering 'a bug' in his phonograph - an expression for solving a
     difficulty, and implying that some imaginary insect has secreted
     itself inside and is causing all the trouble.
+    
+Ce qu'on peut traduire en Français par:
+    J'ai été informé que Mr. Edison a été réveillé les deux dernières
+    nuits découvrant 'un insecte' dans son phonographe - une expression
+    signifiant résoudre un problème, et impliquant qu'un insecte 
+    imaginaire s'est introduit à l'intérieur, causant tous les problèmes.
 
 Donc, il semblerait que le bogue original, bien qu'il ait fait référence
 à un insecte, en aurait été un *imaginaire*...
