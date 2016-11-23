@@ -4,6 +4,8 @@ Darn bugs!
 Nobody likes to talk about computer bugs. But, unfortunately, you must
 learn about them and, especially, how to get rid of them.
 
+This lesson is a little longer than the previous ones, but I encourage you to read it completely at least once.
+
 What is a bug?
 --------------
 
@@ -56,6 +58,14 @@ they are "features" of their programs. **You** are going to be a good
 programmer, unlike the maker of Reeborg, whose program is littered with
 bugs.
 
+.. figure:: ../../images/reeborg_costume.jpg
+   :figwidth: 40%
+   :align: right
+
+   Reeborg, full-scale (New Jersey, USA)
+
+   *Courtesy picture of A. Judkis.*
+   
 #. Reeborg has an oil leak. Oil leaks are damaging for the environment
    and inconvenient for Reeborg who must replenish its supplies when
    it's not busy accomplishing tasks. The maker of Reeborg claims that
@@ -67,7 +77,7 @@ bugs.
 #. Reeborg's steering mechanism is not handled properly by Reeborg's
    program: it can only turn left. The maker of Reeborg, once again,
    claims that this is a feature as it present you with an opportunity
-   to learn about functions. Reeborg disagrees. You will soon learn how
+   to learn about **functions**. Reeborg disagrees. You will soon learn how
    to program a *workaround solution*, enabling Reeborg to turn right,
    although in a wasteful fashion. Much later, you will learn how to
    truly fix Reeborg so that it can turn right just as easily as it can
@@ -101,7 +111,8 @@ following:
    pressing the *execute one instruction and pause*, or **step** button.
    By default, the line about to be executed is highlighted; you can turn off
    the highlighting by clicking on a button above the code editor.
-#. You can change the speed of execution at any point inside a program;
+#. You can change the speed of execution (the time between two instructions)
+   at any point inside a program;
    I will explain how you can do this later.
 #. You can have Reeborg write some information at any given point inside
    a program; again, I will explain how you can do this later.
