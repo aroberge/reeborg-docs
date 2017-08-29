@@ -4,12 +4,12 @@ Learn Python with Reeborg!
 
 
 Learning Python is easy with Reeborg.  All you have to do is read the tutorial
-and try all the examples in `Reeborg's world <http://reeborg.ca/world.html>`_.
+and try all the examples in `Reeborg's world <http://reeborg.ca/reeborg.html?lang=en&mode=python>`_.
 I suggest that you keep the tutorial and Reeborg's World both open but
 in separate windows or tabs.
 
 Before you actually start the tutorial, have Reeborg take its first step
-by running a program in `Reeborg's world <http://reeborg.ca/world.html>`_.
+by running a program in `Reeborg's world <http://reeborg.ca/reeborg.html?lang=en&mode=python>`_.
 
 
 Hints are clickable and designed to provide useful pointers if you are
@@ -17,7 +17,7 @@ not sure how to proceed.
 
 .. hint::
 
-    Go to `Reeborg's world <http://reeborg.ca/world.html>`_, click on the "run" button
+    Go to `Reeborg's world <http://reeborg.ca/reeborg.html?lang=en&mode=python>`_, click on the "run" button
     (small white triangle on blue background)
     and watch Reeborg takes its first step.
     You can also `view this short video <http://youtu.be/yTdw97KNgGM>`_

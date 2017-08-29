@@ -196,7 +196,7 @@ Brython을 사용해서, 저자는 자바스크립트 "백엔드(backend)"로
 
 .. code-block:: py3
 
-    r = UsedRobot()
+    reeborg = UsedRobot()
 
     reeborg.body._is_leaky = False
     reeborg.move()
@@ -262,7 +262,7 @@ Brython을 사용해서, 저자는 자바스크립트 "백엔드(backend)"로
     r = UsedRobot()
     dir_js(r)
 
-Python/Brython이 이해되는 ``dir_js`` 는 자바스크립트 함수로, 
+Python/Brython이 이해되는 ``dir_js`` 는 자바스크립트 함수로,
 객체 메쏘드와 속성을 볼 수 있도록 작성했다.
 지금 당장, 그다지 많은 것을 알려주지는 않는다.
 상기 명령어를 실행할 때, 얻은 결과가 다음에 나와 있다::

@@ -207,7 +207,7 @@ Try the following:
 
 .. code-block:: py3
 
-    r = UsedRobot()
+    reeborg = UsedRobot()
 
     reeborg.body._is_leaky = False
     reeborg.move()

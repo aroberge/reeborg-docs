@@ -3,20 +3,20 @@ Apprenez Python avec Reeborg!
 
 C'est facile d'apprendre Python avec Reeborg.  Tout ce que vous avez
 à faire dest de lire ce tutoriel et de faire tous les exemples
-en utilisant le `Monde de Reeborg <http://reeborg.ca/monde.html>`_.
+en utilisant le `Monde de Reeborg <http://reeborg.ca/reeborg.html?lang=fr&mode=python>`_.
 Je vous suggère d'avoir le tutoriel et le monde de Reeborg ouverts
 en même temps, soit dans des fenêtres ou des onglets séparés.
 
 Avant de débuter le tutoriel proprement dit, faites en sorte que
 Reeborg fasse son tout premier pas en exécutant un programme dans le
-`Monde de Reeborg <http://reeborg.ca/monde.html>`_.
+`Monde de Reeborg <http://reeborg.ca/reeborg.html?lang=fr&mode=python>`_.
 
 Si vous n'êtes pas certain de la marche à suivre, cliquez sur
 l'**indice** ci-dessous.
 
 .. hint::
 
-    Allez au `Monde de Reeborg <http://reeborg.ca/monde.html>`_,
+    Allez au `Monde de Reeborg <http://reeborg.ca/reeborg.html?lang=fr&mode=python>`_,
     et cliquez sur le bouton "exécution"
     (petit triangle blanc sur fond bleu)
     et observez Reeborg faire son premier pas.
