@@ -45,11 +45,13 @@ Par exemple, si vous trouvez que ``tourne_a_gauche()`` est trop long
    newspaper3
    world
    increment
+   scope
+   comparison
+   return
    listes
    string_index
    for
-   return
    arguments1a
    arguments1b
-   slice
+..   slice
    harvest3

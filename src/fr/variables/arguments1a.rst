@@ -1,6 +1,8 @@
 Argument de fonction
 ====================
 
+Note: référez les étudiants au site https://cscircles.cemc.uwaterloo.ca/10-fr/
+
 Nous avons vu que, lorsqu'il y a plus d'une sorte d'objets dans
 le monde de Reeborg, il faut parfois spécifier lequel on veut
 prendre ou déposer en utilisant un argument de fonction, comme par exemple::

@@ -170,3 +170,10 @@ variable suivant le mot-clé ``return``. S'il n'y a rien après
     en suivant le mur du côté **gauche** plutôt que le mur du côté droit
     comme on l'avait vu avant.
 
+Ressources supplémentaires
+--------------------------
+
+Rendez-vous à l'adresse https://cscircles.cemc.uwaterloo.ca/10-fr/ pour 
+quelques explications et exercices supplémentaires.
+
+Puis https://cscircles.cemc.uwaterloo.ca/11b-fr/.

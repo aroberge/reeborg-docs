@@ -1,123 +1,195 @@
-Incrément
+Increment
 =========
 
-.. todo::
+Choisissez le monde **Autour 1**.
 
-    rewrite this and use **Storm 1** as an example; disable
-    ``carries_object()`` and have Reeborg count the number of leaves
-    instead.
+Supposons que vous vouliez compter le nombre de pas que Reeborg
+a fait pour arriver au mur de droite depuis sa position de départ. 
+Une manière de faire cela est d'utiliser une variable que j'appele 
+``nombre_de_pas`` et de lui donner une valeur initiale de 0.
+Ensuite, à chaque fois que Reeborg fait un pas, j'ajoute 1 à la 
+valeur précédente de ``nombre_de_pas``.
 
-    Introduce the global keyword.
+Facile?
 
-.. todo::
+Avant d'écrire un programme Python qui fait cela, faisons une expérience.
 
-   Revoir d'abord l'exemple::
+.. topic:: Essayez ceci!
 
-        longueur = 4
-        largeur = 6
-        aire = longueur * largeur
+    Exécutez le programme::
 
-   en détails, se concentrant sur l'association de la variable
-   ``aire`` avec l'objet (chiffre) 24 qui est calculé en premier, puis à qui
-   on associe le nom de la variable.
+        n = 1
+        n = n + 3
+        print(n)
 
-Assurez-vous d'avoir les panneaux **Éditeur**, **Monde** et **Journal**
-ouverts. Sélectionnez le monde **Autour 1**.
+    Que voyez-vous?    Ensuite, exécutez ceci::
 
-Supposons que nous voulons compter le nombre de pas pris par Reeborg
-pour atteindre le mur à droite à partir de son point de départ. Une
-façon de faire ceci est d'utiliser une variable que je vais appeler
-``nombre_de_pas`` et à laquelle je vais attribuer 0 comme valeur
-initiale. Puis, à chaque fois que Reeborg prendra un pas, j'ajouterai 1
-à la valeur *précédente* de ``nombre_de_pas``. En Python, ceci est
-fait en utilisant la syntaxe suivante::
+        a = a + 3
+        print(a)
 
-    nombre_de_pas = nombre_de_pas + 1
+    Les résultats sont très différents, n'est-ce pas?
 
-**Ceci n'est pas une équation mathématique!** Si on avait une équation
-mathématique, une variable du côté gauche du signe d'égalité aurait la
-même valeur que si elle se trouvait à droite du même signe. En
-Python, et dans plusieurs autres langages de programmation, le
-symbole ``=`` est utilisé pour *affecter* une valeur: Python
-détermine en premier la valeur de l'expression à la droite du signe
-``=``, puis utilise le nom de la variable à gauche de ce signe comme
-aide-mémoire pour se rappeler de la valeur. Ainsi, si nous avons::
+
+
+Comprendre les incréments
+-------------------------
+
+En programmation, l'action de changer la valeur d'une variable
+telle que celle-ci augmente se nomme **incrémenter**.
+Quand une variables diminue, on utilise le verbe **decrémenter**.
+
+Souvenez-vous quand nous avons vu les variables et l'opérateur ``=``.
+Une variable est un nom donné à un objet pour que l'on puisse
+s'y référer en utilisant ce nom.
+La syntaxe de base est::
+
+    variable = objet
+
+Un exemple que nous avons vu est::
+
+    longueur = 4
+    largeur = 6
+    aire = longueur * largeur
+    print(aire)  # imprimera 24
+
+Pour savoir à quoi ``aire`` se réfère, Python doit 
+remplacer les variables ``longueur`` et ``largeur`` par les objets
+auxquelles elles se réfèrent::
+
+    aire = 4 * 6
+
+Cependant, ``4 * 6`` n'est toujours pas un objet: c'est le produit de deux objets.
+Donc Python doit continuer son travail pour obtenir::
+
+    aire = 24
+
+Dans ce cas, nous avons vraiment une équation avec un nom (variable) 
+à gauche de l'opérateur ``=`` et un objet (``24``) à droite.
+
+Reprenons l'exemple précédent::
 
     n = 1
     n = n + 3
-    print(n)  # donne 4
 
-c'est équivalent à::
+Quand la variable ``n`` apparaît des deux côtés de l'opérateur ``=``,
+la logique ne change pas:
 
-    n = 1
-    n = 1 + 3  # nous avons écrit "1" au lieu de "n"
-    print(n)   # donne 4
+On cherche tout d'abord quel objet **seul** devrait être à droite et ensuite
+on lui assigne un nom.
 
-.. topic:: À votre tour!
-
-   Vérifiez par vous-mêmes!
-
-Puisque ce type d'opération, connue sous le nom d'*incrémenter* une
-variable, est fait très souvent, Python, et plusieurs autres
-langages de programmation, utilise une notation raccourcie et
-l'opérateur ``+=``::
+Donc la ligne de code::
 
     n = 1
-    n += 3
-    print(n)  # donne 4
 
-.. topic:: À votre tour!
+informe Python qu'à chaque fois que l'on écrit ``n``, on veut dire ``1``.  
+La prochaine ligne de code est::
 
-    Vérifiez que ceci fonctionne comme vous le comprenez!
+    n = n + 3
 
-Compter les pas
----------------
+Cela n'est très clairement pas une opération mathématique standard!
+Souvenez-vous que nous venons juste de voir que l'opérateur ``=``
+indique à Python qu'il doit assigner un nouveau nom à un objet.
+Ici, l'objet est obtenu via::
 
-Nous sommes maintenant prêts à écrire un programme qui permettra à
-Reeborg de compter les nombres de pas, en utilisant le monde **Autour 1**.
-Transcrivez le code suivant dans l'éditeur et exécutez-le. Idéalement,
-vous devriez le modifier pour vérifier les autres façons d'incrémenter
-une variable décrites ci-dessus.
+    n + 3
 
-.. code:: py3
+Nous avons déjà informé Python que ``n`` se réfère à ``1``.
+Donc  ``n + 3`` est en fait  ``1 + 3``. Python sait additionner deux
+entiers et remplace la somme de deux entiers par un seul:  ``4``.
 
-    nombre_de_pas = 0;
+Donc ``n + 3`` se réfère à l'obje ``4``, et la ligne de code::
 
-    def avance_et_compte():
-        global nombre_de_pas
-        avance()
-        nombre_de_pas += 1
+    n = n + 3
 
-    while rien_devant():
-        avance_et_compte()
+signifie::
 
-    print(nombre_de_pas)  # devrait être 9
+    n = 4
 
-.. todo::
+Et cela peut être interprété comme par Python comme: quelque soit le
+sens de ``n`` auparavant, oublie-le et à partir de maintenant cela signifie 
+``4``.
 
-   Éliminez la fonction et reporter à plus tard la discussion du
-   mot-clé ``global``
+Que dire de ``a = a + 3``? Python regarde d'abord à droite ``a + 3``,
+trouve une variable ``a`` à laquelle aucun objet n'a été assignée 
+donc il ne sait pas quoi faire avec et nous informe à l'aide
+d'un messsage d'erreur.
+
+.. topic:: Compter les pas
+
+    Il est maintenant temps de faire compter à Reeborg le nombre 
+    de pas pour arriver jusqu'au mur en face de lui dans le monde
+    **Autour 1**.
+    Essayez en premier le programme suivant::
+
+        nombre_de_pas = 0
+
+        while rien_devant():
+            nombre_de_pas = nombre_de_pas + 1
+            avancer()
+
+        print(nombre_de_pas)
+
+.. topic:: A vous
+
+    Programmez Reeborg pour qu'il fasse le tour du monde **Autour 1**.
+    Pendant son parcourt, Reeborg doit compter ses pas et le nombre de fois
+    qu'il tourne à gauche.
+    A la fin, celui-ci doit afficher ces informations.
+    **Important**: faites ceci sans définir vos propres fonctions.
+
+Opérateurs d'affectation augmentés
+----------------------------------
+
+.. index:: opérateurs affectation augmentés
+
+.. index:: +=, -=, /=, *=, //=, **=
+
+Dans les programmes Python, on doit souvent faire des opérations telles
+que celle-ci::
+
+    nombre_de_pas = nombre_de_pas + 1
+
+ou::
+
+    nombre_de_parts_de_pizza = nombre_de_parts_de_pizza - 2
+
+Ceci est non seulement long à écrire mais cela ne respecte pas 
+la troisième règle: **Ne vous répétez pas** car la même variable
+est écrite **deux fois** sur la même ligne.
+Il existe un moyen plus court d'écrire de telles lignes de code 
+pour éviter les répétitions en utilisant ce que l'on appelle les 
+**opérateurs d'affectation augmentés**.
+
+Il est possible de réécrire les deux lignes précédentes ainsi::
+
+    nombre_de_pas += 1
+    nombre_de_parts_de_pizza -= 2
+
+Pour chaque opérateur mathématique, ``+, -, /, //, *, **``, il existe
+un opérateur d'affectation augmenté ``+=, -=, /=, //=, *=, **=``.
+
+.. important::
+   
+   Quand on utilise les opérateurs d'affectations augmentés, il ne faut
+   pas mettre d'espaces entre les différents symboles. Ecrivez  ``+=`` et non
+   pas ``+  =``.
+
+.. topic:: A votre tour
+
+    Programmez Reeborg pour qu'il fasse le tour du monde **Autour 1**.
+    Pendant son parcourt, Reeborg doit compter ses pas et le nombre de fois
+    qu'il tourne à gauche.
+    A la fin, celui-ci doit afficher ces informations.
+    Cette fois-ci faites-le à l'aide des **opérateurs d'affectation augmentés**.
 
 
-Dans le programme ci-dessus, on utilise le mot-clé ``global`` pour indiquer
-à Python que la variable ``nombre_de_pas`` utilisée à l'intérieur de la
-fonction ``avance_et_compte`` est la même variable que celle utilisée
-ailleurs.
+De retour à la tâche de rammasage de feuilles?
+----------------------------------------------
 
-Si vous exécutez ce programme, vous remarquerez que le nombre de pas est imprimé
-**avant** que Reeborg ne se déplace.  La raison pour ceci est que le
-programme est exécuté et enregistré secrètement en coulisses, puis le résultat
-est démontré comme une animation dans un film.  Si au lieu d'utiliser la fonction
-Python ``print``, vous utilisez plutôt ``ecrit`` qui est spécifique au monde
-de Reeborg, vous verrez que le résultat de cette fonction est imprimé comme s'il
-s'agissait d'une étape individuelle dans le programme.
+A la fin de la leçon précédente, vous aviez une tâche que vous ne pouviez
+pas réaliser car vous ne pouviez pas utiliser la fonction ``transporte()``.
+Maintenant que vous savez compter le nombre de feuilles ramassées par
+Reeborg, il vous manque encore deux concepts de programmation afin d'accomplir
+cette tâche. Nous allons les aborder dans les deux prochains chapitres.
 
-
-.. topic:: À votre tour!
-
-    Écrivez un programme qui fera en sorte que Reeborg fasse le tour du
-    monde Autour 1 tout en comptant le nombre de pas **ainsi que** le nombre
-    de virages à gauche, écrivant le résultat dans son journal à la fin.
-    Vous devriez commencer par déposer un jeton pour indiquer la position de
-    départ (et d'arrivée).
 

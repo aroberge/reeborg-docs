@@ -166,6 +166,11 @@ Reeborg doit ramasser toutes les feuilles, et
 les mettre dans la boîte pour le compostage en s'assurant de fermer le couvercle à
 l'aide de l'instruction ``construit_un_mur()``.
 
+Vous n'avez pas toutes les connaissances nécessaires pour compléter la mission **Tempête 1** !
+En effet, le nombre de feuilles sur les cases varie à chaque exécution du programme. 
+Mais vous pouvez réfléchir et tenter de déterminer quelle(s) instruction(s) 
+supplémentaire(s) serai(en)t utile(s) pour parvenir à compléter la tâche.
+
 Encore du travail!
 ~~~~~~~~~~~~~~~~~~
 
@@ -182,7 +187,7 @@ Résumé
 Écrire des programmes où toutes les instructions permettant à Reeborg d'accomplir
 une certaine tâche doivent être écrite une à la fois peut être très fastidieux.
 Cependant, ceci vous a permis de vous mettre dans la peau d'un robot et vous
-aidera à utiliser Javascript pour écrire des programmes beaucoup plus court
+aidera à utiliser Python pour écrire des programmes beaucoup plus court
 permettant d'accomplir les diverses tâches confiées à Reeborg.
 
 .. admonition:: Pour les enseignants

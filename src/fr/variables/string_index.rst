@@ -1,8 +1,8 @@
 Un caractère dans une chaîne
 =============================
 
-.. todo::
+Les chaînes de caractères sont des données en Python qui sont très similaires aux listes.
 
-   Immédiatement après avoir expliqué le concept de listes et de sélection d'un élément par un
-   index, faire la même chose pour les chaînes.
+Rendez-vous à l'adresse https://cscircles.cemc.uwaterloo.ca/7a-fr/ pour 
+quelques explications et exercices supplémentaires.
 
