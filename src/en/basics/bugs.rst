@@ -25,7 +25,7 @@ of bug being found." as you can see.
 |image0|
 
 Picture adapted from the public archive of the `U.S. Naval Historical Center
-<http://www.history.navy.mil/photos/pers-us/uspers-h/g-hoppr.htm>`__
+<https://www.history.navy.mil/content/history/nhhc/our-collections/photography/numerical-list-of-images/nhhc-series/nh-series/NH-96000/NH-96566-KN.html>`__
 
 
 Actually, the word bug in a technological context is attributed by the
@@ -65,7 +65,7 @@ bugs.
    Reeborg, full-scale (New Jersey, USA)
 
    *Courtesy picture of A. Judkis.*
-   
+
 #. Reeborg has an oil leak. Oil leaks are damaging for the environment
    and inconvenient for Reeborg who must replenish its supplies when
    it's not busy accomplishing tasks. The maker of Reeborg claims that

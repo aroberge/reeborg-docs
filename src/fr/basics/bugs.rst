@@ -29,7 +29,7 @@ traduire par *Premier cas actuel d'un bogue/insecte trouvé.*
 |image0|
 
 Image adaptée de l'archive publique `U.S. Naval Historical Center
-<http://www.history.navy.mil/photos/pers-us/uspers-h/g-hoppr.htm>`__
+<https://www.history.navy.mil/content/history/nhhc/our-collections/photography/numerical-list-of-images/nhhc-series/nh-series/NH-96000/NH-96566-KN.html>`__
 
 En fait, la première utilisation du mot anglais bug dans un contexte
 technologique est attribuée à l'inventeur Thomas Edison. Selon le
@@ -40,11 +40,11 @@ dans le journal Pall Mall Gazette:
     discovering 'a bug' in his phonograph - an expression for solving a
     difficulty, and implying that some imaginary insect has secreted
     itself inside and is causing all the trouble.
-    
+
 Ce qu'on peut traduire en Français par:
     J'ai été informé que Mr. Edison a été réveillé les deux dernières
     nuits découvrant 'un insecte' dans son phonographe - une expression
-    signifiant résoudre un problème, et impliquant qu'un insecte 
+    signifiant résoudre un problème, et impliquant qu'un insecte
     imaginaire s'est introduit à l'intérieur, causant tous les problèmes.
 
 Donc, il semblerait que le bogue original, bien qu'il ait fait référence
