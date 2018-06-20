@@ -23,11 +23,11 @@ The fixed tasks include:
 -  **Around 1, 2, 3, 4**
 -  **Harvest 1**
 -  **Hurdle 1**
--  **Newspaper**
+-  **Newspaper 0**
 -  **Rain 0**
 -  **Tokens 1, 2, 3, 4, 5**
 
-There is one more fixed task, namely **Newspaper - Ada**, but you will
+There is one more fixed task, namely **Newspaper 1**, but you will
 first need to learn about something called an argument of a function
 before you can write a program that enables Reeborg to accomplish the required task easily.
 
