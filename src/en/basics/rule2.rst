@@ -40,9 +40,8 @@ When using Python, one can write comments in one of two ways:
 -  By writing some text preceded by ``#`` on any given line.
 
 I will first write a simple program without any comments followed by a
-second version with comments added and a third version ... slightly less
-readable; however, I will make the same error in all three programs. Can
-you spot it more easily in the first program orthe second?
+second version with comments; however, I will make the same error in both programs.
+Can you spot it more easily in the first program or the second?
 
 .. code-block:: python
 
