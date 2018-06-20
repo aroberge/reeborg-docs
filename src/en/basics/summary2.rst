@@ -3,13 +3,13 @@ Summary
 
 It is now time to review what we have learned since the last Summary.
 
-We have seen our first Python keywords, ``def``, ``from``, ``import``.
+We have seen our first Python keywords, ``def``, ``from``, ``import``,
+and how to save functions in a library to be used later.
 
 We have seen the concept of looping, and a keyword unique
 to Reeborg's World: ``repeat``.
 
-We have seen a sixth function specific to Reeborg's World, that is
-``build_wall()``, in addition to the five we had seen before:
+We have seen five functions specific to Reeborg's World:
 
 -  ``move()``
 -  ``turn_left()``
