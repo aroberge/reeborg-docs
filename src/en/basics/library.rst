@@ -69,15 +69,10 @@ and Reeborg will do the right thing.  For example, try the following::
 
     Write a short program which uses the functions of the French library.
 
-.. admonition:: For educators
+.. admonition:: For educators who prefer a language other than English
 
-    When the French library is imported, the online help
-    (available via "Addition options" -> "Help") is updated to include
-    all the French functions available.  The only restriction however
-    is that function arguments, such as ``"token"`` in ``take("token")``
-    **must** still be specified in English.  To use a version
-    completely translated in French, you must go to
-    `Le monde de Reeborg <http://reeborg.ca/monde.html>`_
+    A complete French version is available from the language menu at
+    the top right. Other languages may be available as well, based
+    on contributions from volunteers ... perhaps you'll be one of them
+    and provide a translation in your own language! ;-)
 
-    If you would like to create a new version, a Spanish version for example,
-    please contact me.
