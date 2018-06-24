@@ -4,11 +4,11 @@ Finding the right spot
 .. index:: at_goal()
 
 While the program you just wrote works for worlds **Tokens 1** and **Tokens 2**,
-it will fail if you try it for worlds **Tokens 3** and **Tokens 4**.
+it will fail if you try it for world **Tokens 3**.
 
 .. topic:: Try it!
 
-   Try your program with all four worlds.
+   Try your program with all three worlds.
 
 Another condition
 -----------------
@@ -44,8 +44,15 @@ should work in all four worlds mentioned above.
     repeat 42:
         move_until_done()
 
+.. note::
+
+    If you have the **World info** shown for the world **Tokens 3**, you will
+    see that the suggested solution uses the Python keyword ``while`` which
+    we have not see yet.
+
 Complete the above (in the Python Code editor) and make sure it works for all
-four worlds mentioned above.
+three worlds mentioned above.
+
 
 And now, something different
 ----------------------------
@@ -59,7 +66,7 @@ You did complete the above exercise, didn't you? ... Good.
     the **Tokens** world work? After you
     have determined this, try running it to confirm your understanding.
 
-Hurdles again!
+Hurdles race!
 --------------
 
 Have a look at worlds **Hurdles 1** and **Hurdles 2**. Ignoring the end goal for
@@ -87,18 +94,14 @@ for both worlds **Hurdles 1** and **Hurdles 2** would be::
    Your program could look as follows::
 
     from my_lib import turn_right
-    def jump_over_hurdle():
-        # some definitions
-
-    def move_and_jump_until_done():
-        # something
-        if at_goal():
-            done()
-        # something
+    
+    def move_and_jump_over_hurdle():
+        # some instructions
 
     repeat 42:
-        move_and_jump_until_done()
-
+        move_and_jump_over_hurdle()
+        if at_goal():
+            done()
 
 A question for you
 ~~~~~~~~~~~~~~~~~~

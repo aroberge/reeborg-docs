@@ -48,10 +48,15 @@ des quatre mondes mentionnés ci-dessus.
     repeat 42:
         avance_jusque_tâche_terminée()
 
+.. note::
+
+    Si vous avez la fenêtre **Description** du monde visible pour le monde
+    **Jetons 3**, vous verrez que la solution proposée utilise le mot-clé
+    ``while`` que vous n'avez pas encore vu.
+
 Utilisant l'esquisse ci-dessus, écrivez dans l'éditeur de code le
 programme requis et vérifiez qu'il fonctionne bel et bien dans chacun
 des quatre mondes mentionnés.
-
 
 Quelque chose de complètement différent ...
 -------------------------------------------
@@ -65,7 +70,7 @@ Vous avez bel et bien complété l'exercice ci-dessus, n'est-ce pas? ...
     est une solution pour ces deux mondes? Vérifiez votre compréhension en
     exécutant le programme.
 
-Encore les haies!
+Course de haies!
 -----------------
 
 Examinez les mondes **Haies 1** et **Haies 2**. Ignorez pour l'instant le but à
@@ -97,17 +102,13 @@ Haies 2::
 
         from biblio import tourne_a_droite
 
-        def saute():
+        def avance_et_saute():
             # quelques lignes de code
 
-        def avance_et_saut_jusqu_au_but():
-            # quelque chose
-            if au_but():
-                termine()
-            # quelque chose
-
         repeat 42:
-            avance_et_saute_jusqu_au_but()
+            avance_et_saute()
+            if au_but():
+                termine()            
 
 Une question pour vous
 ~~~~~~~~~~~~~~~~~~~~~~
