@@ -67,29 +67,13 @@ Back to hurdles
 .. index:: front_is_clear()
 
 Just two lessons ago, you wrote a program that worked for worlds
-**Hurdles 1** and **Hurdles 2** but not for **Hurdles 3**. Your program was likely
-something like this
-
-.. code-block:: python
-
-   def jump_over_hurdle():
-        # some suitable definition
-
-   def move_and_jump_until_done():
-        move()
-        if at_goal():
-            done()
-        jump_over_hurdle()
-
-    repeat 42:
-        move_and_jump_until_done()
-
-The reason it is not working for **Hurdles 3** is that it is written with
+**Hurdles 1** and **Hurdles 2** but not for **Hurdles 3**. 
+The reason it was not working for **Hurdles 3** is that it was written with
 the assumption that the hurdles are evenly spaced. Let's use our new
-condition ``front_is_clear()`` and keyword ``else`` to change that.
+condition ``front_is_clear()`` and keyword ``elif`` to change that.
 
 Here's a new program that should work for the world we mentioned above,
-provided you fill in the missing pieces.
+provided you fill in the missing pieces correctly.
 
 .. code-block:: python
 

@@ -16,7 +16,7 @@ Dans ce cas, Reeborg pourrait se retrouver dans la situation suivante::
     else:
         va_nager() # en supposant qu'il fait chaud!
 
-Notez l'utilisation de ``else`` pour les choix 2 et 3, et le ``if``
+Notez l'utilisation de ``else`` pour le choix 3, et le ``if``
 additionnel pour le deuxième cas.
 Remarquez l'utilisation de  ``elif`` (qui se veut une abréviation de "else if"
 signifiant "autrement, si ...") pour le deuxième choix.  Si on tenait compte
@@ -82,22 +82,7 @@ De retour aux haies
 
 Deux leçons passées, vous avez écrit un programme qui permettait à
 Reeborg de terminer les courses **Haies 1** et **Haies 2** mais pas **Haies 3**.
-Votre programme ressemblait probablement à ce qui suit::
-
-
-    def saute():
-        # un bloc de code
-
-    def avance_et_saute_jusqu_au_but():
-        avance()
-        if au_but():
-            termine()
-        saute()
-
-    repeat 42:
-        avance_et_saute_jusqu_au_but()
-
-Ce programme ne fonctionnait pas avec **Haies 3** parce qu'il suppose que
+Votre programme ne fonctionnait pas avec **Haies 3** parce qu'il supposait que
 les haies sont espacées régulièrement, ce qui n'est pas le cas pour
 **Haies 3**. Utilisons la condition ``rien_devant()`` et le mot-clé ``else``
 pour résoudre ce problème.
