@@ -4,7 +4,7 @@ Introduction to the tasks
 As mentioned before, following this tutorial you will learn to program
 by having Reeborg perform certain tasks. To know more about a specific
 task, you can click on the **World Info** button to display some information
-about that task. Clicking repeatedly on that button either show or hide
+about that task. Clicking repeatedly on that button either shows or hides
 the window with that information.
 
 Tasks can be separated in two groups:

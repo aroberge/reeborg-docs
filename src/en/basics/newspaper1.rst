@@ -26,7 +26,7 @@ corresponding worlds:
    Reeborg always leaves a free copy of the newspaper at Pattis's home,
    so that Dr. Pattis has learned not to leave any money.
    This world is **Newspaper 0**.
--  The nice Ms. Ada Lovelace, who often leaves some extra tokens as a gift to
+-  The nice `Ada Lovelace <https://en.wikipedia.org/wiki/Ada_Lovelace>`__, who often leaves some extra tokens as a gift to
    Reeborg; hers is world **Newspaper 1**.
 
 

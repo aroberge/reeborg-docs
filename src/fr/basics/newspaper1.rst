@@ -16,30 +16,27 @@ Pour ceux-ci, Reeborg doit suivre la procédure suivante:
 .. note::
 
     En programmation informatique, on commence souvent à compter à partir de zéro
-    plutôt qu'à partir de 1.  Puisque ces mondes font référence à trois
-    personnes connue en informatique, j'ai pensé qu'il serait juste de
+    plutôt qu'à partir de 1.  Puisque ces mondes font référence à deux
+    personnes connues en informatique, j'ai pensé qu'il serait juste de
     numéroter ces mondes à partir de zéro.
 
-Bien que Reeborg ait plusieurs clients, j'en ai seulement inclus trois
+Bien que Reeborg ait plusieurs clients, j'en ai seulement inclus deux
 pour votre attention:
 
 -  Richard Pattis, créateur de Karel (un ancêtre de Reeborg) chez qui
    Reeborg laisse toujours une copie gratuite du journal; Richard
    Pattis habite au troisième étage de son édifice et le monde
    correspondant est **Journal 0**.
--  La gentille Ada Lovelace, qui vit également au troisième étage de son édifice,
-   et qui laisse toujours quelques pièces de monnaie de plus comme
+-  La gentille `Ada Lovelace <https://fr.wikipedia.org/wiki/Ada_Lovelace>`__, qui vit également au troisième étage de son édifice, et qui laisse toujours quelques pièces de monnaie comme
    cadeau pour Reeborg; son monde est **Journal 1**.
--  Le vieux grognon Charles Babbage, qui vit au cinquième étage et qui
-   paie toujours le montant exact, sans laisser de pourboire pour
-   Reeborg; son monde est **Journal 2**.
+
 
 Écrire des programmes pour des mondes contenant deux types d'objets
 (comme des étoiles **et** des jetons) est plus compliqué que ce qu'on
 a vu jusqu'à maintenant; nous verrons comment faire ceci plus tard.
 Pour l'instant, nous allons nous concentrer sur le monde **Journal 0**.
 Plus tard, nous verrons comment Reeborg peut faire les livraisons
-dans les mondes **Journal 1** et **Journal 2**.
+dans le monde **Journal 1**.
 
 
 

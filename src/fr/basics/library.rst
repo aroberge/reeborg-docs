@@ -72,19 +72,9 @@ de comprendre l'anglais.  Par exemple, au lieu d'``avance`` et de
     anglaise.
 
 
-.. admonition:: Pour les enseignants
+.. admonition:: Pour les enseignants qui préfèrent une autre langue que le français
 
-    Lorsqu'on importe la bibliothèque ``reeborg_en``, l'aide disponible
-    (accessible via "Menu additionel" -> "Aide") est mis à jour pour
-    inclure toutes les instructions anglaises possiblement disponible.
-    La seule restriction est que les arguments de fonctions,
-    comme ``"jeton"`` dans ``prend("jeton")`` doivent toujours être
-    écrits en français, même si on utilise la version anglaise
-    ``take("jeton")``.    Pour utiliser une version totalement en anglais,
-    on doit aller sur le site
-    `Reeborg's World <http://reeborg.ca/world.html>`_
-
-    Si vous voulez créer une autre version, par exemple une version en espagnol,
+    Une version complèete en anglais est disponible en utilisant le sélecteur de langue dans le menu en haut à droite.  Si vous voulez créer une version dans une autre langue,
     svp contactez-moi.
 
 
