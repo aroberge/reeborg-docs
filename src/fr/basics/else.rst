@@ -13,7 +13,7 @@ Deux choix...
 
 Récrivons la phrase ci-dessus débutant avec **Si**.
 
-.. code:: py3
+.. code::
 
     Si il pleut,
         continuez à lire,

@@ -109,23 +109,23 @@ before running the following program.
 
 .. topic:: Try this!
 
-   Select world **Empty** and run the following code **with the code highlighting
-   turned off** to
-   confirm that you can add new capabilities to
-   Reeborg and show its effect properly at each step.
+    Select world **Empty** and run the following code **with the code highlighting
+    turned off** to
+    confirm that you can add new capabilities to
+    Reeborg and show its effect properly at each step.
 
-   .. code-block:: py3
+    .. code-block:: py3
 
-      class Teleporter(UsedRobot):
+        class Teleporter(UsedRobot):
 
-         def jump(self, x, y):
-            self.body.x = x
-            self.body.y = y
-            RUR.rec.record_frame()
+            def jump(self, x, y):
+                self.body.x = x
+                self.body.y = y
+                RUR.rec.record_frame()
 
-      jumper = Teleporter()
-      jumper.jump(3, 5)
-      jumper.jump(7, 2)
+        jumper = Teleporter()
+        jumper.jump(3, 5)
+        jumper.jump(7, 2)
 
     Try again afterwards with the code highlighting turned on.  Can you
     figure out what is going on?

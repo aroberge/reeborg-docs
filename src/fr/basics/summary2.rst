@@ -9,9 +9,8 @@ Nous avons vu nos premiers mots-clé Python, ``def``, ``from``, ``import``.
 Nous avons vu le concept de boucle et un mot-clé unique
 au monde de Reeborg: ``repeat``.
 
-Nous avons vu une sixième fonction spécifique au monde de
-Reeborg, soit ``construit_un_mur()``, en plus des cinq autres que nous
-avions vu précédemment, soit:
+Nous avons vu cinq fonctions spécifiques au monde de
+Reeborg:
 
 -  ``avance()``
 -  ``tourne_a_gauche()``
