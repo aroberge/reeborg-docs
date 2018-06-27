@@ -40,4 +40,3 @@ Ces fonctions s'aujoutent
 -  ``prend()``
 -  ``depose()``
 -  ``pause()``
--  ``construit_un_mur()``

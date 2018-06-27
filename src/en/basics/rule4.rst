@@ -38,6 +38,7 @@ not really that helpful in summarizing the method (also known as the
 *algorithm*) used in solving the problem. Therefore, these comments
 might not be as helpful to another reader as we might have wished.
 Reading over the comments, we note that the program has two parts:
+
 #. mark the starting point;
 #. follow the right wall until we come back to the start.
 
@@ -64,7 +65,6 @@ and writing the comments differently::
         else:
             turn_left()
 
-    found_starting_point = object_here
 
     #######
     ##  End of definitions above; program execution below .
@@ -72,7 +72,7 @@ and writing the comments differently::
 
     mark_starting_point_and_move()
 
-    while not found_starting_point():
+    while not object_here():
         follow_right_wall()
 
 Isn't this much clearer?

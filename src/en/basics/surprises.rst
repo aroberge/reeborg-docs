@@ -31,9 +31,9 @@ it works?
 
 .. topic:: Try these!
 
-    Run the same modified program again with both **Maze 1** or **Maze 2**.
+    Run the same modified program again with **Maze**.
 
-As you will see, this simple program can find the exit to the mazes!
+As you will see, this simple program can find the exit to the maze, no
+matter where Reeborg starts from!
 
 Amazing!
-

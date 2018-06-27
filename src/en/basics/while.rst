@@ -74,7 +74,7 @@ programmers describe this as a **loop**: that is, you start with the
 first instruction (``do_1()``) inside the code block, continue with all
 the others until you reach the last instruction (``do_3()``), then
 ***loop* back**, or go back, to the test just before the beginning of
-the block and see if the condition is satisfied; if not, you repeat once
+the block and see if the condition is satisfied; if so, you repeat once
 again the cycle. If the condition never becomes ``False``, you keep
 repeating and end up with an **infinite loop**.
 
@@ -102,7 +102,7 @@ Back to hurdles!
        while not at_goal():
            run_or_jump()
 
-That's it! No more arbitrary repetitions! From now on, you should only
-use ``repeat`` when you know **exactly** how many times a given
+That's it! No more arbitrary repetitions! From now on, you should
+use ``repeat`` **only** when you know **exactly** how many times a given
 function must be repeated.
 

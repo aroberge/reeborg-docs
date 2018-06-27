@@ -36,4 +36,3 @@ which is in addition to:
 -  ``take()``
 -  ``put()``
 -  ``pause()``
--  ``build_wall()``

@@ -29,10 +29,10 @@ soit remplacé par::
 
 .. topic:: Encore d'autres!
 
-    Essayez également le programme modifié avec soit **Labyrinthe 1** ou
-    **Labyrinthe 2**.
+    Essayez également le programme modifié avec **Labyrinthe**. 
 
 Comme vous pourrez le constater, ce simple programme permet de trouver
-la sortie du labyrinthe.
+la sortie du labyrinthe, bien qu'il parte à chaque fois d'une position 
+différente.
 
 Étonnant, non?!
