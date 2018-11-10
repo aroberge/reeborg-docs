@@ -5,29 +5,9 @@ Si seulement Reeborg pouvait prendre des décisions de lui-même, écrire
 des programmes serait tellement plus simple ... **OUPS !** J'ai oublié
 de vous le mentionner: Reeborg **peut** prendre ses propres décisions!
 
-Le mot-clé ``if``
------------------
 
 .. index:: ! if
-.. index:: ! True
-.. index:: ! False
 
-.. topic:: Faites ceci!
-
-    Sélectionnez le monde **Seul** et faites-en sorte que Reeborg exécute le
-    programme suivant
-
-    .. code-block:: python
-
-        if True:
-            avance()
-
-        if False:
-            tourne_a_gauche()
-
-``True`` (vrai) et ``False`` (faux) sont deux mots-clés Python.  Vous voudrez peut-être
-les interchanger juste pour voir.  Le mot anglais ``if`` est l'équivalent
-de la conjonction ``si`` en français.
 
 
 Énoncé ``if``
@@ -36,69 +16,19 @@ de la conjonction ``si`` en français.
 L'*énoncé* ``if`` suit un patron semblable à celui de ``def``::
 
     def un_nom():
-        # bloc de code
+        # bloc de code A
 
     if une_condition:
-        # bloc de code
+        # bloc de code B
 
-Comment interpréter les énoncés ``if``
---------------------------------------
+Ce **bloc de code B** sera exécuté si la condition est vérifiée, autrement
+il sera traité comme s'il n'existait pas.
 
-Lorsque nous avons présenté les fonctions, nous avons expliqué comment
-on pouvait interpréter l'**invocation** d'une fonction comme étant
-équivalente à insérer le bloc de code du corps de la fonction à
-l'endroit de l'invocation. Ainsi::
+Cependant, si l'exécution du programme faisait une *boucle*, 
+et que cette partie du code était exécutée à nouveau, la condition
+de l'énoncé if serait réévaluée à chaque fois pour décider
+si le bloc de code B serait exécuté ou non.
 
-
-    avance()
-    tourne_a_droite()  # invocation
-    avance()
-
-est équivalent à::
-
-    avance()
-    # début du bloc de code pour tourne_a_droite()
-    tourne_a_gauche()
-    tourne_a_gauche()
-    tourne_a_gauche()
-    # fin du bloc de code
-    avance()
-
-Les énoncés ``if`` peuvent être interprétés de façon similaire, sauf que
-nous avons une *insertion* ou une *élimination* **conditionnelle** du
-bloc de code. Ainsi::
-
-    avance()
-    if True:
-        tourne_a_gauche()
-        tourne_a_gauche()
-    avance()
-
-est équivalent à::
-
-    avance()
-    tourne_a_gauche()
-    tourne_a_gauche()
-    avance()
-
-alors que::
-
-    avance()
-    if False:
-        tourne_a_gauche()
-        tourne_a_gauche()
-    avance()
-
-est équivalent à::
-
-    avance()
-    avance()
-
-Il est important de noter que cette insertion ou élimination d'un bloc
-de code n'est pas quelque chose de permanent: si, pour quelque raison,
-l'exécution du programme faisait en sorte que l'énoncé ``if`` était
-répété à nouveau, la condition serait réévaluée à chaque fois, ce qui
-pourrait mener à des résultats différents d'une évaluation à l'autre.
 
 On peut représenter un énoncé ``if`` par un organigramme:
 
@@ -119,8 +49,7 @@ Plus utile que vous ne le pensez...
        if condition:
            ...
 
-Avoir à spécifier ``True`` ou ``False`` dans un programme n'aide pas
-Reeborg à décider de lui-même. Cependant, il existe des fonctions que
+Il existe des fonctions, utilisée comme des *conditions*, que
 Reeborg reconnaît comme lui indiquant des décisions à prendre. Une de
 ces fonctions est ``objet_ici()`` qui indique à Reeborg si un ou
 plusieurs objets se trouvent aux coordonnées où Reeborg est situé. Par

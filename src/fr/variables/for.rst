@@ -45,7 +45,7 @@ compter des objets.
 
 
 Ressources supplémentaires
--------------------
+---------------------------
 
 Rendez-vous à l'adresse https://cscircles.cemc.uwaterloo.ca/7c-fr/ pour 
 quelques explications et exercices supplémentaires.

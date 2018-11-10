@@ -21,7 +21,7 @@ La première fois que vous l'exécutez, Reeborg vous informera que le monde a
 changé en **But 1**, ce que vous devriez pouvoir confirmer en regardant
 tout simplement le monde.
 
-Le deuxième fois que vous l'exécutez, comme **But 1  ** est déjà sélectionné, 
+Le deuxième fois que vous l'exécutez, comme **But 1** est déjà sélectionné, 
 la fonction ``Monde()`` sera ignorée et le reste du programme est exécuté.
 
 Exercice de programmation
@@ -58,7 +58,7 @@ en particulier que vous ne devez pas utiliser ``transporte()`` Ignorez cela
 et exécutez votre programme. Notez ce qui se passe.
 
 Charger un monde distant (bis)
------------------------------
+------------------------------
 
 Votre programme n'a pas fonctionné. Nous verrons comment palier à cela
 bientôt. En attendant, essayez autre chose: changez la première
@@ -77,7 +77,7 @@ considère le tout comme une seule ligne.
 nouvelle ligne après la virgule.
 
 Exécutez maintenant le programme. Il y a toujours une erreur.
-**Cependant"", si vous regardez en haut, le nom qui apparaît maintenant
+**Cependant**, si vous regardez en haut, le nom qui apparaît maintenant
 en haut est ``Not Storm 1`` à la place de la longue adresse qu'il y
 avait auparavant.
 
