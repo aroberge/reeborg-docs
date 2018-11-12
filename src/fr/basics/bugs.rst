@@ -41,8 +41,8 @@ dans le journal Pall Mall Gazette:
     difficulty, and implying that some imaginary insect has secreted
     itself inside and is causing all the trouble.
 
-Ce qu'on peut traduire en Français par:
-    J'ai été informé que Mr. Edison a été réveillé les deux dernières
+Ce qu'on peut traduire en français par:
+    J'ai été informé que M. Edison a été réveillé les deux dernières
     nuits découvrant 'un insecte' dans son phonographe - une expression
     signifiant résoudre un problème, et impliquant qu'un insecte
     imaginaire s'est introduit à l'intérieur, causant tous les problèmes.
@@ -104,7 +104,7 @@ dont le programme est rempli de bogues.
    composer avec ce bogue pour trouver une façon détournée de permettre
    à Reeborg de s'orienter correctement. Plus tard, vous apprendrez à
    corriger le logiciel de Reeborg correctement.
-#. Reeborg peut voir s'il y a un mur qui bloque son passage devant lui,
+#. Reeborg peut voir s'il y a un mur qui bloque le passage devant lui,
    et peut tourner la tête pour voir s'il y a un mur à sa droite.
    Malheureusement une *limitation* de son programme (ce qui est une
    expression malhonnête que les manufacturiers utilisent pour éviter de
