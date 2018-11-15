@@ -7,7 +7,7 @@ Vous rappelez-vous de ce qui suit?
 
     **Règle numéro 2**
 
-        Écrivez vos programmes pour qu'il soit facile à lire et à comprendre
+        Écrivez vos programmes pour qu'ils soient faciles à lire et à comprendre
         par des **humains**.
 
 Pouvez-vous déterminez ce que fait le programme suivant, simplement

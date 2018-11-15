@@ -48,7 +48,7 @@ de votre programme dans l'éditeur.
        avance()
        tourne_a_gauche()  # de retour à la position de départ
 
-À l'avenir, à toutes les fois que vous définissez une fonctions et que
+À l'avenir, à toutes les fois que vous définissez une fonction et que
 vous l'utilisez dans plus d'un programme, c'est probablement une bonne
 idée de l'ajouter à votre bibliothèque pour vous éviter des répétitions.
 
@@ -74,7 +74,7 @@ de comprendre l'anglais.  Par exemple, au lieu d'``avance`` et de
 
 .. admonition:: Pour les enseignants qui préfèrent une autre langue que le français
 
-    Une version complèete en anglais est disponible en utilisant le sélecteur de langue dans le menu en haut à droite.  Si vous voulez créer une version dans une autre langue,
+    Une version complète en anglais est disponible en utilisant le sélecteur de langue dans le menu en haut à droite.  Si vous voulez créer une version dans une autre langue,
     svp contactez-moi.
 
 

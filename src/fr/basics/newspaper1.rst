@@ -7,10 +7,9 @@ Pour ceux-ci, Reeborg doit suivre la procédure suivante:
 
 #. Prendre une seule copie du journal (ce serait trop lourd de les
    transporter tous à la fois).
-#. Grimper le nombre d'étages requis pour rejoindre la porte du client..
+#. Grimper le nombre d'étages requis pour rejoindre la porte du client.
 #. Sauf dans un cas décrit ci-dessous, prendre la monnaie (jetons) laissée par les clients.
-#. Laisser une copie du journal, appelé plus simplement l'*étoile* sur
-   le seuil de porte.
+#. Laisser une copie du journal sur le seuil de porte.
 #. Redescendre au rez-de-chaussée.
 
 .. note::
@@ -33,7 +32,7 @@ pour votre attention:
 
 Écrire des programmes pour des mondes contenant deux types d'objets
 (comme des étoiles **et** des jetons) est plus compliqué que ce qu'on
-a vu jusqu'à maintenant; nous verrons comment faire ceci plus tard.
+a vu jusqu'à maintenant; nous verrons comment faire cela plus tard.
 Pour l'instant, nous allons nous concentrer sur le monde **Journal 0**.
 Plus tard, nous verrons comment Reeborg peut faire les livraisons
 dans le monde **Journal 1**.

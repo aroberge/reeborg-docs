@@ -1,8 +1,8 @@
 Demi-tour!
 ==========
 
-En plus d'instruire Reeborg de tourner à droite, vous avez probablement
-eu à lui faire demi-tour à quelques reprises. On peut définir une
+En plus de demander à Reeborg de tourner à droite, vous avez probablement
+eu à lui demander de faire demi-tour à quelques reprises. On peut définir une
 fonction ``demi_tour()`` de la façon suivante::
 
     def demi_tour():
@@ -24,7 +24,7 @@ Vous vous souvenez de ``tourne_a_droite()``? Revoici sa définition::
 
 On remarque que les deux premières instructions sont identiques à la
 définition de ``demi_tour()``. Lorsque quelque chose du genre arrive, il
-est bon de se rappeler de la règle numéro 3:
+est bon de se rappeler la règle numéro 3:
 
 .. important::
 
@@ -57,14 +57,14 @@ vous offrir à ce moment-ci pour illustrer cette idée très importante.
 .. topic:: À votre tour!
 
     Définissez la fonction ``recule()`` qui est l'opposé de la fonction
-    ``avance()``. Par ceci, je veux dire que si vous ceci devrait permettre
-    le code suivant::
+    ``avance()``. Par ceci, je veux dire que l'éxécution de ces deux
+    fonctions une après l'autre::
 
-         # départ au point x, y
         avance()
         recule()
-        # de retour au point x, y,
-        # faisant face à la même direction qu'au départ
+    
+    devrait faire en sorte que Reeborg revient à son point de départ,
+    et fait face à la même direction qu'au début.
 
     Assurez-vous de vérifier que le tout fonctionne!
 

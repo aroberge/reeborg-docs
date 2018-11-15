@@ -5,7 +5,7 @@ Bonjour programmeur anonyme,
 
 Votre mission, si vous l'acceptez, consiste à apprendre la programmation en aidant Reeborg à accomplir certaines tâches.
 
-Pour en savoir davantage au sujet d'une tâche particulière que vous aurez choisie, vous pouvez cliquer sur le
+Pour en savoir davantage au sujet d'une tâche particulière que vous aurez choisie, vous pourrez cliquer sur le
 bouton **Description** si la fenêtre qui décrit la tâche à accomplir n'est pas visible.
 
 Les tâches peuvent être divisées en deux groupes:
@@ -42,16 +42,18 @@ Sauvegarde de votre travail
 ---------------------------
 
 .. |image| image:: ../../../src/images/save_world.png
+.. |image2| image:: ../../../src/images/open_program.png
 
 En utilisant "l'entreposage local" (*Local Storage*), le Monde de Reeborg
 se souvient du **dernier** programme que vous avez exécuté dans votre
 navigateur (Chrome ou Firefox). Cependant, ce serait parfois
 utile de sauvegarder un certain programme soit sur votre ordinateur
-ou sur un clé usb.  Pour ce faire, vous n'avez qu'à cliquer sur le bouton identifié par cette image: |image|
+ou sur un clé usb.  Pour ce faire, vous n'avez qu'à cliquer sur le bouton identifié par cette image: |image|. De la même façon, vous pourrez récupérer un tel programme
+sauvegardé en cliquant sur le bouton identifié par cette image: |image2|.
 
 Si vous
 sauvegardez un programme, il serait probablement utile d'ajouter de
-l'information indiquant pour quelle monde ce programme représente une
+l'information indiquant pour quel monde ce programme représente une
 solution. Une façon de le faire est d'ajouter un commentaire - ce que
 vous savez comment faire si vous avez lu les leçons précédentes::
 

@@ -3,7 +3,7 @@ Autre livraison de journal
 
 Retournons à l'exemple de la livraison des journaux à Monsieur
 Pattis et le monde
-**Journal 0**. Ci-dessous est la première solution que vous avez du trouver,
+**Journal 0**. Ci-dessous est la première solution que vous avez dû trouver,
 avec quelques commentaires rajoutés.
 
 
@@ -75,7 +75,7 @@ avec quelques commentaires rajoutés.
 Cette solution est plutôt longue ... et il est facile de faire des
 erreurs. On remarque cependant qu'il y a plusieurs répétitions, ce qui
 suggère qu'on peut définir plusieurs fonctions. Nous avons déjà défini
-``tourne_a_droite`` et ``demi_tour`` qui devrait être dans votre
+``tourne_a_droite`` et ``demi_tour`` qui devraient être dans votre
 bibliothèque. Utilisons-les et définissons d'autres fonctions.
 
 .. code-block:: python
@@ -115,10 +115,9 @@ bibliothèque. Utilisons-les et définissons d'autres fonctions.
     demi_tour()
     descendre_trois_etages()
 
-Chaque fonction de contient pas plus de 5 instructions; c'est très
-facile de vérifier que chaque fonction est correctement définie
-individuellement comparativement à ce que nous avions à faire auparavant
-avec la longue liste de définitions. Une fois que l'on a défini les
+Chaque fonction ne contient pas plus de 5 instructions. Chacune
+de ces fonctions est facile à lire et à comprendre.  
+Une fois que l'on a défini les
 fonctions requises, il est facile d'écrire un programme: 5 lignes
 suffisent pour faire en sorte que Reeborg livre le journal et retourne
 au rez-de-chaussée. Les définitions de fonctions permettent donc
