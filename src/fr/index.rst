@@ -2,7 +2,7 @@ Apprenez Python avec Reeborg!
 =============================
 
 C'est facile d'apprendre Python avec Reeborg.  Tout ce que vous avez
-à faire dest de lire ce tutoriel et de faire tous les exemples
+à faire est de lire ce tutoriel et de faire tous les exemples
 en utilisant le `Monde de Reeborg <http://reeborg.ca/reeborg.html?lang=fr&mode=python>`_.
 Je vous suggère d'avoir le tutoriel et le monde de Reeborg ouverts
 en même temps, soit dans des fenêtres ou des onglets séparés.
@@ -78,7 +78,7 @@ partie en question.
     .. figure:: ../images/rurple_book.png
 
        *Deux livres (rouge pour les enseignants, bleu pour les élèves)
-       produit par Samsung Korea et basé sur RUR-PLE, le programme traditionnel
+       produits par Samsung Korea et basés sur RUR-PLE, le programme traditionnel
        précurseur du Monde de Reeborg.*
 
 
@@ -142,7 +142,7 @@ partie en question.
 
     Cependant, dans ce tutoriel, je vais au-delà de ce qui était possible
     avec le Karel de Pattis et j'essaie de couvrir autant de concepts
-    que possibles en programmation Python.   Au-delà des concepts de base
+    que possible en programmation Python.   Au-delà des concepts de base
     de la programmation, ce tutoriel offre ainsi un matériel d'enrichissement
     complémentaire à celui d'une approche plus traditionnelle, et permet
     de bien visualiser ce qui se passe dans un programme donné dans un

@@ -70,7 +70,7 @@ c'est-à-dire que les lettres majuscules et les lettre minuscules ont des
 sens différents. Corrigez-donc le programme pour que Reeborg soit en
 mesure de le comprendre et vérifiez que cela est bien le cas.
 
-Lorsque vous aurez exécuter le programme à nouveau, les indications
+Lorsque vous aurez exécuté le programme à nouveau, les indications
 d'erreurs seront effacées. Assurez-vous que ceci soit bel et bien le
 cas.
 
@@ -78,7 +78,7 @@ cas.
 Règle numéro 1
 --------------
 
-Est-ce que vous avez bel et bien essayez toutes les suggestions
+Est-ce que vous avez bel et bien essayé toutes les suggestions
 ci-dessus?  Sinon, je vous implore de le faire.  Voyez-vous, la
 règle la plus importante que vous devez suivre pour apprendre
 à programmer est la suivante:
@@ -110,9 +110,9 @@ un mot.
 .. admonition:: Pour les enseignants
 
     Le clavier de Reeborg peut être particulièrement utile pour trois
-    catégories de programmeurs: les plus jeunes, qui ne maitrise pas
+    catégories de programmeurs: les plus jeunes, qui ne maîtrisent pas
     un clavier "normal", ceux qui utilisent des écrans tactiles
-    avec clavier virtuels, et ceux qui utilisent un clavier avec
+    avec un clavier virtuel, et ceux qui utilisent un clavier avec
     certains symboles requis difficiles à entrer.
 
     Au moment où j'édite ce tutoriel pour rajouter cette note,

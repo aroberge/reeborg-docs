@@ -13,7 +13,7 @@ le mieux gardé en informatique.
 
     **Règle numéro 2**
 
-        Écrivez vos programmes pour qu'il soit facile à lire et à comprendre
+        Écrivez vos programmes pour qu'ils soient faciles à lire et à comprendre
         par des **humains**.
 
 C'est vrai, écrivez vos programmes informatiques pour que d'autres
