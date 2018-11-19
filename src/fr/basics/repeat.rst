@@ -4,8 +4,8 @@ Répète
 .. index:: repeat
 
 Comme nous l'avons vu, il arrive souvent que l'on doive répéter une
-instruction donnée un certains nombre de fois. Il y a une façon standard
-de faire ceci en Python ... mais ceci requiert de comprendre trop de
+instruction donnée un certain nombre de fois. Il y a une façon standard
+de faire cela en Python ... mais cela requiert de comprendre trop de
 nouveaux concepts à la fois. Je vais juste vous montrer le code requis
 pour ceci puis présenter un mot clé plus simple à comprendre,
 ``repeat``, unique au monde de Reeborg.
@@ -25,7 +25,7 @@ et est écrite de la façon suivante::
    de Reeborg, ``repeat`` ne sera pas reconnu comme étant un nom valide.
    ``repeat`` est un mot anglais qu'on pourrait traduire en français
    par **répète**.  Le mot "boucle" désigne un bloc d'instructions
-   qui peut être répété plusieurs fois.
+   qui sera peut-être répété plusieurs fois.
 
 Dans le monde de Reeborg, on peut écrire une *boucle* ``repeat``
 de la façon suivante::
@@ -78,4 +78,3 @@ sans avoir à répéter des instructions, comme par exemple::
     dans les boucles, ils devraient apprendre la véritable syntaxe
     Python et oublier la notation ``repeat`` qui ne sera pas
     reconnue par Python.
-

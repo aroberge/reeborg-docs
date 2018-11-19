@@ -19,11 +19,11 @@ pour apprendre et comprendre la troisième règle de programmation:
 
 Puisque vous avez écrit plusieurs programmes, vous devez avoir réalisé
 que lorsqu'on demande à Reeborg de tourner trois fois vers la gauche
-ceci revient à lui demander de tourner une
+cela revient à lui demander de tourner une
 seule fois à droite. Mais c'est fastidieux d'écrire trois fois
 ``tourne_a_gauche()`` alors qu'un simple ``tourne_a_droite()``
 suffirait si Reeborg n'était pas défectueux. C'est le temps de remédier
-à ceci.
+à cela.
 
 
 

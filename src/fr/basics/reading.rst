@@ -1,7 +1,7 @@
 Exercice de lecture
 -------------------
 
-Vous rappelez-vous de ce qui suit?
+Vous souvenez-vous de ce qui suit?
 
 .. important::
 

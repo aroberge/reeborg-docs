@@ -34,7 +34,7 @@ est bon de se rappeler la règle numéro 3:
         Je répète: `ne vous répétez
         pas! <http://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas>`__
 
-Donc, nous avons une répétitions d'instructions. Bien que
+Donc, nous avons une répétition d'instructions. Bien que la définition de
 ``tourne_a_droite()`` soit déjà toute simple, une bonne habitude à
 développer en programmation informatique est de remplacer les parties de
 codes qui se répètent par une simple fonction. Donc, nous devrions

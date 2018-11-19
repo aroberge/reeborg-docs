@@ -18,5 +18,5 @@ Reeborg:
 -  ``depose()``
 -  ``pause()``
 
-Nous sommes maintenant prêts à aborder des concepts très important
+Nous sommes maintenant prêts à aborder des concepts très importants
 en informatique, touchant la prise de décision entre divers choix possibles.
